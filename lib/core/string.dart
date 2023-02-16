@@ -6,4 +6,6 @@ class AppString {
   static const String info1 = 'Мы являемся официальным представителем DOORHAN.';
   static const String info2 = 'Производственно — монтажная компания Selim trade основана в 2003 году.';
   static const String info3 = 'Основа нашей деятельности — это продажа и монтаж: ворот, рольставней, шлагбаумов, ролштор, жалюзи и многое другое.';
+  static const String weOffer = 'Мы предлогаем';
+  static const String ourAdvantages = 'Наши преимущества';
 }

@@ -17,7 +17,7 @@ class Style {
 
   static TextStyle montserrat_14_300Black = GoogleFonts.montserrat(
       textStyle: TextStyle(
-          fontSize: 14, color:Palette.black, fontWeight: FontWeight.w300));
+          fontSize: 15.5, color:Palette.black, fontWeight: FontWeight.w300));
 
   static TextStyle inter_15_900White = GoogleFonts.inter(
       textStyle: TextStyle(
