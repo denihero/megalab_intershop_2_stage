@@ -24,7 +24,7 @@ class OurAdvantages extends StatelessWidget {
             style: Style.montserrat_16_700Black,
           ),
           const SizedBox(
-            height: 19,
+            height: 10,
           ),
           CarouselSlider.builder(
             itemCount: Advantage.ourAdvantage.length,
