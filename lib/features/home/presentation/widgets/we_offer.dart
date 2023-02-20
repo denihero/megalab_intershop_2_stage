@@ -1,7 +1,12 @@
+import 'dart:ui';
+
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:megacom_second_stage/core/pictures.dart';
 import 'package:megacom_second_stage/core/string.dart';
 import 'package:megacom_second_stage/core/style.dart';
+
+import 'gate_card.dart';
 
 class WeOffer extends StatelessWidget {
   const   WeOffer({Key? key}) : super(key: key);
@@ -21,10 +26,19 @@ class WeOffer extends StatelessWidget {
         children: [
           Text(AppString.weOffer,style: Style.montserrat_16_700Black,),
           Container(
-            decoration: const BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage(Pictures.weOffer)
-                )
+            child: CarouselSlider.builder(
+              itemCount: 4,
+              options: CarouselOptions(
+                autoPlay: false,
+                enableInfiniteScroll: false,
+                viewportFraction: 0.79,
+                enlargeFactor: 2,
+                aspectRatio: 2.1,
+                initialPage: 2,
+              ),
+              itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) {
+                return GateCard();
+              },
             ),
           )
         ],

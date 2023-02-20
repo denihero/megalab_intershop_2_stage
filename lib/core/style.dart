@@ -7,6 +7,10 @@ class Style {
       textStyle: TextStyle(
           fontSize: 30, color: Palette.white, fontWeight: FontWeight.w700));
 
+  static TextStyle montserrat_16_800White = GoogleFonts.montserrat(
+      textStyle: TextStyle(
+          fontSize: 16, color: Palette.white, fontWeight: FontWeight.w600));
+
   static TextStyle montserrat_14_600White = GoogleFonts.montserrat(
       textStyle: TextStyle(
           fontSize: 14, color:Palette.white, fontWeight: FontWeight.w600));

@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:megacom_second_stage/core/pictures.dart';
+import 'package:megacom_second_stage/core/string.dart';
 import 'package:megacom_second_stage/core/style.dart';
 import 'package:megacom_second_stage/features/home/data/model/advantage.dart';
 import 'package:megacom_second_stage/features/home/presentation/widgets/support_card.dart';
@@ -19,7 +20,7 @@ class OurAdvantages extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            'Наши преимущества',
+            AppString.ourAdvantages,
             style: Style.montserrat_16_700Black,
           ),
           const SizedBox(
