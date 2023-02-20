@@ -4,7 +4,7 @@ import 'package:megacom_second_stage/core/string.dart';
 import 'package:megacom_second_stage/core/style.dart';
 
 class WeOffer extends StatelessWidget {
-  const WeOffer({Key? key}) : super(key: key);
+  const   WeOffer({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

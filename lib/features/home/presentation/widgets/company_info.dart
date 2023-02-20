@@ -33,8 +33,8 @@ class CompanyInfo extends StatelessWidget {
                       height: 10,
                     ),
                     SizedBox(
-                      width: 320,
-                      height: 190,
+                      width: 330,
+                      height: 200,
                       child: Card(
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),

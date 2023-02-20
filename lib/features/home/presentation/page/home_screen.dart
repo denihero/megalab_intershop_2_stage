@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:megacom_second_stage/core/pictures.dart';
-import 'package:megacom_second_stage/core/string.dart';
-import 'package:megacom_second_stage/core/style.dart';
+  import 'package:flutter/material.dart';
 import 'package:megacom_second_stage/features/home/presentation/widgets/company_info.dart';
 import 'package:megacom_second_stage/features/home/presentation/widgets/header.dart';
 import 'package:megacom_second_stage/features/home/presentation/widgets/our_advantages.dart';
