@@ -5,6 +5,7 @@ class Pictures{
   static const infoBack = 'assets/image/info_part.png';
   static const weOffer = 'assets/image/we_offer.png';
   static const ourAdvantages = 'assets/image/out_advan.png';
-  static const remoteControl = 'assets/image/out_advan.png';
-  static const support = 'assets/image/out_advan.png';
+  static const lastNews = 'assets/image/last_news.png';
+  static const remoteControl = 'assets/icons/domino.svg';
+  static const support = 'assets/icons/help_file.svg';
 }

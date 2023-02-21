@@ -17,7 +17,7 @@ class WeOffer extends StatefulWidget {
 }
 
 class _WeOfferState extends State<WeOffer> {
-   late final CarouselController _buttonCarouselController;
+  late final CarouselController _buttonCarouselController;
 
   @override
   void initState() {
@@ -28,7 +28,7 @@ class _WeOfferState extends State<WeOffer> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 300,
+      height: 290,
       width: double.infinity,
       decoration: const BoxDecoration(
           image: DecorationImage(
@@ -39,7 +39,7 @@ class _WeOfferState extends State<WeOffer> {
             AppString.weOffer,
             style: Style.montserrat_16_700Black,
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           CarouselSlider.builder(
@@ -59,37 +59,53 @@ class _WeOfferState extends State<WeOffer> {
             },
           ),
           const SizedBox(
-            height: 15  ,
+            height: 15,
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              IconButton(
-                onPressed: () {
-                  _buttonCarouselController.previousPage(
-                      duration: const Duration(milliseconds: 300), curve: Curves.linear);
-                },
-                icon: const Icon(Icons.arrow_back_ios),
-              ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.white,
-                  elevation: 0,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12)
-                  ),
-                  side: const BorderSide(
-                    color: Colors.blue
+              ClipOval(
+                child: Material(
+                  color: Palette.black.withOpacity(0.15), // Button color
+                  child: InkWell(
+                    onTap: () {
+                      _buttonCarouselController.previousPage(
+                          duration: const Duration(milliseconds: 300), curve: Curves.linear);
+                    },
+                    child: SizedBox(
+                      width: 42,
+                      height: 42,
+                      child: Icon(Icons.arrow_back_ios_new_outlined,
+                          color: Palette.blue),
+                    ),
                   ),
                 ),
+              ),
+              ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.transparent,
+                    elevation: 0,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12)),
+                    side: const BorderSide(color: Colors.blue),
+                  ),
                   onPressed: () {},
-                  child: Text('Смотреть все',style: TextStyle(color: Colors.black),)),
-              IconButton(
-                onPressed: () {
-                  _buttonCarouselController.nextPage(
-                      duration: const Duration(milliseconds: 300), curve: Curves.linear);
-                },
-                icon: const Icon(Icons.arrow_forward_ios),
+                  child: Text('cмотреть все', style: Style.inter_14_400White)),
+              ClipOval(
+                child: Material(
+                  color: Palette.black.withOpacity(0.15), // Button color
+                  child: InkWell(
+                    onTap: () {
+                      _buttonCarouselController.nextPage(
+                          duration: const Duration(milliseconds: 300), curve: Curves.linear);
+                    },
+                    child: SizedBox(
+                      width: 42,
+                      height: 42,
+                      child: Icon(Icons.arrow_forward_ios, color: Palette.blue),
+                    ),
+                  ),
+                ),
               ),
             ],
           )

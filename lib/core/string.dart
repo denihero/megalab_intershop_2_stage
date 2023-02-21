@@ -10,4 +10,5 @@ class AppString {
   static const String ourAdvantages = 'Наши преимущества';
   static const String remoteControl = 'Настройка пультов управления';
   static const String support = 'Консультация и техническая поддержка';
+  static const String lastNews = 'Последние новости';
 }

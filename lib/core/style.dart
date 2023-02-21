@@ -23,7 +23,18 @@ class Style {
       textStyle: TextStyle(
           fontSize: 15.5, color:Palette.black, fontWeight: FontWeight.w300));
 
+  static TextStyle montserrat_10_800White = GoogleFonts.montserrat(
+      textStyle: TextStyle(
+          fontSize: 15, color:Palette.white, fontWeight: FontWeight.w800));
+
+
+
+
   static TextStyle inter_15_900White = GoogleFonts.inter(
       textStyle: TextStyle(
           fontSize: 15, color:Palette.white, fontWeight: FontWeight.w900));
+
+  static TextStyle inter_14_400White = GoogleFonts.inter(
+      textStyle: TextStyle(
+          fontSize: 14, color:Palette.black, fontWeight: FontWeight.w400));
 }

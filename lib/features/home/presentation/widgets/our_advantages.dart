@@ -12,12 +12,13 @@ class OurAdvantages extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 417,
+      height: 300,
       width: double.infinity,
       decoration: const BoxDecoration(
           image: DecorationImage(
               fit: BoxFit.cover, image: AssetImage(Pictures.ourAdvantages))),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
             AppString.ourAdvantages,
@@ -37,7 +38,8 @@ class OurAdvantages extends StatelessWidget {
               aspectRatio: 2.5,
               initialPage: 2,
             ),
-            itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) {
+            itemBuilder:
+                (BuildContext context, int itemIndex, int pageViewIndex) {
               return SupportCard(
                 help: Advantage.ourAdvantage[itemIndex],
               );
