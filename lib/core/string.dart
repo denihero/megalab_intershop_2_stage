@@ -22,4 +22,5 @@ class AppString {
   static const String secondPhone = '+996 (500) 88 80 51\n';
   static const String thirdPhone = '+996 (772) 32 76 76\n';
   static const String socialSite = 'Социальные\nСети';
+  static const String security = '© 2023 Selim Trade. Данный сайт защищён от копирования. Любая передача данных в интернете запрещена.';
 }

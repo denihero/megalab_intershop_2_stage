@@ -29,6 +29,9 @@ class SocialMedia extends StatelessWidget {
                 children: const [
                   TextSpan(text: AppString.socialSite),
                 ])),
+        const SizedBox(
+          height: 10,
+        ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -40,7 +43,7 @@ class SocialMedia extends StatelessWidget {
               width: 10,
             ),
             GestureDetector(
-              onTap: () => _launchUrl('https://api.whatsapp.com/send?phone=996552570755'),
+              onTap: () => _launchUrl('whatsapp://send?phone=+996552570755'),
                 child: SvgPicture.asset(Pictures.whatsApp)),
 
           ],
