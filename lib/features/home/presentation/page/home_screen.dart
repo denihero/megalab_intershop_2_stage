@@ -1,8 +1,12 @@
-  import 'package:flutter/material.dart';
+
+import 'package:flutter/material.dart';
 import 'package:megacom_second_stage/features/home/presentation/widgets/company_info.dart';
+import 'package:megacom_second_stage/features/home/presentation/widgets/customer_feedback.dart';
 import 'package:megacom_second_stage/features/home/presentation/widgets/header.dart';
 import 'package:megacom_second_stage/features/home/presentation/widgets/last_news.dart';
 import 'package:megacom_second_stage/features/home/presentation/widgets/our_advantages.dart';
+import 'package:megacom_second_stage/features/home/presentation/widgets/our_works.dart';
+import 'package:megacom_second_stage/features/home/presentation/widgets/support.dart';
 import 'package:megacom_second_stage/features/home/presentation/widgets/we_offer.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -16,6 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Column(
           children:  const [
@@ -23,7 +28,10 @@ class _HomeScreenState extends State<HomeScreen> {
             CompanyInfo(),
             WeOffer(),
             OurAdvantages(),
-            LastNews()
+            LastNews(),
+            OurWorks(),
+            Support(),
+            CustomerFeedback(),
           ],
         ),
       ),

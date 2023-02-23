@@ -23,6 +23,14 @@ class Style {
       textStyle: TextStyle(
           fontSize: 15.5, color:Palette.black, fontWeight: FontWeight.w300));
 
+  static TextStyle montserrat_12_400Black = GoogleFonts.montserrat(
+      textStyle: TextStyle(
+          fontSize: 14, color:Palette.black, fontWeight: FontWeight.w400));
+
+  static TextStyle montserrat_11_300Black = GoogleFonts.montserrat(
+      textStyle: TextStyle(
+          fontSize: 12, color:Palette.black, fontWeight: FontWeight.w300));
+
   static TextStyle montserrat_10_800White = GoogleFonts.montserrat(
       textStyle: TextStyle(
           fontSize: 15, color:Palette.white, fontWeight: FontWeight.w800));

@@ -11,7 +11,7 @@ class LastNews extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 500,
+      height: 350,
       decoration: const BoxDecoration(
           image: DecorationImage(
               fit: BoxFit.contain, image: AssetImage(Pictures.lastNews))),

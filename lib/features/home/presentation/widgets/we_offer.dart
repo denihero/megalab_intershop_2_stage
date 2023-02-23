@@ -1,4 +1,3 @@
-import 'dart:ui';
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -6,6 +5,7 @@ import 'package:megacom_second_stage/core/color.dart';
 import 'package:megacom_second_stage/core/pictures.dart';
 import 'package:megacom_second_stage/core/string.dart';
 import 'package:megacom_second_stage/core/style.dart';
+import 'package:megacom_second_stage/features/home/presentation/widgets/move_icon_button.dart';
 
 import 'gate_card.dart';
 
@@ -17,6 +17,7 @@ class WeOffer extends StatefulWidget {
 }
 
 class _WeOfferState extends State<WeOffer> {
+
   late final CarouselController _buttonCarouselController;
 
   @override
@@ -64,22 +65,14 @@ class _WeOfferState extends State<WeOffer> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              ClipOval(
-                child: Material(
-                  color: Palette.black.withOpacity(0.15), // Button color
-                  child: InkWell(
-                    onTap: () {
-                      _buttonCarouselController.previousPage(
-                          duration: const Duration(milliseconds: 300), curve: Curves.linear);
-                    },
-                    child: SizedBox(
-                      width: 42,
-                      height: 42,
-                      child: Icon(Icons.arrow_back_ios_new_outlined,
-                          color: Palette.blue),
-                    ),
-                  ),
-                ),
+              MoveIconButton(
+                icon: Icon(Icons.arrow_back_ios_new_outlined,
+                    color: Palette.blue),
+                onPressed: () {
+                  _buttonCarouselController.previousPage(
+                      duration: const Duration(milliseconds: 300),
+                      curve: Curves.linear);
+                },
               ),
               ElevatedButton(
                   style: ElevatedButton.styleFrom(
@@ -91,22 +84,14 @@ class _WeOfferState extends State<WeOffer> {
                   ),
                   onPressed: () {},
                   child: Text('cмотреть все', style: Style.inter_14_400White)),
-              ClipOval(
-                child: Material(
-                  color: Palette.black.withOpacity(0.15), // Button color
-                  child: InkWell(
-                    onTap: () {
-                      _buttonCarouselController.nextPage(
-                          duration: const Duration(milliseconds: 300), curve: Curves.linear);
-                    },
-                    child: SizedBox(
-                      width: 42,
-                      height: 42,
-                      child: Icon(Icons.arrow_forward_ios, color: Palette.blue),
-                    ),
-                  ),
-                ),
-              ),
+              MoveIconButton(
+                icon: Icon(Icons.arrow_forward_ios, color: Palette.blue),
+                onPressed: () {
+                  _buttonCarouselController.nextPage(
+                      duration: const Duration(milliseconds: 300),
+                      curve: Curves.linear);
+                },
+              )
             ],
           )
         ],
