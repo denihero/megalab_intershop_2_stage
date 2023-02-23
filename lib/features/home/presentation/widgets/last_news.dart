@@ -56,7 +56,7 @@ class LastNews extends StatelessWidget {
               onPressed: () {},
               child: Text(
                 'все новости',
-                  style: Style.inter_14_400White,
+                  style: Style.inter_14_400Black,
               ))
         ],
       ),

@@ -8,32 +8,30 @@ class OurWorks extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
-          Text(
-            'Наши работы',
-            style: Style.montserrat_16_700Black,
+    return Column(
+      children: [
+        Text(
+          'Наши работы',
+          style: Style.montserrat_16_700Black,
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        CarouselSlider.builder(
+          itemCount: 3,
+          options: CarouselOptions(
+            autoPlay: false,
+            enlargeCenterPage: true,
+            enableInfiniteScroll: false,
+            pauseAutoPlayOnManualNavigate: false,
+            viewportFraction: 0.65,
+            initialPage: 2,
           ),
-          const SizedBox(
-            height: 20,
-          ),
-          CarouselSlider.builder(
-            itemCount: 3,
-            options: CarouselOptions(
-              autoPlay: false,
-              enlargeCenterPage: true,
-              enableInfiniteScroll: false,
-              pauseAutoPlayOnManualNavigate: false,
-              viewportFraction: 0.65,
-              initialPage: 2,
-            ),
-            itemBuilder: (BuildContext context, int itemIndex, _) {
-              return WorksCard();
-            },
-          )
-        ],
-      ),
+          itemBuilder: (BuildContext context, int itemIndex, _) {
+            return const WorksCard();
+          },
+        )
+      ],
     );
   }
 }

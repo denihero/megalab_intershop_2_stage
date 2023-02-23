@@ -25,60 +25,63 @@ class _CustomerFeedbackState extends State<CustomerFeedback> {
   }
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text(
-          AppString.customerFeedback,
-          style: Style.montserrat_16_700Black,
-        ),
-        const SizedBox(
-          height: 30,
-        ),
-        CarouselSlider.builder(
-          itemCount: 3,
-          carouselController: _carouselController,
-          options: CarouselOptions(
-            autoPlay: false,
-            enlargeCenterPage: false,
-            enableInfiniteScroll: false,
-            pauseAutoPlayOnManualNavigate: false,
-            viewportFraction: 0.7,
-            aspectRatio: 2.4,
-            initialPage: 2,
+    return SizedBox(
+      height: 360,
+      child: Column(
+        children: [
+          Text(
+            AppString.customerFeedback,
+            style: Style.montserrat_16_700Black,
           ),
-          itemBuilder: (BuildContext context, int itemIndex, _) {
-            return const FeedbackCard();
-          },
-        ),
-        const SizedBox(
-          height: 30,
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            MoveIconButton(
-              icon: Icon(Icons.arrow_back_ios_new_outlined,
-                  color: Palette.blue),
-              onPressed: () {
-                _carouselController.previousPage(
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.linear);
-              },
+          const SizedBox(
+            height: 30,
+          ),
+          CarouselSlider.builder(
+            itemCount: 3,
+            carouselController: _carouselController,
+            options: CarouselOptions(
+              autoPlay: false,
+              enlargeCenterPage: false,
+              enableInfiniteScroll: false,
+              pauseAutoPlayOnManualNavigate: false,
+              viewportFraction: 0.7,
+              aspectRatio: 2.4,
+              initialPage: 2,
             ),
-            const SizedBox(
-              width: 30,
-            ),
-            MoveIconButton(
-              icon: Icon(Icons.arrow_forward_ios, color: Palette.blue),
-              onPressed: () {
-                _carouselController.nextPage(
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.linear);
-              },
-            )
-          ],
-        )
-      ],
+            itemBuilder: (BuildContext context, int itemIndex, _) {
+              return const FeedbackCard();
+            },
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              MoveIconButton(
+                icon: Icon(Icons.arrow_back_ios_new_outlined,
+                    color: Palette.blue),
+                onPressed: () {
+                  _carouselController.previousPage(
+                      duration: const Duration(milliseconds: 300),
+                      curve: Curves.linear);
+                },
+              ),
+              const SizedBox(
+                width: 30,
+              ),
+              MoveIconButton(
+                icon: Icon(Icons.arrow_forward_ios, color: Palette.blue),
+                onPressed: () {
+                  _carouselController.nextPage(
+                      duration: const Duration(milliseconds: 300),
+                      curve: Curves.linear);
+                },
+              )
+            ],
+          )
+        ],
+      ),
     );
   }
 }

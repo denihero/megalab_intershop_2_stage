@@ -13,4 +13,13 @@ class AppString {
   static const String lastNews = 'Последние новости';
   static const String service = 'Сервис';
   static const String customerFeedback = 'Отзывы наших клиентов';
+  static const String haveQuestion = 'Остались вопросы ?';
+  static const String scheduleOfWork = 'Режим работы\n';
+  static const String mondayToFriday = 'Пн-Пт 8:30–18:30\n';
+  static const String sunday = 'Суббота 8:30–14:00\n';
+  static const String phone = 'ТЕЛЕФОН\n';
+  static const String firstPhone = '+996 (552) 57 07 55\n';
+  static const String secondPhone = '+996 (500) 88 80 51\n';
+  static const String thirdPhone = '+996 (772) 32 76 76\n';
+  static const String socialSite = 'Социальные\nСети';
 }

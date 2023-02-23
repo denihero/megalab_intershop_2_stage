@@ -83,7 +83,7 @@ class _WeOfferState extends State<WeOffer> {
                     side: const BorderSide(color: Colors.blue),
                   ),
                   onPressed: () {},
-                  child: Text('cмотреть все', style: Style.inter_14_400White)),
+                  child: Text('cмотреть все', style: Style.inter_14_400Black)),
               MoveIconButton(
                 icon: Icon(Icons.arrow_forward_ios, color: Palette.blue),
                 onPressed: () {

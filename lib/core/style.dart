@@ -42,7 +42,11 @@ class Style {
       textStyle: TextStyle(
           fontSize: 15, color:Palette.white, fontWeight: FontWeight.w900));
 
-  static TextStyle inter_14_400White = GoogleFonts.inter(
+  static TextStyle inter_14_400Black = GoogleFonts.inter(
       textStyle: TextStyle(
           fontSize: 14, color:Palette.black, fontWeight: FontWeight.w400));
+
+  static TextStyle inter_14_900White = GoogleFonts.inter(
+      textStyle: TextStyle(
+          fontSize: 14, color:Palette.white, fontWeight: FontWeight.w900));
 }
