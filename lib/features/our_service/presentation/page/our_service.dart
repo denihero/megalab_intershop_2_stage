@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:megacom_second_stage/core/pictures.dart';
-import 'package:megacom_second_stage/core/string.dart';
-import 'package:megacom_second_stage/core/style.dart';
-import 'package:megacom_second_stage/features/widgets/footer.dart';
-import 'package:megacom_second_stage/features/widgets/gate_card.dart';
-import 'package:megacom_second_stage/features/widgets/submit_application.dart';
+import 'package:megacom_second_stage/megalab_internship.dart';
+
 
 class OurService extends StatefulWidget {
   const OurService({Key? key}) : super(key: key);
