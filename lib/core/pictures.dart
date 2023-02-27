@@ -12,4 +12,5 @@ class Pictures{
   static const position = 'assets/icons/position.svg';
   static const whatsApp = 'assets/icons/whats.svg';
   static const instagram = 'assets/icons/insta.svg';
+  static const menu = 'assets/icons/menu.svg';
 }

@@ -23,4 +23,8 @@ class AppString {
   static const String thirdPhone = '+996 (772) 32 76 76\n';
   static const String socialSite = 'Социальные\nСети';
   static const String security = '© 2023 Selim Trade. Данный сайт защищён от копирования. Любая передача данных в интернете запрещена.';
+  static const String ourServiceDescription = 'Наши сотрудники прошли сертифицированные тренинги в Учебных центрах ГК DoorHan в г.Москва, г.Алматы, г.Астаны а так же успешно сдали экзамены и являются обладателями сертификатов по направлениям «Воротные системы, ролл ставни, ролл ворота, автоматические системы», «Монтаж автоматики».';
+  static const String ourServiceTitle = 'НАШИ УСЛУГИ';
+  static const String ourWorksTitle = 'НАШИ РАБОТЫ';
+  static const String ourWorksDescription= 'Здесь мы собрали наши лучшие проекты, чтобы вы могли вдохновиться идеями для собственного проекта. Вы найдёте проект по душе и нраву, который захотите воплотить в жизнь.';
 }

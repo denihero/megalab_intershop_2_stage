@@ -11,6 +11,7 @@ class GateCard extends StatelessWidget {
       borderRadius: BorderRadius.circular(8.0),
       child: Container(
         width: 300,
+        height: 200,
         decoration: const BoxDecoration(
             image: DecorationImage(
                 fit: BoxFit.cover,
