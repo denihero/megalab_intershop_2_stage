@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:megacom_second_stage/core/color.dart';
 import 'package:megacom_second_stage/core/style.dart';
 
-import '../../data/model/advantage.dart';
+import '../home/data/model/advantage.dart';
 
 class SupportCard extends StatelessWidget {
   const SupportCard({Key? key,required this.help}) : super(key: key);

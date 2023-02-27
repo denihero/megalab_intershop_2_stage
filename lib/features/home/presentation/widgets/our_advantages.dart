@@ -4,7 +4,7 @@ import 'package:megacom_second_stage/core/pictures.dart';
 import 'package:megacom_second_stage/core/string.dart';
 import 'package:megacom_second_stage/core/style.dart';
 import 'package:megacom_second_stage/features/home/data/model/advantage.dart';
-import 'package:megacom_second_stage/features/home/presentation/widgets/support_card.dart';
+import 'package:megacom_second_stage/features/widgets/support_card.dart';
 
 class OurAdvantages extends StatelessWidget {
   const OurAdvantages({Key? key}) : super(key: key);

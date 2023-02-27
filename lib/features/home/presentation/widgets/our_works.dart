@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:megacom_second_stage/core/style.dart';
-import 'package:megacom_second_stage/features/home/presentation/widgets/works_card.dart';
+import 'package:megacom_second_stage/features/widgets/works_card.dart';
 
 class OurWorks extends StatelessWidget {
   const OurWorks({Key? key}) : super(key: key);

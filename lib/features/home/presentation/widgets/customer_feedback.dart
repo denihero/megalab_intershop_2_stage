@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:megacom_second_stage/core/color.dart';
 import 'package:megacom_second_stage/core/string.dart';
 import 'package:megacom_second_stage/core/style.dart';
-import 'package:megacom_second_stage/features/home/presentation/widgets/move_icon_button.dart';
+import 'package:megacom_second_stage/features/widgets/move_icon_button.dart';
 
-import 'feedback_card.dart';
+import '../../../widgets/feedback_card.dart';
 
 class CustomerFeedback extends StatefulWidget {
   const CustomerFeedback({Key? key}) : super(key: key);

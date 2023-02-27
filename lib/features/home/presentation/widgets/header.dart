@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:megacom_second_stage/core/pictures.dart';
 import 'package:megacom_second_stage/core/style.dart';
-import 'package:megacom_second_stage/features/home/presentation/widgets/primary_button.dart';
+import 'package:megacom_second_stage/features/widgets/primary_button.dart';
 
 import '../../../../core/string.dart';
-import 'appbar_clip.dart';
+import '../../../widgets/appbar_clip.dart';
 
 class HeaderPart extends StatelessWidget {
   const HeaderPart({Key? key}) : super(key: key);

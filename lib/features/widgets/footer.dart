@@ -7,9 +7,9 @@ import 'package:megacom_second_stage/core/color.dart';
 import 'package:megacom_second_stage/core/pictures.dart';
 import 'package:megacom_second_stage/core/string.dart';
 import 'package:megacom_second_stage/core/style.dart';
-import 'package:megacom_second_stage/features/home/presentation/widgets/bottom_navigation.dart';
-import 'package:megacom_second_stage/features/home/presentation/widgets/schedule_and_phone_company.dart';
-import 'package:megacom_second_stage/features/home/presentation/widgets/social_media.dart';
+import 'package:megacom_second_stage/features/widgets/bottom_navigation.dart';
+import 'package:megacom_second_stage/features/widgets/schedule_and_phone_company.dart';
+import 'package:megacom_second_stage/features/widgets/social_media.dart';
 
 class Footer extends StatefulWidget {
   const Footer({Key? key}) : super(key: key);
@@ -19,13 +19,20 @@ class Footer extends StatefulWidget {
 }
 
 class _FooterState extends State<Footer> {
-  final Completer<GoogleMapController> _controller =
-      Completer<GoogleMapController>();
 
-  static const CameraPosition _kGooglePlex = CameraPosition(
-    target: LatLng(37.42796133580664, -122.085749655962),
-    zoom: 14.4746,
-  );
+  late final Completer<GoogleMapController> _googleMapController;
+  late final CameraPosition _cameraPosition;
+
+  @override
+  void initState() {
+    _googleMapController = Completer<GoogleMapController>();
+    _cameraPosition = const CameraPosition(
+      target: LatLng(37.42796133580664, -122.085749655962),
+      zoom: 14.4746,
+    );
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,12 +46,18 @@ class _FooterState extends State<Footer> {
             left: 0,
             right: 0,
             child: Container(
-              height: 50,
+              height: 55,
               width: double.infinity,
               color: Palette.blue,
               child: Align(
-                alignment: Alignment.bottomCenter,
-                  child: Text(AppString.security,style: Style.montserrat_14_300Black.copyWith(fontSize: 13,color: Colors.white,fontWeight: FontWeight.w500),)),
+                  alignment: Alignment.bottomCenter,
+                  child: Text(
+                    AppString.security,
+                    style: Style.montserrat_14_300Black.copyWith(
+                        fontSize: 13,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w500),
+                  )),
             ),
           ),
           Positioned(
@@ -69,6 +82,7 @@ class _FooterState extends State<Footer> {
                     height: 180,
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Image.asset(
                           Pictures.logoPng,
@@ -78,13 +92,23 @@ class _FooterState extends State<Footer> {
                           width: 20,
                         ),
                         const ScheduleAndPhoneCompany(),
-                        Expanded(
-                          child: GoogleMap(
-                            mapType: MapType.normal,
-                            initialCameraPosition: _kGooglePlex,
-                            onMapCreated: (GoogleMapController controller) {
-                              _controller.complete(controller);
-                            },
+                        const SizedBox(
+                          width: 15,
+                        ),
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(12),
+                          child: SizedBox(
+                            height: 160,
+                            width: 160,
+                            child: GoogleMap(
+                              mapType: MapType.normal,
+                              initialCameraPosition: _cameraPosition,
+                              zoomControlsEnabled: false,
+                              zoomGesturesEnabled: true,
+                              onMapCreated: (GoogleMapController controller) {
+                                _googleMapController.complete(controller);
+                              },
+                            ),
                           ),
                         )
                       ],
@@ -104,8 +128,6 @@ class _FooterState extends State<Footer> {
               ),
             ),
           ),
-
-
         ],
       ),
     );

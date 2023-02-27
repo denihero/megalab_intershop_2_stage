@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:megacom_second_stage/core/pictures.dart';
 import 'package:megacom_second_stage/core/string.dart';
 import 'package:megacom_second_stage/core/style.dart';
-import 'package:megacom_second_stage/features/home/presentation/widgets/news_card.dart';
+import 'package:megacom_second_stage/features/widgets/news_card.dart';
 
 class LastNews extends StatelessWidget {
   const LastNews({Key? key}) : super(key: key);

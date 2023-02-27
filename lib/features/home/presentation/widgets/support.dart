@@ -2,7 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:megacom_second_stage/core/string.dart';
 import 'package:megacom_second_stage/features/home/data/model/advantage.dart';
-import 'package:megacom_second_stage/features/home/presentation/widgets/support_card.dart';
+import 'package:megacom_second_stage/features/widgets/support_card.dart';
 
 import '../../../../core/style.dart';
 

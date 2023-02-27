@@ -5,9 +5,9 @@ import 'package:megacom_second_stage/core/color.dart';
 import 'package:megacom_second_stage/core/pictures.dart';
 import 'package:megacom_second_stage/core/string.dart';
 import 'package:megacom_second_stage/core/style.dart';
-import 'package:megacom_second_stage/features/home/presentation/widgets/move_icon_button.dart';
+import 'package:megacom_second_stage/features/widgets/move_icon_button.dart';
 
-import 'gate_card.dart';
+import '../../../widgets/gate_card.dart';
 
 class WeOffer extends StatefulWidget {
   const WeOffer({Key? key}) : super(key: key);
