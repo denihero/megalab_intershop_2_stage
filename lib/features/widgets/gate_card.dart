@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:megacom_second_stage/core/style.dart';
 
 class GateCard extends StatelessWidget {
-  const GateCard({Key? key}) : super(key: key);
+  const GateCard({Key? key, this.isBackgroundUse = true}) : super(key: key);
+
+  final bool isBackgroundUse;
 
 
   @override
@@ -26,7 +28,7 @@ class GateCard extends StatelessWidget {
                 width: 120,
                 height: 35,
                 decoration: BoxDecoration(
-                    color: Colors.black26,
+                    color: isBackgroundUse ? Colors.black26: Colors.transparent,
                     borderRadius: BorderRadius.circular(12)
                 ),
                 child: Center(

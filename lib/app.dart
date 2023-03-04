@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:megacom_second_stage/features/our_service/presentation/page/our_service.dart';
-import 'package:megacom_second_stage/features/our_works/presentation/pages/our_works_page.dart';
 
-import 'features/home/presentation/page/home_screen.dart';
+import 'features/gate_type/presentation/gate_type_page.dart';
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
@@ -11,7 +9,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home: GateTypeScreen(),
     );
   }
 }

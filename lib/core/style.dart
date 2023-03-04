@@ -3,9 +3,18 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:megacom_second_stage/core/color.dart';
 
 class Style {
+
+  static TextStyle montserrat_200_900Black = GoogleFonts.montserrat(
+      textStyle: TextStyle(
+          fontSize: 210, color: Palette.darkGrey, fontWeight: FontWeight.w900));
+
   static TextStyle montserrat_30_700White = GoogleFonts.montserrat(
       textStyle: TextStyle(
           fontSize: 30, color: Palette.white, fontWeight: FontWeight.w700));
+
+  static TextStyle montserrat_20_800Black = GoogleFonts.montserrat(
+      textStyle: TextStyle(
+          fontSize: 20, color: Palette.black, fontWeight: FontWeight.w700));
 
   static TextStyle montserrat_16_800White = GoogleFonts.montserrat(
       textStyle: TextStyle(
@@ -17,7 +26,7 @@ class Style {
 
   static TextStyle montserrat_16_700Black = GoogleFonts.montserrat(
       textStyle: TextStyle(
-          fontSize: 16, color:Palette.black, fontWeight: FontWeight.w700));
+          fontSize: 16, color:Palette.black, fontWeight: FontWeight.w700,));
 
   static TextStyle montserrat_14_300Black = GoogleFonts.montserrat(
       textStyle: TextStyle(

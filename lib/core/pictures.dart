@@ -13,4 +13,5 @@ class Pictures{
   static const whatsApp = 'assets/icons/whats.svg';
   static const instagram = 'assets/icons/insta.svg';
   static const menu = 'assets/icons/menu.svg';
+  static const backgroundGateType = 'assets/image/background_gate_type.png';
 }

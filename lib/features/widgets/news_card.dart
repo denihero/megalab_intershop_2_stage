@@ -10,6 +10,7 @@ class NewsCard extends StatelessWidget {
       borderRadius: BorderRadius.circular(12.0),
       child: Container(
         width: 300,
+        height: 200,
         decoration: const BoxDecoration(
           color: Colors.black12,
           image: DecorationImage(

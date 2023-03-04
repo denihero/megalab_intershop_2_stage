@@ -19,7 +19,6 @@ class Footer extends StatefulWidget {
 }
 
 class _FooterState extends State<Footer> {
-
   late final Completer<GoogleMapController> _googleMapController;
   late final CameraPosition _cameraPosition;
 
@@ -37,7 +36,7 @@ class _FooterState extends State<Footer> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 316,
+      height: 320,
       width: double.infinity,
       child: Stack(
         children: [
@@ -49,15 +48,18 @@ class _FooterState extends State<Footer> {
               height: 55,
               width: double.infinity,
               color: Palette.blue,
-              child: Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Text(
-                    AppString.security,
-                    style: Style.montserrat_14_300Black.copyWith(
-                        fontSize: 13,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w500),
-                  )),
+              child: Padding(
+                padding: const EdgeInsets.only(left: 7, bottom: 5),
+                child: Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Text(
+                      AppString.security,
+                      style: Style.montserrat_14_300Black.copyWith(
+                          fontSize: 13,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500),
+                    )),
+              ),
             ),
           ),
           Positioned(
@@ -98,8 +100,8 @@ class _FooterState extends State<Footer> {
                         ClipRRect(
                           borderRadius: BorderRadius.circular(12),
                           child: SizedBox(
-                            height: 160,
-                            width: 160,
+                            height: 150,
+                            width: 150,
                             child: GoogleMap(
                               mapType: MapType.normal,
                               initialCameraPosition: _cameraPosition,
