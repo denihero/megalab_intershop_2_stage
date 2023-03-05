@@ -1,16 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:megacom_second_stage/features/news_detail/presentation/page/news_detail_screen.dart';
 
-import 'features/gate_type/presentation/gate_type_page.dart';
+import 'navigation /route.dart';
 
-class App extends StatelessWidget {
+class App extends StatefulWidget {
   const App({Key? key}) : super(key: key);
 
   @override
+  State<App> createState() => _AppState();
+}
+
+class _AppState extends State<App> {
+  final _appRouter = AppRouter();
+
+  @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      home: NewsDetailScreen(),
+      routerDelegate: _appRouter.delegate(),
+      routeInformationParser: _appRouter.defaultRouteParser(),
     );
   }
 }

@@ -3,14 +3,14 @@ import 'package:megacom_second_stage/megalab_internship.dart';
 
 
 
-class OurWorkPage extends StatefulWidget {
-  const OurWorkPage({Key? key}) : super(key: key);
+class OurWorkScreen extends StatefulWidget {
+  const OurWorkScreen({Key? key}) : super(key: key);
 
   @override
-  State<OurWorkPage> createState() => _OurWorkPageState();
+  State<OurWorkScreen> createState() => _OurWorkScreenState();
 }
 
-class _OurWorkPageState extends State<OurWorkPage> {
+class _OurWorkScreenState extends State<OurWorkScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:megacom_second_stage/megalab_internship.dart';
 
 
-class OurService extends StatefulWidget {
-  const OurService({Key? key}) : super(key: key);
+class OurServiceScreen extends StatefulWidget {
+  const OurServiceScreen({Key? key}) : super(key: key);
 
   @override
-  State<OurService> createState() => _OurServiceState();
+  State<OurServiceScreen> createState() => _OurServiceScreenState();
 }
 
-class _OurServiceState extends State<OurService> {
+class _OurServiceScreenState extends State<OurServiceScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
