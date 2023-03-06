@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'navigation /route.dart';
+import 'navigation/route.dart';
 
 class App extends StatefulWidget {
   const App({Key? key}) : super(key: key);
