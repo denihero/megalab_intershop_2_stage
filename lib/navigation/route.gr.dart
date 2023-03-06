@@ -47,6 +47,12 @@ class _$AppRouter extends RootStackRouter {
         child: const OurWorkScreen(),
       );
     },
+    NewsDetailScreenRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const NewsDetailScreen(),
+      );
+    },
   };
 
   @override
@@ -70,6 +76,10 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(
           OurWorkScreenRoute.name,
           path: '/our-work-screen',
+        ),
+        RouteConfig(
+          NewsDetailScreenRoute.name,
+          path: '/news-detail-screen',
         ),
       ];
 }
@@ -132,4 +142,16 @@ class OurWorkScreenRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'OurWorkScreenRoute';
+}
+
+/// generated route for
+/// [NewsDetailScreen]
+class NewsDetailScreenRoute extends PageRouteInfo<void> {
+  const NewsDetailScreenRoute()
+      : super(
+          NewsDetailScreenRoute.name,
+          path: '/news-detail-screen',
+        );
+
+  static const String name = 'NewsDetailScreenRoute';
 }

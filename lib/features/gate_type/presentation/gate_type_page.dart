@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:megacom_second_stage/core/color.dart';
 import 'package:megacom_second_stage/features/gate_type/data/model/out_advatages.dart';
 import 'package:megacom_second_stage/features/gate_type/presentation/widget/special_advantage_card.dart';
+import 'package:megacom_second_stage/features/widgets/cutom_end_drawer.dart';
 import 'package:megacom_second_stage/megalab_internship.dart';
 
 class GateTypeScreen extends StatefulWidget {
@@ -12,10 +13,14 @@ class GateTypeScreen extends StatefulWidget {
 }
 
 class _GateTypeScreenState extends State<GateTypeScreen> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        key: _scaffoldKey,
+        endDrawer: const CustomEndDrawer(),
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(170),
           child: AppBar(
@@ -28,12 +33,17 @@ class _GateTypeScreenState extends State<GateTypeScreen> {
               color: Colors.white,
             ),
             actions: [
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: SvgPicture.asset(
-                  Pictures.menu,
-                  width: 30,
-                  height: 30,
+              GestureDetector(
+                onTap: () {
+                  _scaffoldKey.currentState?.openEndDrawer();
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: SvgPicture.asset(
+                    Pictures.menu,
+                    width: 30,
+                    height: 30,
+                  ),
                 ),
               ),
             ],

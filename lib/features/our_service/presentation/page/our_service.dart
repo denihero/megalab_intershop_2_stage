@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:megacom_second_stage/features/widgets/custom_appbar.dart';
 import 'package:megacom_second_stage/megalab_internship.dart';
 
 
@@ -10,29 +11,16 @@ class OurServiceScreen extends StatefulWidget {
 }
 
 class _OurServiceScreenState extends State<OurServiceScreen> {
+
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: Image.asset(
-          Pictures.logoPng,
-          width: 200,
-          height: 200,
-          color: Colors.black,
-        ),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: SvgPicture.asset(
-              Pictures.menu,
-              width: 30,
-              height: 30,
-              color: Colors.black,
-            ),
-          ),
-        ],
+      key: _scaffoldKey,
+      endDrawer: const CustomEndDrawer(),
+      appBar: CustomAppBar(
+          scaffoldKey: _scaffoldKey
       ),
       body: SingleChildScrollView(
         child: Padding(

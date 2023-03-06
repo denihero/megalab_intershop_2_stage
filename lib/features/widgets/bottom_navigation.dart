@@ -1,5 +1,8 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:megacom_second_stage/core/style.dart';
+import 'package:megacom_second_stage/navigation/route.dart';
 
 class FooterNavigation extends StatelessWidget {
   const FooterNavigation({Key? key}) : super(key: key);
@@ -13,10 +16,22 @@ class FooterNavigation extends StatelessWidget {
           text: TextSpan(
             style: Style.montserrat_12_400Black
                 .copyWith(fontWeight: FontWeight.w500),
-            children: const [
-              TextSpan(text: 'Главная\n'),
-              TextSpan(text: 'О Нас\n'),
-              TextSpan(text: 'Услуги\n'),
+            children: [
+              TextSpan(
+                  text: 'Главная\n',
+                  recognizer: TapGestureRecognizer()
+                    ..onTap =
+                        () => context.router.push(const HomeScreenRoute())),
+              TextSpan(
+                  text: 'О Нас\n',
+                  recognizer: TapGestureRecognizer()
+                    ..onTap =
+                        () => context.router.push(const HomeScreenRoute())),
+              TextSpan(
+                  text: 'Услуги\n',
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () =>
+                        context.router.push(const OurServiceScreenRoute())),
             ],
           ),
         ),
@@ -28,10 +43,22 @@ class FooterNavigation extends StatelessWidget {
           text: TextSpan(
             style: Style.montserrat_12_400Black
                 .copyWith(fontWeight: FontWeight.w500),
-            children: const [
-              TextSpan(text: 'Работы\n'),
-              TextSpan(text: 'Отзывы\n'),
-              TextSpan(text: 'Новости\n'),
+            children: [
+              TextSpan(
+                  text: 'Работы\n',
+                  recognizer: TapGestureRecognizer()
+                    ..onTap =
+                        () => context.router.push(const OurWorkScreenRoute())),
+              TextSpan(
+                  text: 'Отзывы\n',
+                  recognizer: TapGestureRecognizer()
+                    ..onTap =
+                        () => context.router.push(const HomeScreenRoute())),
+              TextSpan(
+                  text: 'Новости\n',
+                  recognizer: TapGestureRecognizer()
+                    ..onTap =
+                        () => context.router.push(const OurNewsScreenRoute())),
             ],
           ),
         )

@@ -14,4 +14,6 @@ export 'package:megacom_second_stage/features/home/presentation/widgets/our_work
 export 'package:megacom_second_stage/features/home/presentation/widgets/support.dart';
 export 'package:megacom_second_stage/features/home/presentation/widgets/we_offer.dart';
 export 'package:megacom_second_stage/features/widgets/gate_card.dart';
-
+export 'package:megacom_second_stage/features/widgets/cutom_end_drawer.dart';
+export 'package:auto_route/auto_route.dart';
+export 'package:flutter/material.dart';
