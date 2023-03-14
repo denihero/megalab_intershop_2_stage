@@ -27,8 +27,8 @@ class _FooterState extends State<Footer> {
   void initState() {
     _googleMapController = Completer<GoogleMapController>();
     _cameraPosition = const CameraPosition(
-      target: LatLng(37.42796133580664, -122.085749655962),
-      zoom: 14.4746,
+      target: LatLng(42.8482744, 74.5872578),
+      zoom: 15,
     );
 
     super.initState();
@@ -103,14 +103,50 @@ class _FooterState extends State<Footer> {
                           child: SizedBox(
                             height: 140.w,
                             width: 140.w,
-                            child: GoogleMap(
-                              mapType: MapType.normal,
-                              initialCameraPosition: _cameraPosition,
-                              zoomControlsEnabled: false,
-                              zoomGesturesEnabled: true,
-                              onMapCreated: (GoogleMapController controller) {
-                                _googleMapController.complete(controller);
-                              },
+                            child: Stack(
+                              children: [
+                                GoogleMap(
+                                  mapType: MapType.normal,
+                                  initialCameraPosition: _cameraPosition,
+                                  zoomControlsEnabled: false,
+                                  zoomGesturesEnabled: true,
+                                  markers: {
+                                    const Marker(
+                                        markerId: MarkerId('Айни'),
+                                        position:
+                                            LatLng(42.8482744, 74.5872578),
+                                      infoWindow: InfoWindow(
+                                        title: 'Selim Trade'
+                                      )
+                                    ),
+                                  },
+                                  onMapCreated:
+                                      (GoogleMapController controller) {
+                                    _googleMapController.complete(controller);
+                                  },
+                                ),
+                                Positioned(
+                                  bottom: 0,
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(12),
+                                      color: Colors.grey.withOpacity(0.3),
+                                    ),
+                                    width: 130,
+                                    height: 30,
+                                    child: Center(
+                                      child: Text(
+                                        'Адрес \nг.Бишкек, ул.Айни 22',
+                                        style: Style.montserrat_10_800White
+                                            .copyWith(
+                                                color: Palette.black,
+                                                fontSize: 9.sp,
+                                                fontWeight: FontWeight.bold),
+                                      ),
+                                    ),
+                                  ),
+                                )
+                              ],
                             ),
                           ),
                         )
@@ -119,7 +155,7 @@ class _FooterState extends State<Footer> {
                   ),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children:  [
+                    children: [
                       const SocialMedia(),
                       SizedBox(
                         width: 15.w,
