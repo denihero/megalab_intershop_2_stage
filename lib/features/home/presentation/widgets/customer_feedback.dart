@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:megacom_second_stage/core/color.dart';
 import 'package:megacom_second_stage/core/string.dart';
 import 'package:megacom_second_stage/core/style.dart';
@@ -26,7 +27,7 @@ class _CustomerFeedbackState extends State<CustomerFeedback> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 360,
+      height: 360.h,
       child: Column(
         children: [
           Text(
@@ -36,21 +37,24 @@ class _CustomerFeedbackState extends State<CustomerFeedback> {
           const SizedBox(
             height: 30,
           ),
-          CarouselSlider.builder(
-            itemCount: 3,
-            carouselController: _carouselController,
-            options: CarouselOptions(
-              autoPlay: false,
-              enlargeCenterPage: false,
-              enableInfiniteScroll: false,
-              pauseAutoPlayOnManualNavigate: false,
-              viewportFraction: 0.7,
-              aspectRatio: 2.4,
-              initialPage: 2,
+          SizedBox(
+            height: 200.h,
+            child: CarouselSlider.builder(
+              itemCount: 3,
+              carouselController: _carouselController,
+              options: CarouselOptions(
+                autoPlay: false,
+                enlargeCenterPage: false,
+                enableInfiniteScroll: false,
+                pauseAutoPlayOnManualNavigate: false,
+                viewportFraction: 0.73,
+                aspectRatio: 2.1,
+                initialPage: 2,
+              ),
+              itemBuilder: (BuildContext context, int itemIndex, _) {
+                return const FeedbackCard();
+              },
             ),
-            itemBuilder: (BuildContext context, int itemIndex, _) {
-              return const FeedbackCard();
-            },
           ),
           const SizedBox(
             height: 30,

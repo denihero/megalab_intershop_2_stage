@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:megacom_second_stage/core/color.dart';
 import 'package:megacom_second_stage/core/utils/helper.dart';
 import 'package:megacom_second_stage/megalab_internship.dart';
@@ -16,7 +17,7 @@ class _CustomEndDrawerState extends State<CustomEndDrawer> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      width: 230,
+      width: 230.w,
       child: Column(
         children: [
           ListTile(
@@ -70,14 +71,16 @@ class _CustomEndDrawerState extends State<CustomEndDrawer> {
                   color: Palette.navyBlue, fontWeight: FontWeight.w500),
             ),
             subtitle: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 const Icon(
                   Icons.phone,
                   color: Colors.black,
-                  size: 20,
+                  size: 18,
                 ),
-                const SizedBox(
-                  width: 7,
+                SizedBox(
+                  width: 2.w,
                 ),
                 Text(
                   AppString.firstPhone,

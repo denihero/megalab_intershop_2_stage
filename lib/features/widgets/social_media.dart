@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:megacom_second_stage/core/pictures.dart';
 import 'package:megacom_second_stage/core/string.dart';
@@ -22,8 +23,8 @@ class SocialMedia extends StatelessWidget {
                 children: const [
                   TextSpan(text: AppString.socialSite),
                 ])),
-        const SizedBox(
-          height: 10,
+        SizedBox(
+          height: 10.h,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,

@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:megacom_second_stage/core/color.dart';
@@ -36,7 +37,7 @@ class _FooterState extends State<Footer> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 320,
+      height: 285.h,
       width: double.infinity,
       child: Stack(
         children: [
@@ -45,7 +46,7 @@ class _FooterState extends State<Footer> {
             left: 0,
             right: 0,
             child: Container(
-              height: 55,
+              height: 48.h,
               width: double.infinity,
               color: Palette.blue,
               child: Padding(
@@ -55,7 +56,7 @@ class _FooterState extends State<Footer> {
                     child: Text(
                       AppString.security,
                       style: Style.montserrat_14_300Black.copyWith(
-                          fontSize: 13,
+                          fontSize: 11.5.sp,
                           color: Colors.white,
                           fontWeight: FontWeight.w500),
                     )),
@@ -63,15 +64,15 @@ class _FooterState extends State<Footer> {
             ),
           ),
           Positioned(
-              right: 60,
+              right: 0,
               top: 10,
               child: SvgPicture.asset(
                 Pictures.position,
-                width: 180,
-                height: 180,
+                width: 180.w,
+                height: 180.h,
               )),
           Container(
-            height: 280,
+            height: 250.h,
             decoration: BoxDecoration(
               borderRadius: const BorderRadius.all(Radius.circular(12)),
               color: Palette.grey,
@@ -81,7 +82,7 @@ class _FooterState extends State<Footer> {
               child: Column(
                 children: [
                   SizedBox(
-                    height: 180,
+                    height: 160.h,
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -90,18 +91,18 @@ class _FooterState extends State<Footer> {
                           Pictures.logoPng,
                           fit: BoxFit.contain,
                         ),
-                        const SizedBox(
-                          width: 20,
+                        SizedBox(
+                          width: 20.w,
                         ),
                         const ScheduleAndPhoneCompany(),
-                        const SizedBox(
-                          width: 15,
+                        SizedBox(
+                          width: 10.w,
                         ),
                         ClipRRect(
                           borderRadius: BorderRadius.circular(12),
                           child: SizedBox(
-                            height: 150,
-                            width: 150,
+                            height: 140.w,
+                            width: 140.w,
                             child: GoogleMap(
                               mapType: MapType.normal,
                               initialCameraPosition: _cameraPosition,
@@ -118,12 +119,12 @@ class _FooterState extends State<Footer> {
                   ),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      SocialMedia(),
+                    children:  [
+                      const SocialMedia(),
                       SizedBox(
-                        width: 25,
+                        width: 15.w,
                       ),
-                      FooterNavigation()
+                      const FooterNavigation()
                     ],
                   ),
                 ],

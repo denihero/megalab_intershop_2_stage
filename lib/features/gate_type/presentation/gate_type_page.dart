@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:megacom_second_stage/core/color.dart';
 import 'package:megacom_second_stage/features/gate_type/data/model/out_advatages.dart';
 import 'package:megacom_second_stage/features/gate_type/presentation/widget/special_advantage_card.dart';
@@ -22,7 +23,7 @@ class _GateTypeScreenState extends State<GateTypeScreen> {
         key: _scaffoldKey,
         endDrawer: const CustomEndDrawer(),
         appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(170),
+          preferredSize: Size.fromHeight(170.h),
           child: AppBar(
             backgroundColor: Colors.transparent,
             elevation: 0,
@@ -48,7 +49,7 @@ class _GateTypeScreenState extends State<GateTypeScreen> {
               ),
             ],
             flexibleSpace: Container(
-              height: 200,
+              height: 200.h,
               decoration: const BoxDecoration(
                 image: DecorationImage(
                     fit: BoxFit.cover,

@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:megacom_second_stage/core/string.dart';
 import 'package:megacom_second_stage/core/style.dart';
 
@@ -37,7 +38,7 @@ class _SubmitApplicationState extends State<SubmitApplication> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 500,
+      height: 420.h,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
@@ -46,26 +47,26 @@ class _SubmitApplicationState extends State<SubmitApplication> {
               AppString.haveQuestion,
               style: Style.montserrat_16_700Black,
             ),
-            const SizedBox(
-              height: 30,
+            SizedBox(
+              height: 30.h,
             ),
             CustomTextFormField(
               hintText: 'Имя',
               controller: _nameController,
               textInputType: TextInputType.name,
             ),
-            const SizedBox(
-              height: 15,
+            SizedBox(
+              height: 15.h,
             ),
             CustomTextFormField(
                 hintText: 'Телефон',
                 controller: _phoneController,
                 textInputType: TextInputType.phone),
-            const SizedBox(
-              height: 15,
+            SizedBox(
+              height: 15.h,
             ),
             SizedBox(
-                height: 200,
+                height: 170.h,
                 child: CustomTextFormField(
                   hintText: 'Сообщение',
                   controller: _messageController,
@@ -73,8 +74,8 @@ class _SubmitApplicationState extends State<SubmitApplication> {
                   maxLines: 7,
                 )),
             SizedBox(
-              height: 60,
-              width: 300,
+              height: 55.h,
+              width: 290.w,
               child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                       shape: const RoundedRectangleBorder(

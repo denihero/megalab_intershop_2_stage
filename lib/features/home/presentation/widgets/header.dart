@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:megacom_second_stage/core/pictures.dart';
 import 'package:megacom_second_stage/core/style.dart';
@@ -22,7 +23,7 @@ class _HeaderPartState extends State<HeaderPart> {
     return ClipPath(
       clipper: CustomShape(),
       child: Container(
-        height: 450,
+        height: 370.h,
         decoration: const BoxDecoration(
           image: DecorationImage(
             fit: BoxFit.cover,
@@ -59,18 +60,18 @@ class _HeaderPartState extends State<HeaderPart> {
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 60,
+              SizedBox(
+                height: 40.h,
               ),
               SizedBox(
-                width: 350,
+                width: 350.h,
                 child: Text(AppString.homeSafety, style: Style.montserrat_30_700White),
               ),
-              const SizedBox(
-                height: 10,
+              SizedBox(
+                height: 10.h,
               ),
               SizedBox(
-                width: 265,
+                width: 265.w,
                 child: Text(AppString.homeFind, style: Style.montserrat_14_600White),
               ),
               const SizedBox(

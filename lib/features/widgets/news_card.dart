@@ -1,4 +1,5 @@
 
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:megacom_second_stage/megalab_internship.dart';
 import 'package:megacom_second_stage/navigation/route.dart';
 
@@ -14,8 +15,8 @@ class NewsCard extends StatelessWidget {
           context.router.push(const NewsDetailScreenRoute());
         },
         child: Container(
-          width: 300,
-          height: 200,
+          width: 280.w,
+          height: 200.h,
           decoration: const BoxDecoration(
             color: Colors.black12,
             image: DecorationImage(

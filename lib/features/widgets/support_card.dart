@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:megacom_second_stage/core/color.dart';
 import 'package:megacom_second_stage/core/style.dart';
@@ -13,8 +14,8 @@ class SupportCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 330,
-      height: 40,
+      width: 330.w,
+      height: 50.h,
       child: Card(
         elevation: 3,
         shape: const RoundedRectangleBorder(
@@ -27,7 +28,7 @@ class SupportCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(
-              height: 60,
+              height: 60.h,
               child: SvgPicture.asset(
                 help.pathSvg,
                 width: 60,
@@ -39,8 +40,8 @@ class SupportCard extends StatelessWidget {
               height: 10,
             ),
             SizedBox(
-              height: 40,
-              width: 200,
+              height: 40.h,
+              width: 200.w,
               child: Text(
                 help.title,
                 style: Style.montserrat_14_600White.copyWith(color: Palette.black),

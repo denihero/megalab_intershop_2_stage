@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:megacom_second_stage/core/color.dart';
 import 'package:megacom_second_stage/core/pictures.dart';
@@ -13,8 +14,8 @@ class PrimaryButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 40,
-      width: 220,
+      height: 35.h,
+      width: 200.w,
       decoration: BoxDecoration(
           gradient: Palette.blueGradient,
           borderRadius: BorderRadius.circular(12)),

@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:megacom_second_stage/core/pictures.dart';
 import 'package:megacom_second_stage/core/string.dart';
 import 'package:megacom_second_stage/core/style.dart';
@@ -12,7 +13,7 @@ class OurAdvantages extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 300,
+      height: 270.h,
       width: double.infinity,
       decoration: const BoxDecoration(
           image: DecorationImage(
@@ -24,8 +25,8 @@ class OurAdvantages extends StatelessWidget {
             AppString.ourAdvantages,
             style: Style.montserrat_16_700Black,
           ),
-          const SizedBox(
-            height: 10,
+          SizedBox(
+            height: 10.h,
           ),
           CarouselSlider.builder(
             itemCount: Advantage.ourAdvantage.length,
@@ -34,8 +35,8 @@ class OurAdvantages extends StatelessWidget {
               enlargeCenterPage: false,
               enableInfiniteScroll: false,
               pauseAutoPlayOnManualNavigate: false,
-              viewportFraction: 0.61,
-              aspectRatio: 2.5,
+              viewportFraction: 0.7.w,
+              aspectRatio: 2.3,
               initialPage: 2,
             ),
             itemBuilder:

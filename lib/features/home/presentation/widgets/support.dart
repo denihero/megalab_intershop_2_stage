@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:megacom_second_stage/core/string.dart';
 import 'package:megacom_second_stage/features/home/data/model/advantage.dart';
 import 'package:megacom_second_stage/features/widgets/support_card.dart';
@@ -12,7 +13,7 @@ class Support extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 300,
+      height: 300.h,
       width: double.infinity,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class WorksCard extends StatelessWidget {
   const WorksCard({Key? key}) : super(key: key);
@@ -8,8 +9,8 @@ class WorksCard extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(20),
       child: Container(
-        width: 310,
-        height: 230,
+        width: 310.w,
+        height: 230.h,
         decoration: const BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(20)),
             image: DecorationImage(

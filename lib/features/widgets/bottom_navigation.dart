@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:megacom_second_stage/core/style.dart';
 import 'package:megacom_second_stage/navigation/route.dart';
 
@@ -35,8 +36,8 @@ class FooterNavigation extends StatelessWidget {
             ],
           ),
         ),
-        const SizedBox(
-          width: 30,
+        SizedBox(
+          width: 30.w,
         ),
         RichText(
           textAlign: TextAlign.left,

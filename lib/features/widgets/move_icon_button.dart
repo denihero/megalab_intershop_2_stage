@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:megacom_second_stage/core/color.dart';
 
 class MoveIconButton extends StatelessWidget {
@@ -15,8 +16,8 @@ class MoveIconButton extends StatelessWidget {
         child: InkWell(
           onTap: onPressed,
           child: SizedBox(
-            width: 42,
-            height: 42,
+            width: 35.w,
+            height: 35.w,
             child: icon
           ),
         ),

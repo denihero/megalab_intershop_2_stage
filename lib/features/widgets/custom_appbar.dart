@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:megacom_second_stage/megalab_internship.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -13,8 +14,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       elevation: 0,
       leading: Image.asset(
         Pictures.logoPng,
-        width: 200,
-        height: 200,
+        width: 200.w,
+        height: 200.h,
         color: Colors.black,
       ),
       actions: [
@@ -37,5 +38,5 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => const Size(0, 100);
+  Size get preferredSize => const Size(0, 55);
 }

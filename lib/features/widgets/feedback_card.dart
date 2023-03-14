@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:megacom_second_stage/core/color.dart';
 import 'package:megacom_second_stage/core/style.dart';
 
@@ -8,30 +9,40 @@ class FeedbackCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      child: Card(
-        elevation: 2,
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(12),
-          ),
-        ),
+      height: 130.h,
+      width: 255.w,
+      child: Container(
+        decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(12),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.15),
+                spreadRadius: 1,
+                blurRadius: 5,
+                offset: const Offset(4, 6), // changes position of shadow
+              ),
+            ]),
         child: Column(
           children: [
             ListTile(
-              leading: const CircleAvatar(
-                radius: 20,
+              leading: Transform.translate(
+                offset: Offset(0,-12),
+                child: const CircleAvatar(
+                  radius: 25,
+                ),
               ),
               title: Text(
                 'Улан Султанов',
                 maxLines: 1,
-                style: Style.montserrat_14_600White
-                    .copyWith(color: Palette.black),
+                style:
+                    Style.montserrat_14_600White.copyWith(color: Palette.black),
               ),
               subtitle: Text('make some request',
                   style: Style.montserrat_11_300Black),
             ),
             Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               child: Text(
                 'Ворота стоят уже более двух лет. За это время с ними не было никаких проблем. Спасибо, Selim Trade!',
                 style: Style.montserrat_12_400Black,

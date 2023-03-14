@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:megacom_second_stage/core/pictures.dart';
 import 'package:megacom_second_stage/core/string.dart';
 
@@ -16,7 +17,7 @@ class CompanyInfo extends StatelessWidget {
           ClipPath(
             child: Container(
               width: double.infinity,
-              height: 300,
+              height: 280.h,
               decoration: const BoxDecoration(
                 image: DecorationImage(
                   fit: BoxFit.cover,
@@ -33,8 +34,8 @@ class CompanyInfo extends StatelessWidget {
                       height: 10,
                     ),
                     SizedBox(
-                      width: 330,
-                      height: 200,
+                      width: 330.w,
+                      height: 200.h,
                       child: Card(
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),

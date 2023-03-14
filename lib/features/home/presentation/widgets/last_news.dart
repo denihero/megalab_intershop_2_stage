@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:megacom_second_stage/core/pictures.dart';
 import 'package:megacom_second_stage/core/string.dart';
 import 'package:megacom_second_stage/core/style.dart';
@@ -11,7 +12,7 @@ class LastNews extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 350,
+      height: 300.h,
       decoration: const BoxDecoration(
           image: DecorationImage(
               fit: BoxFit.contain, image: AssetImage(Pictures.lastNews))),
@@ -21,15 +22,15 @@ class LastNews extends StatelessWidget {
             AppString.lastNews,
             style: Style.montserrat_16_700Black,
           ),
-          const SizedBox(
-            height: 20,
+          SizedBox(
+            height: 20.h,
           ),
           CarouselSlider.builder(
             itemCount: 4,
             options: CarouselOptions(
               autoPlay: false,
               enableInfiniteScroll: false,
-              viewportFraction: 0.76,
+              viewportFraction: 0.74.w,
               enlargeFactor: 2,
               aspectRatio: 2.1,
               initialPage: 2,

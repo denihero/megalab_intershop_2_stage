@@ -1,6 +1,7 @@
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:megacom_second_stage/core/color.dart';
 import 'package:megacom_second_stage/core/pictures.dart';
 import 'package:megacom_second_stage/core/string.dart';
@@ -29,7 +30,7 @@ class _WeOfferState extends State<WeOffer> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 290,
+      height: 280.h,
       width: double.infinity,
       decoration: const BoxDecoration(
           image: DecorationImage(
@@ -49,9 +50,9 @@ class _WeOfferState extends State<WeOffer> {
             options: CarouselOptions(
               autoPlay: false,
               enableInfiniteScroll: false,
-              viewportFraction: 0.79,
-              enlargeFactor: 2,
-              aspectRatio: 2.1,
+              viewportFraction: 0.80.w,
+              enlargeFactor: 1,
+              aspectRatio: 2,
               initialPage: 2,
             ),
             itemBuilder:
@@ -59,8 +60,8 @@ class _WeOfferState extends State<WeOffer> {
               return const GateCard();
             },
           ),
-          const SizedBox(
-            height: 15,
+          SizedBox(
+            height: 15.h,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
