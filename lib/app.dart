@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:megacom_second_stage/features/our_service/presentation/bloc/our_service_cubit.dart';
 
+import 'core/locator_service.dart';
 import 'navigation/route.dart';
 
 class App extends StatefulWidget {
@@ -20,10 +23,17 @@ class _AppState extends State<App> {
         minTextAdapt: true,
         splitScreenMode: true,
         builder: (context, child) {
-          return MaterialApp.router(
-            debugShowCheckedModeBanner: false,
-            routerDelegate: _appRouter.delegate(),
-            routeInformationParser: _appRouter.defaultRouteParser(),
+          return MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => sl<OurServiceCubit>()..getGateType(),
+              ),
+            ],
+            child: MaterialApp.router(
+              debugShowCheckedModeBanner: false,
+              routerDelegate: _appRouter.delegate(),
+              routeInformationParser: _appRouter.defaultRouteParser(),
+            ),
           );
         });
   }

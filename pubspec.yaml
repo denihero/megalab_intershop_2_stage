@@ -33,6 +33,8 @@ dependencies:
   flutter_bloc: ^8.1.2
   equatable: ^2.0.5
   flutter_screenutil: ^5.7.0
+  get_it: ^7.2.0
+  cached_network_image: ^3.2.3
 
 dev_dependencies:
   flutter_test:

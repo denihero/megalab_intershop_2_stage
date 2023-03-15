@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:megacom_second_stage/megalab_internship.dart';
+import 'package:megacom_second_stage/core/megalab_internship.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);

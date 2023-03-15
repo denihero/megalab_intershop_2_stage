@@ -1,6 +1,6 @@
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:megacom_second_stage/megalab_internship.dart';
+import 'package:megacom_second_stage/core/megalab_internship.dart';
 import 'package:megacom_second_stage/navigation/route.dart';
 
 class NewsCard extends StatelessWidget {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:megacom_second_stage/megalab_internship.dart';
+import 'package:megacom_second_stage/core/megalab_internship.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({Key? key, required this.scaffoldKey}) : super(key: key);

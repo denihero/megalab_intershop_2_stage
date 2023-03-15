@@ -6,6 +6,8 @@ import 'package:megacom_second_stage/features/our_news/presentation/page/our_new
 import 'package:megacom_second_stage/features/our_service/presentation/page/our_service.dart';
 import 'package:megacom_second_stage/features/our_works/presentation/pages/our_works_page.dart';
 import 'package:auto_route/auto_route.dart';
+
+import '../features/our_service/data/model/our_service_model.dart';
 part 'route.gr.dart';
 
 @MaterialAutoRouter(

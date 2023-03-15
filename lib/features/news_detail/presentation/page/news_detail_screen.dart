@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:megacom_second_stage/features/widgets/custom_appbar.dart';
 import 'package:megacom_second_stage/features/widgets/cutom_end_drawer.dart';
-import 'package:megacom_second_stage/megalab_internship.dart';
+import 'package:megacom_second_stage/core/megalab_internship.dart';
 
 class NewsDetailScreen extends StatefulWidget {
   const NewsDetailScreen({Key? key}) : super(key: key);

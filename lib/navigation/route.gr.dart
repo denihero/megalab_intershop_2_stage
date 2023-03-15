@@ -24,9 +24,13 @@ class _$AppRouter extends RootStackRouter {
       );
     },
     GateTypeScreenRoute.name: (routeData) {
+      final args = routeData.argsAs<GateTypeScreenRouteArgs>();
       return MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const GateTypeScreen(),
+        child: GateTypeScreen(
+          key: args.key,
+          gateType: args.gateType,
+        ),
       );
     },
     OurNewsScreenRoute.name: (routeData) {
@@ -98,14 +102,36 @@ class HomeScreenRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [GateTypeScreen]
-class GateTypeScreenRoute extends PageRouteInfo<void> {
-  const GateTypeScreenRoute()
-      : super(
+class GateTypeScreenRoute extends PageRouteInfo<GateTypeScreenRouteArgs> {
+  GateTypeScreenRoute({
+    Key? key,
+    required OurServiceModel gateType,
+  }) : super(
           GateTypeScreenRoute.name,
           path: '/gate-type-screen',
+          args: GateTypeScreenRouteArgs(
+            key: key,
+            gateType: gateType,
+          ),
         );
 
   static const String name = 'GateTypeScreenRoute';
+}
+
+class GateTypeScreenRouteArgs {
+  const GateTypeScreenRouteArgs({
+    this.key,
+    required this.gateType,
+  });
+
+  final Key? key;
+
+  final OurServiceModel gateType;
+
+  @override
+  String toString() {
+    return 'GateTypeScreenRouteArgs{key: $key, gateType: $gateType}';
+  }
 }
 
 /// generated route for

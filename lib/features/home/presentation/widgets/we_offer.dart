@@ -1,11 +1,13 @@
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:megacom_second_stage/core/color.dart';
 import 'package:megacom_second_stage/core/pictures.dart';
 import 'package:megacom_second_stage/core/string.dart';
 import 'package:megacom_second_stage/core/style.dart';
+import 'package:megacom_second_stage/features/our_service/data/model/our_service_model.dart';
+import 'package:megacom_second_stage/features/our_service/presentation/bloc/our_service_cubit.dart';
 import 'package:megacom_second_stage/features/widgets/move_icon_button.dart';
 
 import '../../../widgets/gate_card.dart';
@@ -18,7 +20,6 @@ class WeOffer extends StatefulWidget {
 }
 
 class _WeOfferState extends State<WeOffer> {
-
   late final CarouselController _buttonCarouselController;
 
   @override
@@ -44,20 +45,28 @@ class _WeOfferState extends State<WeOffer> {
           const SizedBox(
             height: 10,
           ),
-          CarouselSlider.builder(
-            carouselController: _buttonCarouselController,
-            itemCount: 4,
-            options: CarouselOptions(
-              autoPlay: false,
-              enableInfiniteScroll: false,
-              viewportFraction: 0.80.w,
-              enlargeFactor: 1,
-              aspectRatio: 2,
-              initialPage: 2,
-            ),
-            itemBuilder:
-                (BuildContext context, int itemIndex, int pageViewIndex) {
-              return const GateCard();
+          BlocBuilder<OurServiceCubit, OurServiceState>(
+            builder: (context, state) {
+              if (state is OurServiceSuccess) {
+                final gate = state.ourService;
+                return CarouselSlider.builder(
+                  carouselController: _buttonCarouselController,
+                  itemCount: gate.length,
+                  options: CarouselOptions(
+                    autoPlay: false,
+                    enableInfiniteScroll: false,
+                    viewportFraction: 0.80.w,
+                    enlargeFactor: 1,
+                    aspectRatio: 2,
+                    initialPage: 2,
+                  ),
+                  itemBuilder:
+                      (BuildContext context, int itemIndex, int pageViewIndex) {
+                    return GateCard(gate: gate[itemIndex]);
+                  },
+                );
+              }
+              return const SizedBox();
             },
           ),
           SizedBox(

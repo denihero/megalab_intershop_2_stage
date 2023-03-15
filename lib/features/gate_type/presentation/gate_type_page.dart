@@ -1,13 +1,17 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:megacom_second_stage/core/color.dart';
 import 'package:megacom_second_stage/features/gate_type/data/model/out_advatages.dart';
 import 'package:megacom_second_stage/features/gate_type/presentation/widget/special_advantage_card.dart';
+import 'package:megacom_second_stage/features/our_service/data/model/our_service_model.dart';
 import 'package:megacom_second_stage/features/widgets/cutom_end_drawer.dart';
-import 'package:megacom_second_stage/megalab_internship.dart';
+import 'package:megacom_second_stage/core/megalab_internship.dart';
 
 class GateTypeScreen extends StatefulWidget {
-  const GateTypeScreen({Key? key}) : super(key: key);
+  const GateTypeScreen({Key? key, required this.gateType}) : super(key: key);
+
+  final OurServiceModel gateType;
 
   @override
   State<GateTypeScreen> createState() => _GateTypeScreenState();
@@ -48,19 +52,27 @@ class _GateTypeScreenState extends State<GateTypeScreen> {
                 ),
               ),
             ],
-            flexibleSpace: Container(
-              height: 200.h,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
+            flexibleSpace: ClipRRect(
+              borderRadius:
+                  const BorderRadius.only(bottomRight: Radius.circular(60)),
+              child: Container(
+                height: 200.h,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
                     fit: BoxFit.cover,
-                    image: AssetImage(Pictures.backgroundGateType)),
+                    image: CachedNetworkImageProvider(
+                      widget.gateType.image ?? '',
+                      errorListener: () => const Icon(Icons.error),
+                    ),
+                  ),
+                ),
+                child: Center(
+                    child: Text(
+                  widget.gateType.name ?? '',
+                  textAlign: TextAlign.center,
+                  style: Style.montserrat_16_800White,
+                )),
               ),
-              child: Center(
-                  child: Text(
-                AppString.ourGateTypeTitle,
-                textAlign: TextAlign.center,
-                style: Style.montserrat_16_800White,
-              )),
             ),
           ),
         ),
@@ -70,7 +82,7 @@ class _GateTypeScreenState extends State<GateTypeScreen> {
               Padding(
                 padding: const EdgeInsets.all(20),
                 child: Text(
-                  AppString.ourGateTypeDescription,
+                  widget.gateType.description ?? '',
                   style: Style.montserrat_14_300Black,
                 ),
               ),
@@ -99,13 +111,14 @@ class _GateTypeScreenState extends State<GateTypeScreen> {
                             EdgeInsets.symmetric(horizontal: 15, vertical: 15),
                         child: GateCard(
                           isBackgroundUse: false,
+                          gate: OurServiceModel(),
                         ),
                       );
                     }),
               ),
               Center(
                   child: Text(
-               AppString.specialAdvantagesTitle,
+                AppString.specialAdvantagesTitle,
                 style: Style.montserrat_16_700Black,
               )),
               Padding(
