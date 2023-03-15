@@ -91,9 +91,6 @@ class _FooterState extends State<Footer> {
                           Pictures.logoPng,
                           fit: BoxFit.contain,
                         ),
-                        SizedBox(
-                          width: 20.w,
-                        ),
                         const ScheduleAndPhoneCompany(),
                         SizedBox(
                           width: 10.w,
@@ -101,7 +98,7 @@ class _FooterState extends State<Footer> {
                         ClipRRect(
                           borderRadius: BorderRadius.circular(12),
                           child: SizedBox(
-                            height: 140.w,
+                            height: 140.h,
                             width: 140.w,
                             child: Stack(
                               children: [
