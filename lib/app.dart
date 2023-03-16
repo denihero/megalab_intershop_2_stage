@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:megacom_second_stage/features/news_detail/presentation/bloc/detail_news_cubit.dart';
+import 'package:megacom_second_stage/features/news_detail/presentation/bloc/send_application/send_application_cubit.dart';
 import 'package:megacom_second_stage/features/our_news/presentation/bloc/our_news_cubit.dart';
 import 'package:megacom_second_stage/features/our_service/presentation/bloc/our_service_cubit.dart';
 import 'package:megacom_second_stage/features/our_works/presentation/bloc/our_work_cubit.dart';
@@ -39,6 +40,9 @@ class _AppState extends State<App> {
               ),
               BlocProvider(
                 create: (context) => sl<OurWorkCubit>()..getOurWork(),
+              ),
+              BlocProvider(
+                create: (context) => sl<SendApplicationCubit>(),
               ),
             ],
             child: MaterialApp.router(

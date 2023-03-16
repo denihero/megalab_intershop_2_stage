@@ -1,10 +1,15 @@
 import 'package:megacom_second_stage/core/megalab_internship.dart';
 import 'package:megacom_second_stage/core/network/dio_settings.dart';
 import 'package:get_it/get_it.dart';
+import 'package:megacom_second_stage/features/home/data/datasource/home_datasources.dart';
+import 'package:megacom_second_stage/features/home/data/repositories/home_repositories_impl.dart';
+import 'package:megacom_second_stage/features/home/domain/repositories/home_repositories.dart';
+import 'package:megacom_second_stage/features/home/domain/usecases/home_usecases.dart';
 import 'package:megacom_second_stage/features/news_detail/data/repositories/detail_news_repositories_impl.dart';
 import 'package:megacom_second_stage/features/news_detail/domain/repositories/detail_news_repositories.dart';
 import 'package:megacom_second_stage/features/news_detail/domain/usecases/detail_news_usecase.dart';
 import 'package:megacom_second_stage/features/news_detail/presentation/bloc/detail_news_cubit.dart';
+import 'package:megacom_second_stage/features/news_detail/presentation/bloc/send_application/send_application_cubit.dart';
 import 'package:megacom_second_stage/features/our_news/data/datasources/our_news_datasources.dart';
 import 'package:megacom_second_stage/features/our_news/data/repositories/our_news_repositories_impl.dart';
 import 'package:megacom_second_stage/features/our_news/domain/repositories/our_news_repositories.dart';
@@ -33,12 +38,14 @@ init() {
   sl.registerFactory(() => OurNewsCubit(sl()));
   sl.registerFactory(() => DetailNewsCubit(sl()));
   sl.registerFactory(() => OurWorkCubit(sl()));
+  sl.registerFactory(() => SendApplicationCubit(sl()));
 
   //Use case
   sl.registerLazySingleton(() => OurService(sl()));
   sl.registerLazySingleton(() => OurNews(sl()));
   sl.registerLazySingleton(() => DetailNews(sl()));
   sl.registerLazySingleton(() => OurWork(sl()));
+  sl.registerLazySingleton(() => HomeUseCases(sl()));
 
 
   //Service
@@ -54,6 +61,9 @@ init() {
   sl.registerLazySingleton<OurWorksDataSources>(
           () => OurWorksDataSourcesImpl(client: dio));
 
+  sl.registerLazySingleton<HomeDataSources>(
+          () => HomeDataSourcesImpl(client: dio));
+
   //Repositories
   sl.registerLazySingleton<OurServiceRepositories>(
       () => OurServiceRepositoriesImpl(sl()));
@@ -66,4 +76,7 @@ init() {
 
   sl.registerLazySingleton<OurWorkRepositories>(
           () => OurWorkRepositoriesImpl(sl()));
+
+  sl.registerLazySingleton<HomeRepositories>(
+          () => HomeRepositoriesImpl(sl()));
 }
