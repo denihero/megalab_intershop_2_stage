@@ -24,6 +24,7 @@ class ContentModel extends ContentEntity with _$ContentModel{
   const factory ContentModel({
     int? id,
     String? image,
+    String? title,
 }) = _ContentModel;
 
   factory ContentModel.fromJson(Map<String, dynamic> json) =>

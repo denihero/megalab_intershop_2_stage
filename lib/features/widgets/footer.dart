@@ -63,14 +63,7 @@ class _FooterState extends State<Footer> {
               ),
             ),
           ),
-          Positioned(
-              right: 0,
-              top: 10,
-              child: SvgPicture.asset(
-                Pictures.position,
-                width: 180.w,
-                height: 180.h,
-              )),
+
           Container(
             height: 250.h,
             decoration: BoxDecoration(
@@ -98,8 +91,8 @@ class _FooterState extends State<Footer> {
                         ClipRRect(
                           borderRadius: BorderRadius.circular(12),
                           child: SizedBox(
-                            height: 140.h,
-                            width: 140.w,
+                            height: 150.h,
+                            width: 160.w,
                             child: Stack(
                               children: [
                                 GoogleMap(
@@ -164,8 +157,18 @@ class _FooterState extends State<Footer> {
               ),
             ),
           ),
+          ///TODO: Fix position
+          // Positioned(
+          //     right: 0,
+          //     top: 10,
+          //     child: SvgPicture.asset(
+          //       Pictures.position,
+          //       width: 180.w,
+          //       height: 180.h,
+          //     )),
         ],
       ),
+
     );
   }
 }

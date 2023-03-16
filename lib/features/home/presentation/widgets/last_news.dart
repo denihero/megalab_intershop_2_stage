@@ -1,9 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:megacom_second_stage/core/pictures.dart';
 import 'package:megacom_second_stage/core/string.dart';
 import 'package:megacom_second_stage/core/style.dart';
+import 'package:megacom_second_stage/features/our_news/presentation/bloc/our_news_cubit.dart';
 import 'package:megacom_second_stage/features/widgets/news_card.dart';
 
 class LastNews extends StatelessWidget {
@@ -25,19 +27,34 @@ class LastNews extends StatelessWidget {
           SizedBox(
             height: 20.h,
           ),
-          CarouselSlider.builder(
-            itemCount: 4,
-            options: CarouselOptions(
-              autoPlay: false,
-              enableInfiniteScroll: false,
-              viewportFraction: 0.74.w,
-              enlargeFactor: 2,
-              aspectRatio: 2.1,
-              initialPage: 2,
-            ),
-            itemBuilder:
-                (BuildContext context, int itemIndex, int pageViewIndex) {
-              return const NewsCard();
+          BlocBuilder<OurNewsCubit, OurNewsState>(
+            builder: (context, state) {
+              if(state is OurNewsSuccess){
+                final news = state.ourNews;
+                return CarouselSlider.builder(
+                  itemCount: news.content?.length ?? 0,
+                  options: CarouselOptions(
+                    autoPlay: false,
+                    enableInfiniteScroll: false,
+                    viewportFraction: 0.74.w,
+                    enlargeFactor: 2,
+                    aspectRatio: 2.1,
+                    initialPage: 2,
+                  ),
+                  itemBuilder:
+                      (BuildContext context, int itemIndex, int pageViewIndex) {
+                    return NewsCard(
+                      news: news.content![itemIndex],
+                    );
+                  },
+                );
+              }else if(state is OurNewsLoading){
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+              return const SizedBox();
+
             },
           ),
           const SizedBox(
@@ -57,7 +74,7 @@ class LastNews extends StatelessWidget {
               onPressed: () {},
               child: Text(
                 'все новости',
-                  style: Style.inter_14_400Black,
+                style: Style.inter_14_400Black,
               ))
         ],
       ),
