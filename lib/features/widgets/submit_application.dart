@@ -38,7 +38,7 @@ class _SubmitApplicationState extends State<SubmitApplication> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 420.h,
+      height: 440.h,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
@@ -73,6 +73,9 @@ class _SubmitApplicationState extends State<SubmitApplication> {
                   textInputType: TextInputType.text,
                   maxLines: 7,
                 )),
+            SizedBox(
+              height: 15.h,
+            ),
             SizedBox(
               height: 55.h,
               width: 290.w,

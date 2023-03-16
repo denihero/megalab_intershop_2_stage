@@ -31,7 +31,7 @@ class _WeOfferState extends State<WeOffer> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 280.h,
+      height: 280.w,
       width: double.infinity,
       decoration: const BoxDecoration(
           image: DecorationImage(

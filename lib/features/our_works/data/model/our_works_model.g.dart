@@ -32,10 +32,12 @@ _$_ContentModel _$$_ContentModelFromJson(Map<String, dynamic> json) =>
     _$_ContentModel(
       id: json['id'] as int?,
       image: json['image'] as String?,
+      title: json['title'] as String?,
     );
 
 Map<String, dynamic> _$$_ContentModelToJson(_$_ContentModel instance) =>
     <String, dynamic>{
       'id': instance.id,
       'image': instance.image,
+      'title': instance.title,
     };

@@ -281,6 +281,7 @@ ContentModel _$ContentModelFromJson(Map<String, dynamic> json) {
 mixin _$ContentModel {
   int? get id => throw _privateConstructorUsedError;
   String? get image => throw _privateConstructorUsedError;
+  String? get title => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -294,7 +295,7 @@ abstract class $ContentModelCopyWith<$Res> {
           ContentModel value, $Res Function(ContentModel) then) =
       _$ContentModelCopyWithImpl<$Res, ContentModel>;
   @useResult
-  $Res call({int? id, String? image});
+  $Res call({int? id, String? image, String? title});
 }
 
 /// @nodoc
@@ -312,6 +313,7 @@ class _$ContentModelCopyWithImpl<$Res, $Val extends ContentModel>
   $Res call({
     Object? id = freezed,
     Object? image = freezed,
+    Object? title = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -321,6 +323,10 @@ class _$ContentModelCopyWithImpl<$Res, $Val extends ContentModel>
       image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
+              as String?,
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -334,7 +340,7 @@ abstract class _$$_ContentModelCopyWith<$Res>
       __$$_ContentModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int? id, String? image});
+  $Res call({int? id, String? image, String? title});
 }
 
 /// @nodoc
@@ -350,6 +356,7 @@ class __$$_ContentModelCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? image = freezed,
+    Object? title = freezed,
   }) {
     return _then(_$_ContentModel(
       id: freezed == id
@@ -360,6 +367,10 @@ class __$$_ContentModelCopyWithImpl<$Res>
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String?,
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -367,7 +378,7 @@ class __$$_ContentModelCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ContentModel implements _ContentModel {
-  const _$_ContentModel({this.id, this.image});
+  const _$_ContentModel({this.id, this.image, this.title});
 
   factory _$_ContentModel.fromJson(Map<String, dynamic> json) =>
       _$$_ContentModelFromJson(json);
@@ -376,10 +387,12 @@ class _$_ContentModel implements _ContentModel {
   final int? id;
   @override
   final String? image;
+  @override
+  final String? title;
 
   @override
   String toString() {
-    return 'ContentModel(id: $id, image: $image)';
+    return 'ContentModel(id: $id, image: $image, title: $title)';
   }
 
   @override
@@ -388,12 +401,13 @@ class _$_ContentModel implements _ContentModel {
         (other.runtimeType == runtimeType &&
             other is _$_ContentModel &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.image, image) || other.image == image));
+            (identical(other.image, image) || other.image == image) &&
+            (identical(other.title, title) || other.title == title));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, image);
+  int get hashCode => Object.hash(runtimeType, id, image, title);
 
   @JsonKey(ignore: true)
   @override
@@ -410,8 +424,10 @@ class _$_ContentModel implements _ContentModel {
 }
 
 abstract class _ContentModel implements ContentModel {
-  const factory _ContentModel({final int? id, final String? image}) =
-      _$_ContentModel;
+  const factory _ContentModel(
+      {final int? id,
+      final String? image,
+      final String? title}) = _$_ContentModel;
 
   factory _ContentModel.fromJson(Map<String, dynamic> json) =
       _$_ContentModel.fromJson;
@@ -420,6 +436,8 @@ abstract class _ContentModel implements ContentModel {
   int? get id;
   @override
   String? get image;
+  @override
+  String? get title;
   @override
   @JsonKey(ignore: true)
   _$$_ContentModelCopyWith<_$_ContentModel> get copyWith =>

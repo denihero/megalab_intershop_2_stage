@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:megacom_second_stage/features/our_news/presentation/bloc/our_news_cubit.dart';
 import 'package:megacom_second_stage/features/our_service/presentation/bloc/our_service_cubit.dart';
 
 import 'core/locator_service.dart';
@@ -27,6 +28,9 @@ class _AppState extends State<App> {
             providers: [
               BlocProvider(
                 create: (context) => sl<OurServiceCubit>()..getGateType(),
+              ),
+              BlocProvider(
+                create: (context) => sl<OurNewsCubit>()..getAllNews(),
               ),
             ],
             child: MaterialApp.router(

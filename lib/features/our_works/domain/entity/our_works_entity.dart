@@ -18,6 +18,7 @@ class OurWorksEntity {
 class ContentEntity {
   final int? id;
   final String? image;
+  final String? title;
 
-  ContentEntity({this.id, this.image});
+  ContentEntity({this.id,this.title,this.image});
 }

@@ -37,7 +37,6 @@ class GateCard extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Container(
-                  height: 30.h,
                   decoration: BoxDecoration(
                       color:
                           isBackgroundUse ? Colors.black26 : Colors.transparent,
