@@ -5,14 +5,14 @@ import 'package:megacom_second_stage/features/our_works/data/model/our_works_mod
 import 'package:megacom_second_stage/features/our_works/domain/repositories/our_work_repositories.dart';
 
 class OurWorkRepositoriesImpl extends OurWorkRepositories{
-  OurWorkRepositoriesImpl({required this.ourWorksDataSourcesImpl});
+  OurWorkRepositoriesImpl(this.ourWorksDataSources);
 
-  final OurWorksDataSourcesImpl ourWorksDataSourcesImpl;
+  final OurWorksDataSources ourWorksDataSources;
 
   @override
   Future<Either<DioErrorType, OurWorksModel>> getOurWorks() async{
     try {
-      final getOurWorks = await ourWorksDataSourcesImpl.getOurWorks();
+      final getOurWorks = await ourWorksDataSources.getAllWorks();
       return Right(getOurWorks);
     } on DioErrorType {
       return const Left(DioErrorType.badResponse);

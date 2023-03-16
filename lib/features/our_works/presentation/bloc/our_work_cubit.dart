@@ -14,6 +14,9 @@ class OurWorkCubit extends Cubit<OurWorkState> {
     emit(OurWorkLoading());
 
     final resultWork = await ourWork.getAllPost();
-    resultWork.fold((l) => OurWorkError(), (r) => OurWorkSuccess(r));
+    resultWork.fold(
+      (l) => emit(OurWorkError()),
+      (r) => emit(OurWorkSuccess(r)),
+    );
   }
 }

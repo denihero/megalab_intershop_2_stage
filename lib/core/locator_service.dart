@@ -1,3 +1,4 @@
+import 'package:megacom_second_stage/core/megalab_internship.dart';
 import 'package:megacom_second_stage/core/network/dio_settings.dart';
 import 'package:get_it/get_it.dart';
 import 'package:megacom_second_stage/features/news_detail/data/repositories/detail_news_repositories_impl.dart';
@@ -15,6 +16,10 @@ import 'package:megacom_second_stage/features/our_service/domain/repositories/ou
 import 'package:megacom_second_stage/features/our_service/domain/usecases/our_service_usecases.dart';
 import 'package:megacom_second_stage/features/our_service/presentation/bloc/our_service_cubit.dart';
 import 'package:megacom_second_stage/features/our_works/data/datasources/our_works_data_sources.dart';
+import 'package:megacom_second_stage/features/our_works/data/repositories/our_works_repositories_impl.dart';
+import 'package:megacom_second_stage/features/our_works/domain/repositories/our_work_repositories.dart';
+import 'package:megacom_second_stage/features/our_works/domain/usecases/our_work.dart';
+import 'package:megacom_second_stage/features/our_works/presentation/bloc/our_work_cubit.dart';
 
 import '../features/news_detail/data/datasources/news_detail_datarsource.dart';
 
@@ -27,11 +32,13 @@ init() {
   sl.registerFactory(() => OurServiceCubit(sl()));
   sl.registerFactory(() => OurNewsCubit(sl()));
   sl.registerFactory(() => DetailNewsCubit(sl()));
+  sl.registerFactory(() => OurWorkCubit(sl()));
 
   //Use case
   sl.registerLazySingleton(() => OurService(sl()));
   sl.registerLazySingleton(() => OurNews(sl()));
   sl.registerLazySingleton(() => DetailNews(sl()));
+  sl.registerLazySingleton(() => OurWork(sl()));
 
 
   //Service
@@ -44,6 +51,9 @@ init() {
   sl.registerLazySingleton<NewsDetailDataSource>(
           () => NewsDetailDataSourceImpl(client: dio));
 
+  sl.registerLazySingleton<OurWorksDataSources>(
+          () => OurWorksDataSourcesImpl(client: dio));
+
   //Repositories
   sl.registerLazySingleton<OurServiceRepositories>(
       () => OurServiceRepositoriesImpl(sl()));
@@ -53,4 +63,7 @@ init() {
 
   sl.registerLazySingleton<DetailNewsRepositories>(
           () => DetailNewsRepositoriesImpl(sl()));
+
+  sl.registerLazySingleton<OurWorkRepositories>(
+          () => OurWorkRepositoriesImpl(sl()));
 }
