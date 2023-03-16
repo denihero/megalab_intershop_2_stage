@@ -1,8 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:megacom_second_stage/features/our_news/presentation/bloc/our_news_cubit.dart';
 import 'package:megacom_second_stage/features/widgets/custom_appbar.dart';
-import 'package:megacom_second_stage/features/widgets/cutom_end_drawer.dart';
 import 'package:megacom_second_stage/features/widgets/news_card.dart';
 import 'package:megacom_second_stage/core/megalab_internship.dart';
 

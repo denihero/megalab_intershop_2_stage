@@ -1,4 +1,3 @@
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:megacom_second_stage/core/megalab_internship.dart';
@@ -16,12 +15,12 @@ class NewsCard extends StatelessWidget {
       borderRadius: BorderRadius.circular(12.0),
       child: GestureDetector(
         onTap: () {
-          context.router.push(const NewsDetailScreenRoute());
+          context.router.push(NewsDetailScreenRoute(id: news.id ?? 0));
         },
         child: Container(
           width: 280.w,
           height: 200.h,
-          decoration:  BoxDecoration(
+          decoration: BoxDecoration(
             color: Colors.black12,
             image: DecorationImage(
               fit: BoxFit.cover,
@@ -32,8 +31,7 @@ class NewsCard extends StatelessWidget {
               alignment: Alignment.center,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Text(
-                    news.title ?? '',
+                child: Text(news.title ?? '',
                     textAlign: TextAlign.start,
                     style: Style.montserrat_10_800White),
               )),

@@ -52,9 +52,13 @@ class _$AppRouter extends RootStackRouter {
       );
     },
     NewsDetailScreenRoute.name: (routeData) {
+      final args = routeData.argsAs<NewsDetailScreenRouteArgs>();
       return MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const NewsDetailScreen(),
+        child: NewsDetailScreen(
+          key: args.key,
+          id: args.id,
+        ),
       );
     },
   };
@@ -172,12 +176,34 @@ class OurWorkScreenRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [NewsDetailScreen]
-class NewsDetailScreenRoute extends PageRouteInfo<void> {
-  const NewsDetailScreenRoute()
-      : super(
+class NewsDetailScreenRoute extends PageRouteInfo<NewsDetailScreenRouteArgs> {
+  NewsDetailScreenRoute({
+    Key? key,
+    required int id,
+  }) : super(
           NewsDetailScreenRoute.name,
           path: '/news-detail-screen',
+          args: NewsDetailScreenRouteArgs(
+            key: key,
+            id: id,
+          ),
         );
 
   static const String name = 'NewsDetailScreenRoute';
+}
+
+class NewsDetailScreenRouteArgs {
+  const NewsDetailScreenRouteArgs({
+    this.key,
+    required this.id,
+  });
+
+  final Key? key;
+
+  final int id;
+
+  @override
+  String toString() {
+    return 'NewsDetailScreenRouteArgs{key: $key, id: $id}';
+  }
 }
