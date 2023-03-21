@@ -6,7 +6,7 @@ import 'package:megacom_second_stage/core/string.dart';
 import 'package:megacom_second_stage/core/style.dart';
 import 'package:megacom_second_stage/features/widgets/move_icon_button.dart';
 
-import '../../../widgets/feedback_card.dart';
+import '../../../widgets/card/feedback_card.dart';
 
 class CustomerFeedback extends StatefulWidget {
   const CustomerFeedback({Key? key}) : super(key: key);

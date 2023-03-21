@@ -4,6 +4,8 @@ import 'package:megacom_second_stage/features/our_works/presentation/bloc/our_wo
 import 'package:megacom_second_stage/features/widgets/custom_appbar.dart';
 import 'package:megacom_second_stage/core/megalab_internship.dart';
 
+import '../../../widgets/card/works_card.dart';
+
 class OurWorkScreen extends StatefulWidget {
   const OurWorkScreen({Key? key}) : super(key: key);
 

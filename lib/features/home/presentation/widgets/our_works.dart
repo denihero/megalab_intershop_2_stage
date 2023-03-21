@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:megacom_second_stage/core/style.dart';
 import 'package:megacom_second_stage/features/our_works/presentation/bloc/our_work_cubit.dart';
-import 'package:megacom_second_stage/features/our_works/presentation/bloc/our_work_cubit.dart';
-import 'package:megacom_second_stage/features/widgets/works_card.dart';
+
+import '../../../widgets/card/works_card.dart';
 
 class OurWorks extends StatelessWidget {
   const OurWorks({Key? key}) : super(key: key);

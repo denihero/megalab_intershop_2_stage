@@ -6,11 +6,11 @@ import 'package:megacom_second_stage/core/color.dart';
 import 'package:megacom_second_stage/core/pictures.dart';
 import 'package:megacom_second_stage/core/string.dart';
 import 'package:megacom_second_stage/core/style.dart';
-import 'package:megacom_second_stage/features/our_service/data/model/our_service_model.dart';
 import 'package:megacom_second_stage/features/our_service/presentation/bloc/our_service_cubit.dart';
 import 'package:megacom_second_stage/features/widgets/move_icon_button.dart';
 
-import '../../../widgets/gate_card.dart';
+import '../../../widgets/card/gate_card.dart';
+
 
 class WeOffer extends StatefulWidget {
   const WeOffer({Key? key}) : super(key: key);

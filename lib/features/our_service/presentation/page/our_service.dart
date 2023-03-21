@@ -5,6 +5,8 @@ import 'package:megacom_second_stage/features/our_service/presentation/bloc/our_
 import 'package:megacom_second_stage/features/widgets/custom_appbar.dart';
 import 'package:megacom_second_stage/core/megalab_internship.dart';
 
+import '../../../widgets/card/gate_card.dart';
+
 class OurServiceScreen extends StatefulWidget {
   const OurServiceScreen({Key? key}) : super(key: key);
 

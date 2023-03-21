@@ -5,6 +5,7 @@ import 'package:megacom_second_stage/core/color.dart';
 import 'package:megacom_second_stage/features/gate_type/data/model/out_advatages.dart';
 import 'package:megacom_second_stage/features/gate_type/presentation/widget/special_advantage_card.dart';
 import 'package:megacom_second_stage/features/our_service/data/model/our_service_model.dart';
+import 'package:megacom_second_stage/features/widgets/card/gate_card.dart';
 import 'package:megacom_second_stage/features/widgets/cutom_end_drawer.dart';
 import 'package:megacom_second_stage/core/megalab_internship.dart';
 

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:megacom_second_stage/core/string.dart';
 import 'package:megacom_second_stage/features/home/data/model/advantage.dart';
-import 'package:megacom_second_stage/features/widgets/support_card.dart';
+import 'package:megacom_second_stage/features/widgets/card/support_card.dart';
 
 import '../../../../core/style.dart';
 

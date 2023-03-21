@@ -4,7 +4,6 @@ export 'package:megacom_second_stage/core/string.dart';
 export 'package:megacom_second_stage/core/style.dart';
 export 'package:megacom_second_stage/features/widgets/footer.dart';
 export 'package:megacom_second_stage/features/widgets/submit_application.dart';
-export 'package:megacom_second_stage/features/widgets/works_card.dart';
 export 'package:megacom_second_stage/features/home/presentation/widgets/company_info.dart';
 export 'package:megacom_second_stage/features/home/presentation/widgets/customer_feedback.dart';
 export 'package:megacom_second_stage/features/home/presentation/widgets/header.dart';
@@ -13,7 +12,6 @@ export 'package:megacom_second_stage/features/home/presentation/widgets/our_adva
 export 'package:megacom_second_stage/features/home/presentation/widgets/our_works.dart';
 export 'package:megacom_second_stage/features/home/presentation/widgets/support.dart';
 export 'package:megacom_second_stage/features/home/presentation/widgets/we_offer.dart';
-export 'package:megacom_second_stage/features/widgets/gate_card.dart';
 export 'package:megacom_second_stage/features/widgets/cutom_end_drawer.dart';
 export 'package:auto_route/auto_route.dart';
 export 'package:flutter/material.dart';
