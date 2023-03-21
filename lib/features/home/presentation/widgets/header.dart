@@ -9,9 +9,8 @@ import '../../../../core/string.dart';
 import '../../../widgets/appbar_clip.dart';
 
 class HeaderPart extends StatefulWidget {
-  const HeaderPart({Key? key, required this.scaffoldKey}) : super(key: key);
+  const HeaderPart({Key? key}) : super(key: key);
 
-  final GlobalKey<ScaffoldState> scaffoldKey;
 
   @override
   State<HeaderPart> createState() => _HeaderPartState();
@@ -23,7 +22,7 @@ class _HeaderPartState extends State<HeaderPart> {
     return ClipPath(
       clipper: CustomShape(),
       child: Container(
-        height: 370.h,
+        height: 380.h,
         decoration: const BoxDecoration(
           image: DecorationImage(
             fit: BoxFit.cover,
@@ -36,22 +35,8 @@ class _HeaderPartState extends State<HeaderPart> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Image.asset(
-                    Pictures.logoPng,
-                    width: 85,
-                    height: 40,
-                  ),
-                  const CustomNavigatorMenu(
-                    iconColor: Colors.white,
-                  ),
-                ],
-              ),
               SizedBox(
-                height: 40.h,
+                height: 80.h,
               ),
               SizedBox(
                 width: 350.h,

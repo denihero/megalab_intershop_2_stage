@@ -11,7 +11,7 @@ class Style {
 
   static TextStyle montserrat_30_700White = GoogleFonts.montserrat(
       textStyle: TextStyle(
-          fontSize: 30.sp, color: Palette.white, fontWeight: FontWeight.w700));
+          fontSize: 30, color: Palette.white, fontWeight: FontWeight.w700));
 
   static TextStyle montserrat_20_800Black = GoogleFonts.montserrat(
       textStyle: TextStyle(
