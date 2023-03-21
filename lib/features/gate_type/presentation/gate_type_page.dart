@@ -6,7 +6,7 @@ import 'package:megacom_second_stage/features/gate_type/data/model/out_advatages
 import 'package:megacom_second_stage/features/gate_type/presentation/widget/special_advantage_card.dart';
 import 'package:megacom_second_stage/features/our_service/data/model/our_service_model.dart';
 import 'package:megacom_second_stage/features/widgets/card/gate_card.dart';
-import 'package:megacom_second_stage/features/widgets/cutom_end_drawer.dart';
+import 'package:megacom_second_stage/features/widgets/custom_end_drawer.dart';
 import 'package:megacom_second_stage/core/megalab_internship.dart';
 
 class GateTypeScreen extends StatefulWidget {
@@ -19,14 +19,11 @@ class GateTypeScreen extends StatefulWidget {
 }
 
 class _GateTypeScreenState extends State<GateTypeScreen> {
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        key: _scaffoldKey,
-        endDrawer: const CustomEndDrawer(),
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(170.h),
           child: AppBar(
@@ -38,19 +35,10 @@ class _GateTypeScreenState extends State<GateTypeScreen> {
               height: 200,
               color: Colors.white,
             ),
-            actions: [
-              GestureDetector(
-                onTap: () {
-                  _scaffoldKey.currentState?.openEndDrawer();
-                },
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: SvgPicture.asset(
-                    Pictures.menu,
-                    width: 30,
-                    height: 30,
-                  ),
-                ),
+            actions: const [
+              Padding(
+                padding: EdgeInsets.all(10.0),
+                child: CustomNavigatorMenu(),
               ),
             ],
             flexibleSpace: ClipRRect(

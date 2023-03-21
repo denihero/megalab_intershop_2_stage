@@ -16,7 +16,6 @@ class NewsDetailScreen extends StatefulWidget {
 }
 
 class _NewsDetailScreenState extends State<NewsDetailScreen> {
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
@@ -33,11 +32,7 @@ class _NewsDetailScreenState extends State<NewsDetailScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        key: _scaffoldKey,
-        endDrawer: const CustomEndDrawer(),
-        appBar: CustomAppBar(
-          scaffoldKey: _scaffoldKey,
-        ),
+        appBar: const CustomAppBar(),
         body: SingleChildScrollView(
           child: BlocBuilder<DetailNewsCubit, DetailNewsState>(
             builder: (context, state) {

@@ -16,20 +16,14 @@ class OurServiceScreen extends StatefulWidget {
 }
 
 class _OurServiceScreenState extends State<OurServiceScreen> {
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
-  @override
-  void initState() {
-    super.initState();
-  }
+
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        key: _scaffoldKey,
-        endDrawer: const CustomEndDrawer(),
-        appBar: CustomAppBar(scaffoldKey: _scaffoldKey),
+        appBar: CustomAppBar(),
         body: Column(
           children: [
             Expanded(

@@ -15,15 +15,12 @@ class OurNewsScreen extends StatefulWidget {
 }
 
 class _OurNewsScreenState extends State<OurNewsScreen> {
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        key: _scaffoldKey,
-        endDrawer: const CustomEndDrawer(),
-        appBar: CustomAppBar(scaffoldKey: _scaffoldKey),
+        appBar: CustomAppBar(),
         body: Column(
           children: [
             Expanded(

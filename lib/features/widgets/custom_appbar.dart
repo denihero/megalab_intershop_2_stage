@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:megacom_second_stage/core/megalab_internship.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({Key? key, required this.scaffoldKey}) : super(key: key);
-
-  final GlobalKey<ScaffoldState> scaffoldKey;
+  const CustomAppBar({Key? key}) : super(key: key);
 
   @override
   PreferredSizeWidget build(BuildContext context) {
@@ -14,24 +11,13 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       elevation: 0,
       leading: Image.asset(
         Pictures.logoPng,
-        width: 200.w,
-        height: 200.h,
+        fit: BoxFit.cover,
         color: Colors.black,
       ),
-      actions: [
-        GestureDetector(
-          onTap: () {
-            scaffoldKey.currentState?.openEndDrawer();
-          },
-          child: Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: SvgPicture.asset(
-              Pictures.menu,
-              width: 30,
-              height: 30,
-              color: Colors.black,
-            ),
-          ),
+      actions: const [
+        Padding(
+          padding: EdgeInsets.all(10.0),
+          child: CustomNavigatorMenu()
         ),
       ],
     );
