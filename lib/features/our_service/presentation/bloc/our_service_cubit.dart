@@ -11,7 +11,7 @@ class OurServiceCubit extends Cubit<OurServiceState> {
   final OurService ourService;
 
   void getGateType() async {
-    emit(OurServiceInitial());
+    emit(OurServiceLoading());
     final response = await ourService.getAllPost();
     response.fold(
       (l) => emit(OurServiceError()),

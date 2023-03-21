@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:megacom_second_stage/features/news_detail/presentation/bloc/detail_news_cubit.dart';
 import 'package:megacom_second_stage/features/widgets/custom_appbar.dart';
 import 'package:megacom_second_stage/core/megalab_internship.dart';
+import 'package:shimmer/shimmer.dart';
 
 class NewsDetailScreen extends StatefulWidget {
   const NewsDetailScreen({Key? key, required this.id}) : super(key: key);
@@ -61,35 +62,64 @@ class _NewsDetailScreenState extends State<NewsDetailScreen> {
                       ),
                     ),
                     CachedNetworkImage(
-                      fit: BoxFit.cover,
-                      imageUrl: detailNews.contentImage ?? '',
-                      errorWidget: (context,error,_) => Container(
-                          width: 310.w,
-                          height: 230.h,
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Colors.black,
+                        fit: BoxFit.cover,
+                        imageUrl: detailNews.contentImage ?? '',
+                        errorWidget: (context, error, _) => Container(
+                            width: 310.w,
+                            height: 230.h,
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: Colors.black,
+                              ),
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(20)),
                             ),
-                            borderRadius: const BorderRadius.all(Radius.circular(20)),
-                          ),
-                          child: const Icon(Icons.error)),
-                    ),
+                            child: const Icon(Icons.error)),
+                        progressIndicatorBuilder: (context, _, __) =>
+                            Shimmer.fromColors(
+                              baseColor: Colors.grey[300]!,
+                              highlightColor: Colors.grey[200]!,
+                              child: Container(
+                                  width: 310.w,
+                                  height: 230.h,
+                                  decoration: const BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(20)),
+                                  ),
+                                  child: const Icon(Icons.error)),
+                            )),
                     SizedBox(
                       height: 10.h,
                     ),
                     CachedNetworkImage(
                       fit: BoxFit.cover,
                       imageUrl: detailNews.contentImage ?? '',
-                      errorWidget: (context,error,_) => Container(
+                      errorWidget: (context, error, _) => Container(
                           width: 310.w,
                           height: 230.h,
                           decoration: BoxDecoration(
                             border: Border.all(
                               color: Colors.black,
                             ),
-                            borderRadius: const BorderRadius.all(Radius.circular(20)),
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(20)),
                           ),
                           child: const Icon(Icons.error)),
+                        progressIndicatorBuilder: (context, _, __) =>
+                            Shimmer.fromColors(
+                              baseColor: Colors.grey[300]!,
+                              highlightColor: Colors.grey[200]!,
+                              child: Container(
+                                  width: 310.w,
+                                  height: 230.h,
+                                  decoration: const BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius:
+                                    BorderRadius.all(Radius.circular(20)),
+                                  ),
+                                  child: const Icon(Icons.error)),
+                            )
                     ),
                     SizedBox(
                       height: 30.h,

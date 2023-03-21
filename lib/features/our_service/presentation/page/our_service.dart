@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:megacom_second_stage/core/locator_service.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:megacom_second_stage/features/our_service/presentation/bloc/our_service_cubit.dart';
 import 'package:megacom_second_stage/features/widgets/custom_appbar.dart';
 import 'package:megacom_second_stage/core/megalab_internship.dart';
+import 'package:megacom_second_stage/features/widgets/shimmer/gate_shimmer_card.dart';
 
 import '../../../widgets/card/gate_card.dart';
 
@@ -71,9 +72,18 @@ class _OurServiceScreenState extends State<OurServiceScreen> {
                           } else if (state is OurServiceInitial) {
                             return const Text('Woooa');
                           } else if (state is OurServiceLoading) {
-                            return const Center(
-                              child: CircularProgressIndicator(),
-                            );
+                            return ListView.builder(
+                                itemCount: 4,
+                                shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
+                                itemBuilder: (context, index) {
+                                  return Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 15, vertical: 15),
+                                    child: GeneralShimmerCard(
+                                        width: 300.w, height: 200.h),
+                                  );
+                                });
                           }
                           return const SizedBox();
                         },

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:megacom_second_stage/features/our_works/presentation/bloc/our_work_cubit.dart';
 import 'package:megacom_second_stage/features/widgets/custom_appbar.dart';
 import 'package:megacom_second_stage/core/megalab_internship.dart';
+import 'package:megacom_second_stage/features/widgets/shimmer/gate_shimmer_card.dart';
 
 import '../../../widgets/card/works_card.dart';
 
@@ -64,8 +66,20 @@ class _OurWorkScreenState extends State<OurWorkScreen> {
                               },
                             );
                           } else if (state is OurWorkLoading) {
-                            return const Center(
-                              child: CircularProgressIndicator(),
+                            return ListView.builder(
+                              itemCount: 4,
+                              shrinkWrap: true,
+                              physics: const NeverScrollableScrollPhysics(),
+                              itemBuilder: (context, index) {
+                                return Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 15, vertical: 15),
+                                  child: GeneralShimmerCard(
+                                    width: 310.w,
+                                    height: 230.h,
+                                  ),
+                                );
+                              },
                             );
                           } else if (state is OurWorkError) {
                             return const Center(

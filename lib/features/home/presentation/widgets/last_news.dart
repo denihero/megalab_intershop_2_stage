@@ -7,6 +7,7 @@ import 'package:megacom_second_stage/core/string.dart';
 import 'package:megacom_second_stage/core/style.dart';
 import 'package:megacom_second_stage/features/our_news/presentation/bloc/our_news_cubit.dart';
 import 'package:megacom_second_stage/features/widgets/card/news_card.dart';
+import 'package:megacom_second_stage/features/widgets/shimmer/gate_shimmer_card.dart';
 
 class LastNews extends StatelessWidget {
   const LastNews({Key? key}) : super(key: key);
@@ -29,7 +30,7 @@ class LastNews extends StatelessWidget {
           ),
           BlocBuilder<OurNewsCubit, OurNewsState>(
             builder: (context, state) {
-              if(state is OurNewsSuccess){
+              if (state is OurNewsSuccess) {
                 final news = state.ourNews;
                 return CarouselSlider.builder(
                   itemCount: news.content?.length ?? 0,
@@ -48,13 +49,27 @@ class LastNews extends StatelessWidget {
                     );
                   },
                 );
-              }else if(state is OurNewsLoading){
-                return const Center(
-                  child: CircularProgressIndicator(),
+              } else if (state is OurNewsLoading) {
+                return CarouselSlider.builder(
+                  itemCount: 4,
+                  options: CarouselOptions(
+                    autoPlay: false,
+                    enableInfiniteScroll: false,
+                    viewportFraction: 0.74.w,
+                    enlargeFactor: 2,
+                    aspectRatio: 2.1,
+                    initialPage: 2,
+                  ),
+                  itemBuilder:
+                      (BuildContext context, int itemIndex, int pageViewIndex) {
+                    return GeneralShimmerCard(
+                      width: 280.w,
+                      height: 200.h,
+                    );
+                  },
                 );
               }
               return const SizedBox();
-
             },
           ),
           const SizedBox(

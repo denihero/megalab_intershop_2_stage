@@ -8,9 +8,9 @@ import 'package:megacom_second_stage/core/string.dart';
 import 'package:megacom_second_stage/core/style.dart';
 import 'package:megacom_second_stage/features/our_service/presentation/bloc/our_service_cubit.dart';
 import 'package:megacom_second_stage/features/widgets/move_icon_button.dart';
+import 'package:megacom_second_stage/features/widgets/shimmer/gate_shimmer_card.dart';
 
 import '../../../widgets/card/gate_card.dart';
-
 
 class WeOffer extends StatefulWidget {
   const WeOffer({Key? key}) : super(key: key);
@@ -34,8 +34,11 @@ class _WeOfferState extends State<WeOffer> {
       height: 280.w,
       width: double.infinity,
       decoration: const BoxDecoration(
-          image: DecorationImage(
-              fit: BoxFit.cover, image: AssetImage(Pictures.weOffer))),
+        image: DecorationImage(
+          fit: BoxFit.cover,
+          image: AssetImage(Pictures.weOffer),
+        ),
+      ),
       child: Column(
         children: [
           Text(
@@ -64,6 +67,28 @@ class _WeOfferState extends State<WeOffer> {
                       (BuildContext context, int itemIndex, int pageViewIndex) {
                     return GateCard(gate: gate[itemIndex]);
                   },
+                );
+              } else if (state is OurServiceLoading) {
+                return CarouselSlider.builder(
+                  itemCount: 4,
+                  options: CarouselOptions(
+                    autoPlay: false,
+                    enableInfiniteScroll: false,
+                    viewportFraction: 0.80.w,
+                    enlargeFactor: 1,
+                    aspectRatio: 2,
+                    initialPage: 2,
+                  ),
+                  itemBuilder: (BuildContext context, _, __) {
+                    return GeneralShimmerCard(
+                      width: 300.w,
+                      height: 200.h,
+                    );
+                  },
+                );
+              } else if (state is OurServiceError) {
+                return Center(
+                  child: Text('Errpr'),
                 );
               }
               return const SizedBox();

@@ -1,8 +1,11 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:megacom_second_stage/features/our_news/presentation/bloc/our_news_cubit.dart';
 import 'package:megacom_second_stage/features/widgets/custom_appbar.dart';
 import 'package:megacom_second_stage/features/widgets/card/news_card.dart';
 import 'package:megacom_second_stage/core/megalab_internship.dart';
+
+import '../../../widgets/shimmer/gate_shimmer_card.dart';
 
 class OurNewsScreen extends StatefulWidget {
   const OurNewsScreen({Key? key}) : super(key: key);
@@ -64,8 +67,22 @@ class _OurNewsScreenState extends State<OurNewsScreen> {
                               },
                             );
                           } else if (state is OurNewsLoading) {
-                            return const Center(
-                              child: CircularProgressIndicator(),
+                            return ListView.builder(
+                              shrinkWrap: true,
+                              itemCount: 4,
+                              physics: const NeverScrollableScrollPhysics(),
+                              itemBuilder: (context, index) {
+                                return Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 15,
+                                    vertical: 15,
+                                  ),
+                                  child: GeneralShimmerCard(
+                                    width: 280.w,
+                                    height: 200.h,
+                                  ),
+                                );
+                              },
                             );
                           }
 

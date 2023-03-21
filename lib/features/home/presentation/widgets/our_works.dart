@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:megacom_second_stage/core/style.dart';
 import 'package:megacom_second_stage/features/our_works/presentation/bloc/our_work_cubit.dart';
+import 'package:megacom_second_stage/features/widgets/shimmer/gate_shimmer_card.dart';
 
 import '../../../widgets/card/works_card.dart';
 
@@ -39,10 +40,21 @@ class OurWorks extends StatelessWidget {
                 },
               );
             } else if (state is OurWorkError) {
-              return Text('Error');
+              return const Text('Error');
             } else if (state is OurWorkLoading) {
-              return const Center(
-                child: CircularProgressIndicator(),
+              return CarouselSlider.builder(
+                itemCount: 4,
+                options: CarouselOptions(
+                  autoPlay: false,
+                  enlargeCenterPage: true,
+                  enableInfiniteScroll: false,
+                  pauseAutoPlayOnManualNavigate: false,
+                  viewportFraction: 0.65,
+                  initialPage: 2,
+                ),
+                itemBuilder: (BuildContext context, int itemIndex, _) {
+                  return const GeneralShimmerCard(width: 310, height: 230);
+                },
               );
             }
 
