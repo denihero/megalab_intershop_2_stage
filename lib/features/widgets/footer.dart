@@ -81,8 +81,10 @@ class _FooterState extends State<Footer> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Image.asset(
-                          Pictures.logoPng,
+                          Pictures.logoBluePng,
                           fit: BoxFit.contain,
+                          width: 45,
+                          height: 25,
                         ),
                         const ScheduleAndPhoneCompany(),
                         SizedBox(
@@ -92,8 +94,7 @@ class _FooterState extends State<Footer> {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(12),
                             child: SizedBox(
-                              height: 150.h,
-                              width: 160.w,
+                              height: 140.h,
                               child: Stack(
                                 children: [
                                   GoogleMap(
@@ -106,10 +107,8 @@ class _FooterState extends State<Footer> {
                                           markerId: MarkerId('Айни'),
                                           position:
                                               LatLng(42.8482744, 74.5872578),
-                                        infoWindow: InfoWindow(
-                                          title: 'Selim Trade'
-                                        )
-                                      ),
+                                          infoWindow:
+                                              InfoWindow(title: 'Selim Trade')),
                                     },
                                     onMapCreated:
                                         (GoogleMapController controller) {
@@ -159,6 +158,7 @@ class _FooterState extends State<Footer> {
               ),
             ),
           ),
+
           ///TODO: Fix position
           // Positioned(
           //     right: 0,
@@ -170,7 +170,6 @@ class _FooterState extends State<Footer> {
           //     )),
         ],
       ),
-
     );
   }
 }
