@@ -21,7 +21,7 @@ class _HeaderPartState extends State<HeaderPart> {
   @override
   Widget build(BuildContext context) {
     return ClipPath(
-      clipper: CustomShape(),
+      //clipper: CustomShape(),
       child: Container(
         height: 370.h,
         decoration: const BoxDecoration(
@@ -31,7 +31,7 @@ class _HeaderPartState extends State<HeaderPart> {
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.only(left: 15, top: 30),
+          padding: const EdgeInsets.only(left: 15, top: 10,right: 15),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -42,20 +42,18 @@ class _HeaderPartState extends State<HeaderPart> {
                 children: [
                   Image.asset(
                     Pictures.logoPng,
-                    color: Colors.black,
+                    width: 85,
+                    height: 40,
                   ),
                   GestureDetector(
                     onTap: () {
                       widget.scaffoldKey.currentState?.openEndDrawer();
                     },
-                    child: Padding(
-                      padding: const EdgeInsets.only(right: 10),
-                      child: SvgPicture.asset(
-                        Pictures.menu,
-                        width: 30,
-                        height: 30,
-                        color: Colors.white,
-                      ),
+                    child: SvgPicture.asset(
+                      Pictures.menu,
+                      width: 30,
+                      height: 30,
+                      color: Colors.white,
                     ),
                   ),
                 ],
