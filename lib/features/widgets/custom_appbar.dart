@@ -9,10 +9,18 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       backgroundColor: Colors.transparent,
       elevation: 0,
-      leading: Image.asset(
-        Pictures.logoPng,
-        fit: BoxFit.cover,
-        color: Colors.black,
+      automaticallyImplyLeading: false,
+      flexibleSpace: Padding(
+        padding: const EdgeInsets.only(left: 10),
+        child: Align(
+          alignment: Alignment.centerLeft,
+          child: Image.asset(
+            Pictures.logoPng,
+            fit: BoxFit.contain,
+            width: 100,
+            color: Colors.black,
+          ),
+        ),
       ),
       actions: const [
         Padding(
