@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:megacom_second_stage/core/string.dart';
 import 'package:megacom_second_stage/core/style.dart';
-import 'package:megacom_second_stage/features/news_detail/presentation/bloc/send_application/send_application_cubit.dart';
 
+import '../home/presentation/bloc/send_application/send_application_cubit.dart';
 import 'custom_text_form_field.dart';
 
 class SubmitApplication extends StatefulWidget {
@@ -44,10 +44,8 @@ class _SubmitApplicationState extends State<SubmitApplication> {
           _phoneController.clear();
           _nameController.clear();
         }else if(state is SendApplicationError){
-          ScaffoldMessenger.maybeOf(context)?.showSnackBar(SnackBar(
-              content: Container(
-                child: Text('Something get wrong'),
-              )
+          ScaffoldMessenger.maybeOf(context)?.showSnackBar(const SnackBar(
+              content: Text('Something get wrong')
           ));
         }
       },

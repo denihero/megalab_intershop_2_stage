@@ -12,4 +12,9 @@ class HomeUseCases {
       String name, String phoneNumber, String message) async {
     return await homeRepositories.sendApplication(name, phoneNumber, message);
   }
+
+  Future<Either<DioErrorType, bool>> getUserFeedback(
+      String name, String phoneNumber, String message) async {
+    return await homeRepositories.getUserFeedback();
+  }
 }

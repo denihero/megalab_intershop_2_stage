@@ -21,4 +21,14 @@ class HomeRepositoriesImpl extends HomeRepositories {
     }
   }
 
+  @override
+  Future<Either<DioErrorType, bool>> getUserFeedback() async{
+    try {
+      final detailNews = await homeDataSources.getUserFeedback();
+      return Right(detailNews);
+    } on DioErrorType {
+      return const Left(DioErrorType.badResponse);
+    }
+  }
+
 }

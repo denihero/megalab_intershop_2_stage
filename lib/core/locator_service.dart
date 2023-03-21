@@ -9,8 +9,7 @@ import 'package:megacom_second_stage/features/news_detail/data/repositories/deta
 import 'package:megacom_second_stage/features/news_detail/domain/repositories/detail_news_repositories.dart';
 import 'package:megacom_second_stage/features/news_detail/domain/usecases/detail_news_usecase.dart';
 import 'package:megacom_second_stage/features/news_detail/presentation/bloc/detail_news_cubit.dart';
-import 'package:megacom_second_stage/features/news_detail/presentation/bloc/send_application/send_application_cubit.dart';
-import 'package:megacom_second_stage/features/our_news/data/datasources/our_news_datasources.dart';
+  import 'package:megacom_second_stage/features/our_news/data/datasources/our_news_datasources.dart';
 import 'package:megacom_second_stage/features/our_news/data/repositories/our_news_repositories_impl.dart';
 import 'package:megacom_second_stage/features/our_news/domain/repositories/our_news_repositories.dart';
 import 'package:megacom_second_stage/features/our_news/domain/usecases/our_news_usecases.dart';
@@ -26,6 +25,7 @@ import 'package:megacom_second_stage/features/our_works/domain/repositories/our_
 import 'package:megacom_second_stage/features/our_works/domain/usecases/our_work.dart';
 import 'package:megacom_second_stage/features/our_works/presentation/bloc/our_work_cubit.dart';
 
+import '../features/home/presentation/bloc/send_application/send_application_cubit.dart';
 import '../features/news_detail/data/datasources/news_detail_datarsource.dart';
 
 final sl = GetIt.instance;
