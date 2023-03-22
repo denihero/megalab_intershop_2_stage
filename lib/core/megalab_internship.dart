@@ -12,6 +12,6 @@ export 'package:megacom_second_stage/features/home/presentation/widgets/our_adva
 export 'package:megacom_second_stage/features/home/presentation/widgets/our_works.dart';
 export 'package:megacom_second_stage/features/home/presentation/widgets/support.dart';
 export 'package:megacom_second_stage/features/home/presentation/widgets/we_offer.dart';
-export 'package:megacom_second_stage/features/widgets/custom_end_drawer.dart';
+export 'package:megacom_second_stage/features/widgets/custom_navigation_menu.dart';
 export 'package:auto_route/auto_route.dart';
 export 'package:flutter/material.dart';

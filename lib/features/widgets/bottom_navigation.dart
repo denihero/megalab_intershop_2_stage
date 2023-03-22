@@ -6,7 +6,10 @@ import 'package:megacom_second_stage/core/style.dart';
 import 'package:megacom_second_stage/navigation/route.dart';
 
 class FooterNavigation extends StatelessWidget {
-  const FooterNavigation({Key? key}) : super(key: key);
+  const FooterNavigation({Key? key, required this.scrollController})
+      : super(key: key);
+
+  final ScrollController scrollController;
 
   @override
   Widget build(BuildContext context) {
@@ -22,12 +25,15 @@ class FooterNavigation extends StatelessWidget {
                   text: 'Главная\n',
                   recognizer: TapGestureRecognizer()
                     ..onTap =
-                        () => context.router.push(const HomeScreenRoute())),
+                        () {
+                          scrollController.animateTo(0, duration: const Duration(milliseconds: 300), curve: Curves.easeIn);
+                        }),
               TextSpan(
-                  text: 'О Нас\n',
-                  recognizer: TapGestureRecognizer()
-                    ..onTap =
-                        () => context.router.push(const HomeScreenRoute())),
+                text: 'О Нас\n',
+                recognizer: TapGestureRecognizer()..onTap = () {
+                  scrollController.animateTo(380, duration: const Duration(milliseconds: 300), curve: Curves.easeIn);
+                },
+              ),
               TextSpan(
                   text: 'Услуги\n',
                   recognizer: TapGestureRecognizer()
@@ -54,7 +60,9 @@ class FooterNavigation extends StatelessWidget {
                   text: 'Отзывы\n',
                   recognizer: TapGestureRecognizer()
                     ..onTap =
-                        () => context.router.push(const HomeScreenRoute())),
+                        () {
+                          scrollController.animateTo(2200, duration: const Duration(milliseconds: 300), curve: Curves.easeIn);
+                        }),
               TextSpan(
                   text: 'Новости\n',
                   recognizer: TapGestureRecognizer()

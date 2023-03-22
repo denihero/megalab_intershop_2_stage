@@ -88,7 +88,7 @@ class _OurWorkScreenState extends State<OurWorkScreen> {
                         },
                       ),
                       const SubmitApplication(),
-                      const Footer()
+                          Footer()
                     ],
                   ),
                 ),

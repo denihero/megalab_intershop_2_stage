@@ -2,14 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:megacom_second_stage/core/pictures.dart';
 import 'package:megacom_second_stage/core/style.dart';
-import 'package:megacom_second_stage/features/widgets/custom_end_drawer.dart';
 import 'package:megacom_second_stage/features/widgets/primary_button.dart';
 
 import '../../../../core/string.dart';
 import '../../../widgets/appbar_clip.dart';
 
 class HeaderPart extends StatefulWidget {
-  const HeaderPart({Key? key}) : super(key: key);
+  const HeaderPart({Key? key, required this.onPressed}) : super(key: key);
+
+  final Function() onPressed;
 
 
   @override
@@ -55,7 +56,7 @@ class _HeaderPartState extends State<HeaderPart> {
                 height: 30,
               ),
               PrimaryButton(
-                onPressed: () {},
+                onPressed: widget.onPressed,
               ),
             ],
           ),

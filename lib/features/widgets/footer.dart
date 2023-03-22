@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:megacom_second_stage/core/color.dart';
 import 'package:megacom_second_stage/core/pictures.dart';
@@ -13,7 +12,9 @@ import 'package:megacom_second_stage/features/widgets/schedule_and_phone_company
 import 'package:megacom_second_stage/features/widgets/social_media.dart';
 
 class Footer extends StatefulWidget {
-  const Footer({Key? key}) : super(key: key);
+  const Footer({Key? key, this.scrollController}) : super(key: key);
+
+  final ScrollController? scrollController;
 
   @override
   State<Footer> createState() => _FooterState();
@@ -80,11 +81,18 @@ class _FooterState extends State<Footer> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Image.asset(
-                          Pictures.logoBluePng,
-                          fit: BoxFit.contain,
-                          width: 45,
-                          height: 25,
+                        GestureDetector(
+                          onTap: () {
+                            widget.scrollController!.animateTo(0,
+                                duration: const Duration(milliseconds: 300),
+                                curve: Curves.easeIn);
+                          },
+                          child: Image.asset(
+                            Pictures.logoBluePng,
+                            fit: BoxFit.contain,
+                            width: 45,
+                            height: 25,
+                          ),
                         ),
                         const ScheduleAndPhoneCompany(),
                         SizedBox(
@@ -151,7 +159,8 @@ class _FooterState extends State<Footer> {
                       SizedBox(
                         width: 15.w,
                       ),
-                      const FooterNavigation()
+                      FooterNavigation(
+                          scrollController: widget.scrollController!)
                     ],
                   ),
                 ],
