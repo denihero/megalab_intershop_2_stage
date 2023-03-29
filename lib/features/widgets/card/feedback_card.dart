@@ -33,7 +33,7 @@ class FeedbackCard extends StatelessWidget {
               leading: Transform.translate(
                 offset: const Offset(0, -12),
                 child: CircleAvatar(
-                  radius: 25,
+                  radius: 35,
                   child: CachedNetworkImage(
                       imageUrl: reviewModel.customerImage ?? ''),
                 ),

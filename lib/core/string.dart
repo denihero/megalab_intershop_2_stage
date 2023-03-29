@@ -12,6 +12,8 @@ class AppString {
   static const String weOffer = 'Мы предлагаем';
   static const String ourAdvantages = 'Наши преимущества';
   static const String remoteControl = 'Настройка пультов управления';
+  static const String montash = 'Монтаж';
+  static const String guarantee = 'Послегарантийное обслуживание';
   static const String support = 'Консультация и техническая поддержка';
   static const String lastNews = 'Последние новости';
   static const String service = 'Сервис';

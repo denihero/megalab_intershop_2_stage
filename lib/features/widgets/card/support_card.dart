@@ -9,12 +9,12 @@ import '../../home/data/model/advantage.dart';
 class SupportCard extends StatelessWidget {
   const SupportCard({Key? key,required this.help}) : super(key: key);
 
-  final Advantage help;
+  final ShortInfo help;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 330.w,
+      width: 280.w,
       height: 50.h,
       child: Card(
         elevation: 3,
@@ -40,11 +40,11 @@ class SupportCard extends StatelessWidget {
               height: 10,
             ),
             SizedBox(
-              height: 40.h,
+              height: 45.h,
               width: 200.w,
               child: Text(
                 help.title,
-                style: Style.montserrat_14_600White.copyWith(color: Palette.black),
+                style: Style.montserrat_14_600White.copyWith(color: Palette.black,fontSize: 18.sp),
                 textAlign: TextAlign.center,
               ),
             )

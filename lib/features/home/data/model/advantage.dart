@@ -1,14 +1,23 @@
 import 'package:megacom_second_stage/core/pictures.dart';
 import 'package:megacom_second_stage/core/string.dart';
 
-class Advantage{
+class ShortInfo{
   String pathSvg;
   String title;
 
-  Advantage({required this.title,required this.pathSvg});
+  ShortInfo({required this.title,required this.pathSvg});
 
-  static final List ourAdvantage = [
-    Advantage(title: AppString.support, pathSvg: Pictures.support),
-    Advantage(title: AppString.remoteControl, pathSvg: Pictures.remoteControl),
+  static final List ourService = [
+    ShortInfo(title: AppString.support, pathSvg: Pictures.support),
+    ShortInfo(title: AppString.remoteControl, pathSvg: Pictures.remoteControl),
+    ShortInfo(title: AppString.montash, pathSvg: Pictures.monstash),
+    ShortInfo(title: AppString.guarantee, pathSvg: Pictures.guarantee),
+  ];
+
+  static final List ourAdvantages = [
+    ShortInfo(title: AppString.support, pathSvg: Pictures.support),
+    ShortInfo(title: AppString.remoteControl, pathSvg: Pictures.remoteControl),
+    ShortInfo(title: AppString.montash, pathSvg: Pictures.monstash),
+    ShortInfo(title: AppString.guarantee, pathSvg: Pictures.guarantee),
   ];
 }

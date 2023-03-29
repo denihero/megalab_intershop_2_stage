@@ -9,6 +9,8 @@ class Pictures{
   static const ourAdvantages = 'assets/image/out_advan.png';
   static const lastNews = 'assets/image/last_news.png';
   static const remoteControl = 'assets/icons/domino.svg';
+  static const monstash = 'assets/icons/montash.svg';
+  static const guarantee = 'assets/icons/gurantee.svg';
   static const support = 'assets/icons/help_file.svg';
   static const position = 'assets/icons/position.svg';
   static const whatsApp = 'assets/icons/whats.svg';

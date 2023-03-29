@@ -26,20 +26,20 @@ class Support extends StatelessWidget {
             height: 10,
           ),
           CarouselSlider.builder(
-            itemCount: Advantage.ourAdvantage.length,
+            itemCount: ShortInfo.ourService.length,
             options: CarouselOptions(
               autoPlay: false,
               enlargeCenterPage: false,
               enableInfiniteScroll: false,
               pauseAutoPlayOnManualNavigate: false,
-              viewportFraction: 0.61,
+              viewportFraction: 0.7.w,
               aspectRatio: 2.5,
               initialPage: 2,
             ),
             itemBuilder:
                 (BuildContext context, int itemIndex, int pageViewIndex) {
               return SupportCard(
-                help: Advantage.ourAdvantage[itemIndex],
+                help: ShortInfo.ourService[itemIndex],
               );
             },
           )
