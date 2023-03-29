@@ -14,7 +14,7 @@ class OurWorksDataSourcesImpl extends OurWorksDataSources {
 
   @override
   Future<OurWorksModel> getAllWorks() async {
-    final response = await client.getFixed('/projects');
+    final response = await client.getFixed('/api/v1/public/projects');
     if (response.statusCode! >= 200) {
       return OurWorksModel.fromJson(response.data);
     } else if (response.statusCode! >= 400) {

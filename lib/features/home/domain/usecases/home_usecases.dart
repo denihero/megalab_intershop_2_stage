@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:megacom_second_stage/features/home/data/model/review_model.dart';
 import 'package:megacom_second_stage/features/home/domain/repositories/home_repositories.dart';
 
 
@@ -13,8 +14,7 @@ class HomeUseCases {
     return await homeRepositories.sendApplication(name, phoneNumber, message);
   }
 
-  Future<Either<DioErrorType, bool>> getUserFeedback(
-      String name, String phoneNumber, String message) async {
+  Future<Either<DioErrorType, List<ReviewModel>>> getUserFeedback() async {
     return await homeRepositories.getUserFeedback();
   }
 }

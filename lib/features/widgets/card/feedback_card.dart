@@ -1,10 +1,14 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:megacom_second_stage/core/color.dart';
 import 'package:megacom_second_stage/core/style.dart';
+import 'package:megacom_second_stage/features/home/data/model/review_model.dart';
 
 class FeedbackCard extends StatelessWidget {
-  const FeedbackCard({Key? key}) : super(key: key);
+  const FeedbackCard({Key? key, required this.reviewModel}) : super(key: key);
+
+  final ReviewModel reviewModel;
 
   @override
   Widget build(BuildContext context) {
@@ -27,13 +31,15 @@ class FeedbackCard extends StatelessWidget {
           children: [
             ListTile(
               leading: Transform.translate(
-                offset: Offset(0,-12),
-                child: const CircleAvatar(
+                offset: const Offset(0, -12),
+                child: CircleAvatar(
                   radius: 25,
+                  child: CachedNetworkImage(
+                      imageUrl: reviewModel.customerImage ?? ''),
                 ),
               ),
               title: Text(
-                'Улан Султанов',
+                '${reviewModel.firstName} ${reviewModel.lastName}',
                 maxLines: 1,
                 style:
                     Style.montserrat_14_600White.copyWith(color: Palette.black),
@@ -44,7 +50,7 @@ class FeedbackCard extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                'Ворота стоят уже более двух лет. За это время с ними не было никаких проблем. Спасибо, Selim Trade!',
+                reviewModel.reviewText ?? '',
                 style: Style.montserrat_12_400Black,
               ),
             )

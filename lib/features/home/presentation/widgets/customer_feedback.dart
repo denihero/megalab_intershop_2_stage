@@ -1,9 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:megacom_second_stage/core/color.dart';
 import 'package:megacom_second_stage/core/string.dart';
 import 'package:megacom_second_stage/core/style.dart';
+import 'package:megacom_second_stage/features/home/presentation/bloc/get_review/get_review_cubit.dart';
 import 'package:megacom_second_stage/features/widgets/move_icon_button.dart';
 
 import '../../../widgets/card/feedback_card.dart';
@@ -16,7 +18,6 @@ class CustomerFeedback extends StatefulWidget {
 }
 
 class _CustomerFeedbackState extends State<CustomerFeedback> {
-
   late final CarouselController _carouselController;
 
   @override
@@ -24,6 +25,7 @@ class _CustomerFeedbackState extends State<CustomerFeedback> {
     _carouselController = CarouselController();
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -37,24 +39,39 @@ class _CustomerFeedbackState extends State<CustomerFeedback> {
           const SizedBox(
             height: 30,
           ),
-          SizedBox(
-            height: 200.h,
-            child: CarouselSlider.builder(
-              itemCount: 3,
-              carouselController: _carouselController,
-              options: CarouselOptions(
-                autoPlay: false,
-                enlargeCenterPage: false,
-                enableInfiniteScroll: false,
-                pauseAutoPlayOnManualNavigate: false,
-                viewportFraction: 0.73,
-                aspectRatio: 2.1,
-                initialPage: 2,
-              ),
-              itemBuilder: (BuildContext context, int itemIndex, _) {
-                return const FeedbackCard();
-              },
-            ),
+          BlocBuilder<UserReviewCubit, GetReviewState>(
+            builder: (context, state) {
+              if (state is GetReviewSuccess) {
+                final userFeedback = state.userReviews;
+                return SizedBox(
+                  height: 200.h,
+                  child: CarouselSlider.builder(
+                    itemCount: userFeedback.length,
+                    carouselController: _carouselController,
+                    options: CarouselOptions(
+                      autoPlay: false,
+                      enlargeCenterPage: false,
+                      enableInfiniteScroll: false,
+                      pauseAutoPlayOnManualNavigate: false,
+                      viewportFraction: 0.73,
+                      aspectRatio: 2.1,
+                      initialPage: 2,
+                    ),
+                    itemBuilder: (BuildContext context, int itemIndex, index) {
+                      return FeedbackCard(reviewModel: userFeedback[itemIndex],);
+                    },
+                  ),
+                );
+              } else if (state is GetReviewLoading) {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              } else if (state is GetReviewError) {
+                return const Text('Error');
+              }
+
+              return const SizedBox();
+            },
           ),
           const SizedBox(
             height: 30,

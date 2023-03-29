@@ -14,7 +14,7 @@ class OurNewsDataSourceImpl extends OurNewsDataSources {
 
   @override
   Future<OurNewsModel> getAllNews() async {
-    final response = await client.getFixed('/news');
+    final response = await client.getFixed('/api/v1/public/news');
     if (response.statusCode! >= 200) {
       return OurNewsModel.fromJson(response.data);
     } else if (response.statusCode! >= 400) {

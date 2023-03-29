@@ -5,6 +5,7 @@ import 'package:megacom_second_stage/features/home/data/datasource/home_datasour
 import 'package:megacom_second_stage/features/home/data/repositories/home_repositories_impl.dart';
 import 'package:megacom_second_stage/features/home/domain/repositories/home_repositories.dart';
 import 'package:megacom_second_stage/features/home/domain/usecases/home_usecases.dart';
+import 'package:megacom_second_stage/features/home/presentation/bloc/get_review/get_review_cubit.dart';
 import 'package:megacom_second_stage/features/news_detail/data/repositories/detail_news_repositories_impl.dart';
 import 'package:megacom_second_stage/features/news_detail/domain/repositories/detail_news_repositories.dart';
 import 'package:megacom_second_stage/features/news_detail/domain/usecases/detail_news_usecase.dart';
@@ -39,6 +40,7 @@ init() {
   sl.registerFactory(() => DetailNewsCubit(sl()));
   sl.registerFactory(() => OurWorkCubit(sl()));
   sl.registerFactory(() => SendApplicationCubit(sl()));
+  sl.registerFactory(() => UserReviewCubit(sl()));
 
   //Use case
   sl.registerLazySingleton(() => OurService(sl()));
