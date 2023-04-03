@@ -160,7 +160,7 @@ class _FooterState extends State<Footer> {
                         width: 15.w,
                       ),
                       FooterNavigation(
-                          scrollController: widget.scrollController!)
+                          scrollController: widget.scrollController)
                     ],
                   ),
                 ],

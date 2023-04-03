@@ -16,7 +16,6 @@ class OurWorkScreen extends StatefulWidget {
 }
 
 class _OurWorkScreenState extends State<OurWorkScreen> {
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -88,7 +87,7 @@ class _OurWorkScreenState extends State<OurWorkScreen> {
                         },
                       ),
                       const SubmitApplication(),
-                          Footer()
+                      const Footer()
                     ],
                   ),
                 ),

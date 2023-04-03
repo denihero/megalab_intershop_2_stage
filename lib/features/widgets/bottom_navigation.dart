@@ -6,10 +6,10 @@ import 'package:megacom_second_stage/core/style.dart';
 import 'package:megacom_second_stage/navigation/route.dart';
 
 class FooterNavigation extends StatelessWidget {
-  const FooterNavigation({Key? key, required this.scrollController})
+  const FooterNavigation({Key? key, this.scrollController})
       : super(key: key);
 
-  final ScrollController scrollController;
+  final ScrollController? scrollController;
 
   @override
   Widget build(BuildContext context) {
@@ -24,15 +24,27 @@ class FooterNavigation extends StatelessWidget {
               TextSpan(
                   text: 'Главная\n',
                   recognizer: TapGestureRecognizer()
-                    ..onTap =
-                        () {
-                          scrollController.animateTo(0, duration: const Duration(milliseconds: 300), curve: Curves.easeIn);
-                        }),
+                    ..onTap = () {
+                      if (scrollController != null) {
+                        scrollController!.animateTo(0,
+                            duration: const Duration(milliseconds: 300),
+                            curve: Curves.easeIn);
+                      } else {
+                        context.router.push(const HomeScreenRoute());
+                      }
+                    }),
               TextSpan(
                 text: 'О Нас\n',
-                recognizer: TapGestureRecognizer()..onTap = () {
-                  scrollController.animateTo(380, duration: const Duration(milliseconds: 300), curve: Curves.easeIn);
-                },
+                recognizer: TapGestureRecognizer()
+                  ..onTap = () {
+                    if (scrollController != null) {
+                      scrollController!.animateTo(380,
+                          duration: const Duration(milliseconds: 300),
+                          curve: Curves.easeIn);
+                    } else {
+                      context.router.push(const HomeScreenRoute());
+                    }
+                  },
               ),
               TextSpan(
                   text: 'Услуги\n',
@@ -59,10 +71,15 @@ class FooterNavigation extends StatelessWidget {
               TextSpan(
                   text: 'Отзывы\n',
                   recognizer: TapGestureRecognizer()
-                    ..onTap =
-                        () {
-                          scrollController.animateTo(2200, duration: const Duration(milliseconds: 300), curve: Curves.easeIn);
-                        }),
+                    ..onTap = () {
+                      if (scrollController != null) {
+                        scrollController!.animateTo(2200,
+                            duration: const Duration(milliseconds: 300),
+                            curve: Curves.easeIn);
+                      } else {
+                        context.router.push(const HomeScreenRoute());
+                      }
+                    }),
               TextSpan(
                   text: 'Новости\n',
                   recognizer: TapGestureRecognizer()
