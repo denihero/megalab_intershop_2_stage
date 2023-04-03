@@ -1,16 +1,31 @@
 class AppString {
+
+  /*Заказать ворота */
   static String homeSafety = 'Современная \nи надёжная защита'.toUpperCase();
   static const String homeFind =
       'Найдите идеальный вариант сами или предоставьте это нам';
   static const String orderGate = 'Закaзать ворота';
+
+
+  /* О нас */
   static const String whoIs = 'Кто такие Selim trade ?';
   static const String info1 = 'Мы являемся официальным представителем DOORHAN.';
   static const String info2 =
       'Производственно — монтажная компания Selim trade основана в 2003 году.';
   static const String info3 =
       'Основа нашей деятельности — это продажа и монтаж: ворот, рольставней, шлагбаумов, ролштор, жалюзи и многое другое.';
-  static const String weOffer = 'Мы предлагаем';
+
+
+  /*  Наши преимущества */
   static const String ourAdvantages = 'Наши преимущества';
+  static const String freeDelivery = 'Бесплатный выезд специалиста для замеров';
+  static const String manyYearExperience = 'Многолетний опыт работы';
+  static const String minimumProduction = 'Минимальные сроки производства';
+  static const String highQuality = 'Высокая квалификация сотрудиков';
+  static const String fixAndLook = 'Постгарантийное обслуживание и ремонт';
+
+
+  static const String weOffer = 'Мы предлагаем';
   static const String remoteControl = 'Настройка пультов управления';
   static const String montash = 'Монтаж';
   static const String guarantee = 'Послегарантийное обслуживание';

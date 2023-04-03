@@ -29,7 +29,7 @@ class OurAdvantages extends StatelessWidget {
             height: 10.h,
           ),
           CarouselSlider.builder(
-            itemCount: ShortInfo.ourService.length,
+            itemCount: ShortInfo.ourAdvantages.length,
             options: CarouselOptions(
               autoPlay: false,
               enlargeCenterPage: false,
@@ -42,7 +42,7 @@ class OurAdvantages extends StatelessWidget {
             itemBuilder:
                 (BuildContext context, int itemIndex, int pageViewIndex) {
               return SupportCard(
-                help: ShortInfo.ourService[itemIndex],
+                help: ShortInfo.ourAdvantages[itemIndex],
               );
             },
           )

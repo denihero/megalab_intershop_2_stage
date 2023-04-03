@@ -20,4 +20,11 @@ class Pictures{
   static const applicationBackground = 'assets/image/appl.png';
   static const menu = 'assets/icons/menu.svg';
   static const backgroundGateType = 'assets/image/background_gate_type.png';
+
+  /*  Наши преимущества */
+  static const String freeDelivery = 'assets/icons/delivery.svg';
+  static const String manyYearExperience = 'assets/icons/experience.svg';
+  static const String minimumProduction = 'assets/icons/minimuntime.svg';
+  static const String highQuality = 'assets/icons/high_quality.svg';
+  static const String fixAndLook = 'assets/icons/fixAndLook.svg';
 }

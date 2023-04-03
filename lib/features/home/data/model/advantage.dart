@@ -15,9 +15,10 @@ class ShortInfo{
   ];
 
   static final List ourAdvantages = [
-    ShortInfo(title: AppString.support, pathSvg: Pictures.support),
-    ShortInfo(title: AppString.remoteControl, pathSvg: Pictures.remoteControl),
-    ShortInfo(title: AppString.montash, pathSvg: Pictures.monstash),
-    ShortInfo(title: AppString.guarantee, pathSvg: Pictures.guarantee),
+    ShortInfo(title: AppString.freeDelivery, pathSvg: Pictures.freeDelivery),
+    ShortInfo(title: AppString.manyYearExperience, pathSvg: Pictures.manyYearExperience),
+    ShortInfo(title: AppString.minimumProduction, pathSvg: Pictures.minimumProduction),
+    ShortInfo(title: AppString.highQuality, pathSvg: Pictures.highQuality),
+    ShortInfo(title: AppString.fixAndLook, pathSvg: Pictures.fixAndLook),
   ];
 }
