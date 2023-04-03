@@ -48,7 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 flexibleSpace: FlexibleSpaceBar(
                   background: HeaderPart(
                     onPressed: () {
-                      _sliverScrollController.animateTo(2680,
+                      _sliverScrollController.animateTo(2500,
                           duration: const Duration(milliseconds: 300),
                           curve: Curves.easeIn);
                     },

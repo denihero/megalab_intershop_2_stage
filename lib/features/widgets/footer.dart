@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:megacom_second_stage/core/color.dart';
 import 'package:megacom_second_stage/core/pictures.dart';
@@ -73,94 +74,118 @@ class _FooterState extends State<Footer> {
             ),
             child: Padding(
               padding: const EdgeInsets.only(left: 20, top: 10),
-              child: Column(
+              child: Stack(
                 children: [
-                  SizedBox(
-                    height: 160.h,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            widget.scrollController!.animateTo(0,
-                                duration: const Duration(milliseconds: 300),
-                                curve: Curves.easeIn);
-                          },
-                          child: Image.asset(
-                            Pictures.logoBluePng,
-                            fit: BoxFit.contain,
-                            width: 45,
-                            height: 25,
-                          ),
-                        ),
-                        const ScheduleAndPhoneCompany(),
-                        SizedBox(
-                          width: 10.w,
-                        ),
-                        Expanded(
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(12),
-                            child: SizedBox(
-                              height: 140.h,
-                              child: Stack(
-                                children: [
-                                  GoogleMap(
-                                    mapType: MapType.normal,
-                                    initialCameraPosition: _cameraPosition,
-                                    zoomControlsEnabled: false,
-                                    zoomGesturesEnabled: true,
-                                    markers: {
-                                      const Marker(
-                                          markerId: MarkerId('Айни'),
-                                          position:
-                                              LatLng(42.8482744, 74.5872578),
-                                          infoWindow:
-                                              InfoWindow(title: 'Selim Trade')),
-                                    },
-                                    onMapCreated:
-                                        (GoogleMapController controller) {
-                                      _googleMapController.complete(controller);
-                                    },
-                                  ),
-                                  Positioned(
-                                    bottom: 0,
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(12),
-                                        color: Colors.grey.withOpacity(0.3),
-                                      ),
-                                      width: 130,
-                                      height: 30,
-                                      child: Center(
-                                        child: Text(
-                                          'Адрес \nг.Бишкек, ул.Айни 22',
-                                          style: Style.montserrat_10_800White
-                                              .copyWith(
-                                                  color: Palette.black,
-                                                  fontSize: 9.sp,
-                                                  fontWeight: FontWeight.bold),
-                                        ),
-                                      ),
-                                    ),
-                                  )
-                                ],
+                  Positioned(
+                      right: 0,
+                      left: 30,
+                      top: 0,
+                      child: SvgPicture.asset(
+                        Pictures.position,
+                        width: 140.w,
+                        height: 160.h,
+                      )),
+                  Column(
+                    children: [
+                      SizedBox(
+                        height: 160.h,
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                widget.scrollController!.animateTo(0,
+                                    duration: const Duration(milliseconds: 300),
+                                    curve: Curves.easeIn);
+                              },
+                              child: Image.asset(
+                                Pictures.logoBluePng,
+                                fit: BoxFit.contain,
+                                width: 45,
+                                height: 25,
                               ),
                             ),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const SocialMedia(),
-                      SizedBox(
-                        width: 15.w,
+                            const ScheduleAndPhoneCompany(),
+                            SizedBox(
+                              width: 10.w,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(right: 10,left: 20),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(12),
+                                child: SizedBox(
+                                  height: 140.w,
+                                  width: 140.w,
+                                  child: Stack(
+                                    children: [
+                                      GoogleMap(
+                                        mapType: MapType.normal,
+                                        initialCameraPosition: _cameraPosition,
+                                        zoomControlsEnabled: false,
+                                        zoomGesturesEnabled: true,
+                                        padding: const EdgeInsets.only(
+                                          bottom: 200,
+                                        ),
+                                        markers: {
+                                          const Marker(
+                                              markerId: MarkerId('Айни'),
+                                              position: LatLng(
+                                                  42.8482744, 74.5872578),
+                                              infoWindow: InfoWindow(
+                                                  title: 'Selim Trade')),
+                                        },
+                                        onMapCreated:
+                                            (GoogleMapController controller) {
+                                          _googleMapController
+                                              .complete(controller);
+                                        },
+                                      ),
+                                      Positioned(
+                                        bottom: 5,
+                                        left: 5,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(12),
+                                            color: const Color.fromRGBO(
+                                                255, 255, 255, 0.4),
+                                          ),
+                                          width: 130,
+                                          height: 30,
+                                          child: Center(
+                                            child: Text(
+                                              'Адрес \nг.Бишкек, ул.Айни 22',
+                                              style: Style
+                                                  .montserrat_10_800White
+                                                  .copyWith(
+                                                      color: const Color(0xFF414141),
+                                                      fontSize: 9.sp,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                            ),
+                                          ),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
                       ),
-                      FooterNavigation(
-                          scrollController: widget.scrollController)
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const SocialMedia(),
+                          SizedBox(
+                            width: 15.w,
+                          ),
+                          FooterNavigation(
+                              scrollController: widget.scrollController)
+                        ],
+                      ),
                     ],
                   ),
                 ],
@@ -169,14 +194,6 @@ class _FooterState extends State<Footer> {
           ),
 
           ///TODO: Fix position
-          // Positioned(
-          //     right: 0,
-          //     top: 10,
-          //     child: SvgPicture.asset(
-          //       Pictures.position,
-          //       width: 180.w,
-          //       height: 180.h,
-          //     )),
         ],
       ),
     );
