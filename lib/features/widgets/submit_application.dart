@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:megacom_second_stage/core/string.dart';
-import 'package:megacom_second_stage/core/style.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+import 'package:megacom_second_stage/core/megalab_internship.dart';
+import 'package:megacom_second_stage/features/widgets/dialog/application_dialog.dart';
 
 import '../home/presentation/bloc/send_application/send_application_cubit.dart';
 import 'custom_text_form_field.dart';
@@ -18,12 +18,17 @@ class _SubmitApplicationState extends State<SubmitApplication> {
   late final TextEditingController _nameController;
   late final TextEditingController _phoneController;
   late final TextEditingController _messageController;
+  late final MaskTextInputFormatter maskFormatter;
 
   @override
   void initState() {
     _nameController = TextEditingController();
     _phoneController = TextEditingController();
     _messageController = TextEditingController();
+    maskFormatter = MaskTextInputFormatter(
+      mask: '+996 (###) ##-##-##',
+      filter: {"#": RegExp(r'[0-9]')},
+    );
     super.initState();
   }
 
@@ -39,14 +44,19 @@ class _SubmitApplicationState extends State<SubmitApplication> {
   Widget build(BuildContext context) {
     return BlocConsumer<SendApplicationCubit, SendApplicationState>(
       listener: (context, state) {
-        if(state is SendApplicationSuccess){
+        if (state is SendApplicationSuccess) {
+          showDialog(
+              context: context,
+              builder: (context) {
+                return const ApplicationDialog();
+              });
+
           _messageController.clear();
           _phoneController.clear();
           _nameController.clear();
-        }else if(state is SendApplicationError){
-          ScaffoldMessenger.maybeOf(context)?.showSnackBar(const SnackBar(
-              content: Text('Something get wrong')
-          ));
+        } else if (state is SendApplicationError) {
+          ScaffoldMessenger.maybeOf(context)?.showSnackBar(
+              const SnackBar(content: Text('Something get wrong')));
         }
       },
       builder: (context, state) {
@@ -67,14 +77,20 @@ class _SubmitApplicationState extends State<SubmitApplication> {
                   hintText: 'Имя',
                   controller: _nameController,
                   textInputType: TextInputType.name,
+                  textInputAction: TextInputAction.next,
                 ),
                 SizedBox(
                   height: 15.h,
                 ),
                 CustomTextFormField(
-                    hintText: 'Телефон',
-                    controller: _phoneController,
-                    textInputType: TextInputType.phone),
+                  hintText: 'Телефон',
+                  controller: _phoneController,
+                  textInputType: TextInputType.phone,
+                  textInputAction: TextInputAction.next,
+                  inputFormatter: [
+                    maskFormatter
+                  ],
+                ),
                 SizedBox(
                   height: 15.h,
                 ),
@@ -83,7 +99,8 @@ class _SubmitApplicationState extends State<SubmitApplication> {
                     child: CustomTextFormField(
                       hintText: 'Сообщение',
                       controller: _messageController,
-                      textInputType: TextInputType.text,
+                      textInputType: TextInputType.multiline,
+                      textInputAction: TextInputAction.newline,
                       maxLines: 7,
                     )),
                 SizedBox(
@@ -95,14 +112,15 @@ class _SubmitApplicationState extends State<SubmitApplication> {
                   child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           shape: const RoundedRectangleBorder(
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(20),
-                            ),
-                          )),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(20),
+                        ),
+                      )),
                       onPressed: () {
                         if (_nameController.text.isNotEmpty &&
                             _phoneController.text.isNotEmpty &&
                             _messageController.text.isNotEmpty) {
+                          print(_phoneController.text);
                           context.read<SendApplicationCubit>().sendApplication(
                               _nameController.text,
                               _phoneController.text,

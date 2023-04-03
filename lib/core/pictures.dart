@@ -15,6 +15,9 @@ class Pictures{
   static const position = 'assets/icons/position.svg';
   static const whatsApp = 'assets/icons/whats.svg';
   static const instagram = 'assets/icons/insta.svg';
+  static const cancel = 'assets/icons/cancel.svg';
+  static const check = 'assets/icons/check.svg';
+  static const applicationBackground = 'assets/image/appl.png';
   static const menu = 'assets/icons/menu.svg';
   static const backgroundGateType = 'assets/image/background_gate_type.png';
 }

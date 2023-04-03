@@ -11,6 +11,7 @@ import 'package:megacom_second_stage/core/style.dart';
 import 'package:megacom_second_stage/features/widgets/bottom_navigation.dart';
 import 'package:megacom_second_stage/features/widgets/schedule_and_phone_company.dart';
 import 'package:megacom_second_stage/features/widgets/social_media.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Footer extends StatefulWidget {
   const Footer({Key? key, this.scrollController}) : super(key: key);
@@ -25,6 +26,16 @@ class _FooterState extends State<Footer> {
   late final Completer<GoogleMapController> _googleMapController;
   late final CameraPosition _cameraPosition;
 
+  Future<void> openMap(double latitude, double longitude) async {
+    String googleUrl =
+        'https://www.google.com/maps/search/?api=1&query=$latitude,$longitude';
+    if (await canLaunchUrl(Uri.parse(googleUrl))) {
+      await launchUrl(Uri.parse(googleUrl));
+    } else {
+      throw 'Could not open the map.';
+    }
+  }
+
   @override
   void initState() {
     _googleMapController = Completer<GoogleMapController>();
@@ -34,6 +45,11 @@ class _FooterState extends State<Footer> {
     );
 
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
   }
 
   @override
@@ -111,7 +127,8 @@ class _FooterState extends State<Footer> {
                               width: 10.w,
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(right: 10,left: 20),
+                              padding:
+                                  const EdgeInsets.only(right: 10, left: 20),
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(12),
                                 child: SizedBox(
@@ -121,9 +138,11 @@ class _FooterState extends State<Footer> {
                                     children: [
                                       GoogleMap(
                                         mapType: MapType.normal,
-                                        initialCameraPosition: _cameraPosition,
+                                        scrollGesturesEnabled: true,
                                         zoomControlsEnabled: false,
                                         zoomGesturesEnabled: true,
+                                        tiltGesturesEnabled: true,
+                                        initialCameraPosition: _cameraPosition,
                                         padding: const EdgeInsets.only(
                                           bottom: 200,
                                         ),
@@ -159,7 +178,8 @@ class _FooterState extends State<Footer> {
                                               style: Style
                                                   .montserrat_10_800White
                                                   .copyWith(
-                                                      color: const Color(0xFF414141),
+                                                      color: const Color(
+                                                          0xFF414141),
                                                       fontSize: 9.sp,
                                                       fontWeight:
                                                           FontWeight.bold),

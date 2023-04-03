@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class CustomTextFormField extends StatelessWidget {
-  const CustomTextFormField({Key? key, required this.hintText, required this.controller, required this.textInputType, this.inputFormatter, this.maxLines = 1}) : super(key: key);
+  const CustomTextFormField({Key? key, required this.hintText, required this.controller, required this.textInputType, this.inputFormatter, this.maxLines = 1, required this.textInputAction, this.prefixText}) : super(key: key);
 
   final String hintText;
   final TextEditingController controller;
   final TextInputType textInputType;
   final List<TextInputFormatter>? inputFormatter;
   final int? maxLines;
+  final TextInputAction textInputAction;
+  final String? prefixText;
 
 
 
@@ -18,9 +20,12 @@ class CustomTextFormField extends StatelessWidget {
       controller: controller,
       keyboardType: textInputType,
       inputFormatters: inputFormatter,
+      textInputAction: textInputAction,
+      textCapitalization: TextCapitalization.sentences,
       maxLines: maxLines,
       decoration: InputDecoration(
         hintText: hintText,
+        prefixText: prefixText,
         border: const OutlineInputBorder(
             borderSide: BorderSide(
                 color: Colors.black
