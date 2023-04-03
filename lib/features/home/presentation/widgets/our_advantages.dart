@@ -13,7 +13,7 @@ class OurAdvantages extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 270.h,
+      height: 400.h,
       width: double.infinity,
       decoration: const BoxDecoration(
           image: DecorationImage(

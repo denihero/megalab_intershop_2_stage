@@ -41,6 +41,9 @@ class _WeOfferState extends State<WeOffer> {
       ),
       child: Column(
         children: [
+          const SizedBox(
+            height: 20,
+          ),
           Text(
             AppString.weOffer,
             style: Style.montserrat_16_700Black,
@@ -87,7 +90,7 @@ class _WeOfferState extends State<WeOffer> {
                   },
                 );
               } else if (state is OurServiceError) {
-                return Center(
+                return const Center(
                   child: Text('Errpr'),
                 );
               }
