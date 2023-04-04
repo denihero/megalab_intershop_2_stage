@@ -6,7 +6,6 @@ import 'package:megacom_second_stage/features/news_detail/presentation/bloc/deta
 import 'package:megacom_second_stage/features/news_detail/presentation/widget/server_image.dart';
 import 'package:megacom_second_stage/features/widgets/custom_appbar.dart';
 import 'package:megacom_second_stage/core/megalab_internship.dart';
-import 'package:shimmer/shimmer.dart';
 
 class NewsDetailScreen extends StatefulWidget {
   const NewsDetailScreen({Key? key, required this.id}) : super(key: key);
@@ -68,9 +67,12 @@ class _NewsDetailScreenState extends State<NewsDetailScreen> {
                           },
                         );
                       },
-                      child: ServerImage(
-                        pictureUrl:
-                            '${ImageSettings.newsImage}${detailNews.contentImage}',
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: ServerImage(
+                          pictureUrl:
+                              '${ImageSettings.newsImage}${detailNews.contentImage}',
+                        ),
                       ),
                     ),
                     SizedBox(
@@ -87,9 +89,12 @@ class _NewsDetailScreenState extends State<NewsDetailScreen> {
                             },
                           );
                         },
-                        child: ServerImage(
-                            pictureUrl:
-                                '${ImageSettings.newsImage}${detailNews.coverImage}')),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: ServerImage(
+                              pictureUrl:
+                                  '${ImageSettings.newsImage}${detailNews.coverImage}'),
+                        )),
                     SizedBox(
                       height: 30.h,
                     ),

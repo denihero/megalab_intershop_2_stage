@@ -281,6 +281,8 @@ ContentModel _$ContentModelFromJson(Map<String, dynamic> json) {
 mixin _$ContentModel {
   int? get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'coverImage')
+  String? get coverImage => throw _privateConstructorUsedError;
+  @JsonKey(name: 'image')
   String? get image => throw _privateConstructorUsedError;
   String? get title => throw _privateConstructorUsedError;
 
@@ -297,7 +299,10 @@ abstract class $ContentModelCopyWith<$Res> {
       _$ContentModelCopyWithImpl<$Res, ContentModel>;
   @useResult
   $Res call(
-      {int? id, @JsonKey(name: 'coverImage') String? image, String? title});
+      {int? id,
+      @JsonKey(name: 'coverImage') String? coverImage,
+      @JsonKey(name: 'image') String? image,
+      String? title});
 }
 
 /// @nodoc
@@ -314,6 +319,7 @@ class _$ContentModelCopyWithImpl<$Res, $Val extends ContentModel>
   @override
   $Res call({
     Object? id = freezed,
+    Object? coverImage = freezed,
     Object? image = freezed,
     Object? title = freezed,
   }) {
@@ -322,6 +328,10 @@ class _$ContentModelCopyWithImpl<$Res, $Val extends ContentModel>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
+      coverImage: freezed == coverImage
+          ? _value.coverImage
+          : coverImage // ignore: cast_nullable_to_non_nullable
+              as String?,
       image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -343,7 +353,10 @@ abstract class _$$_ContentModelCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int? id, @JsonKey(name: 'coverImage') String? image, String? title});
+      {int? id,
+      @JsonKey(name: 'coverImage') String? coverImage,
+      @JsonKey(name: 'image') String? image,
+      String? title});
 }
 
 /// @nodoc
@@ -358,6 +371,7 @@ class __$$_ContentModelCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
+    Object? coverImage = freezed,
     Object? image = freezed,
     Object? title = freezed,
   }) {
@@ -366,6 +380,10 @@ class __$$_ContentModelCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
+      coverImage: freezed == coverImage
+          ? _value.coverImage
+          : coverImage // ignore: cast_nullable_to_non_nullable
+              as String?,
       image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -382,7 +400,10 @@ class __$$_ContentModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ContentModel implements _ContentModel {
   const _$_ContentModel(
-      {this.id, @JsonKey(name: 'coverImage') this.image, this.title});
+      {this.id,
+      @JsonKey(name: 'coverImage') this.coverImage,
+      @JsonKey(name: 'image') this.image,
+      this.title});
 
   factory _$_ContentModel.fromJson(Map<String, dynamic> json) =>
       _$$_ContentModelFromJson(json);
@@ -391,13 +412,16 @@ class _$_ContentModel implements _ContentModel {
   final int? id;
   @override
   @JsonKey(name: 'coverImage')
+  final String? coverImage;
+  @override
+  @JsonKey(name: 'image')
   final String? image;
   @override
   final String? title;
 
   @override
   String toString() {
-    return 'ContentModel(id: $id, image: $image, title: $title)';
+    return 'ContentModel(id: $id, coverImage: $coverImage, image: $image, title: $title)';
   }
 
   @override
@@ -406,13 +430,15 @@ class _$_ContentModel implements _ContentModel {
         (other.runtimeType == runtimeType &&
             other is _$_ContentModel &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.coverImage, coverImage) ||
+                other.coverImage == coverImage) &&
             (identical(other.image, image) || other.image == image) &&
             (identical(other.title, title) || other.title == title));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, image, title);
+  int get hashCode => Object.hash(runtimeType, id, coverImage, image, title);
 
   @JsonKey(ignore: true)
   @override
@@ -431,7 +457,8 @@ class _$_ContentModel implements _ContentModel {
 abstract class _ContentModel implements ContentModel {
   const factory _ContentModel(
       {final int? id,
-      @JsonKey(name: 'coverImage') final String? image,
+      @JsonKey(name: 'coverImage') final String? coverImage,
+      @JsonKey(name: 'image') final String? image,
       final String? title}) = _$_ContentModel;
 
   factory _ContentModel.fromJson(Map<String, dynamic> json) =
@@ -441,6 +468,9 @@ abstract class _ContentModel implements ContentModel {
   int? get id;
   @override
   @JsonKey(name: 'coverImage')
+  String? get coverImage;
+  @override
+  @JsonKey(name: 'image')
   String? get image;
   @override
   String? get title;

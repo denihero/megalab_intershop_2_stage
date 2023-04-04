@@ -23,7 +23,8 @@ class OurWorksModel extends OurWorksEntity with _$OurWorksModel {
 class ContentModel extends ContentEntity with _$ContentModel {
   const factory ContentModel({
     int? id,
-    @JsonKey(name: 'coverImage') String? image,
+    @JsonKey(name: 'coverImage') String? coverImage,
+    @JsonKey(name: 'image') String? image,
     String? title,
   }) = _ContentModel;
 

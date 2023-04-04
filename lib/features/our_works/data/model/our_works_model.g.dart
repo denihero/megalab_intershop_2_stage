@@ -31,13 +31,15 @@ Map<String, dynamic> _$$_OurWorksModelToJson(_$_OurWorksModel instance) =>
 _$_ContentModel _$$_ContentModelFromJson(Map<String, dynamic> json) =>
     _$_ContentModel(
       id: json['id'] as int?,
-      image: json['coverImage'] as String?,
+      coverImage: json['coverImage'] as String?,
+      image: json['image'] as String?,
       title: json['title'] as String?,
     );
 
 Map<String, dynamic> _$$_ContentModelToJson(_$_ContentModel instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'coverImage': instance.image,
+      'coverImage': instance.coverImage,
+      'image': instance.image,
       'title': instance.title,
     };

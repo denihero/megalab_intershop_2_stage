@@ -16,6 +16,7 @@ class OurWorksDataSourcesImpl extends OurWorksDataSources {
   Future<OurWorksModel> getAllWorks() async {
     final response = await client.getFixed('/api/v1/public/projects');
     if (response.statusCode! >= 200) {
+      print(response.data);
       return OurWorksModel.fromJson(response.data);
     } else if (response.statusCode! >= 400) {
       throw DioErrorType.badResponse;
