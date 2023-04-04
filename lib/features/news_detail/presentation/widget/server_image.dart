@@ -9,33 +9,36 @@ class ServerImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CachedNetworkImage(
-        fit: BoxFit.cover,
-        imageUrl: pictureUrl,
-        errorWidget: (context, error, _) => Container(
-            width: 310.w,
-            height: 230.h,
-            decoration: BoxDecoration(
-              border: Border.all(
-                color: Colors.black,
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: CachedNetworkImage(
+          fit: BoxFit.cover,
+          imageUrl: pictureUrl,
+          errorWidget: (context, error, _) => Container(
+              width: 310.w,
+              height: 230.h,
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.black,
+                ),
+                borderRadius:
+                const BorderRadius.all(Radius.circular(12)),
               ),
-              borderRadius:
-              const BorderRadius.all(Radius.circular(12)),
-            ),
-            child: const Icon(Icons.error)),
-        progressIndicatorBuilder: (context, _, __) =>
-            Shimmer.fromColors(
-              baseColor: Colors.grey[300]!,
-              highlightColor: Colors.grey[200]!,
-              child: Container(
-                  width: 310.w,
-                  height: 230.h,
-                  decoration: const BoxDecoration(
-                    color: Colors.white,
-                    borderRadius:
-                    BorderRadius.all(Radius.circular(12)),
-                  ),
-                  child: const Icon(Icons.error)),
-            ));
+              child: const Icon(Icons.error)),
+          progressIndicatorBuilder: (context, _, __) =>
+              Shimmer.fromColors(
+                baseColor: Colors.grey[300]!,
+                highlightColor: Colors.grey[200]!,
+                child: Container(
+                    width: 310.w,
+                    height: 230.h,
+                    decoration: const BoxDecoration(
+                      color: Colors.white,
+                      borderRadius:
+                      BorderRadius.all(Radius.circular(12)),
+                    ),
+                    child: const Icon(Icons.error)),
+              )),
+    );
   }
 }

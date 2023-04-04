@@ -93,7 +93,7 @@ class _NewsDetailScreenState extends State<NewsDetailScreen> {
                     SizedBox(
                       height: 30.h,
                     ),
-                    const LastNews(),
+                    const LastNews(showButton: false),
                     SizedBox(
                       height: 30.h,
                     ),

@@ -10,7 +10,9 @@ import 'package:megacom_second_stage/features/widgets/card/news_card.dart';
 import 'package:megacom_second_stage/features/widgets/shimmer/gate_shimmer_card.dart';
 
 class LastNews extends StatelessWidget {
-  const LastNews({Key? key}) : super(key: key);
+  const LastNews({Key? key, this.showButton = true}) : super(key: key);
+
+  final bool showButton;
 
   @override
   Widget build(BuildContext context) {
@@ -75,22 +77,24 @@ class LastNews extends StatelessWidget {
           const SizedBox(
             height: 15,
           ),
-          ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.transparent,
-                shadowColor: Colors.transparent,
-                surfaceTintColor: Colors.transparent,
-                //splashFactory: InkRipple.splashFactory,
-                elevation: 0,
-                shape: RoundedRectangleBorder(
-                    side: const BorderSide(color: Colors.blue),
-                    borderRadius: BorderRadius.circular(12)),
-              ),
-              onPressed: () {},
-              child: Text(
-                'все новости',
-                style: Style.inter_14_400Black,
-              ))
+          showButton
+              ? ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.transparent,
+                    shadowColor: Colors.transparent,
+                    surfaceTintColor: Colors.transparent,
+                    //splashFactory: InkRipple.splashFactory,
+                    elevation: 0,
+                    shape: RoundedRectangleBorder(
+                        side: const BorderSide(color: Colors.blue),
+                        borderRadius: BorderRadius.circular(12)),
+                  ),
+                  onPressed: () {},
+                  child: Text(
+                    'все новости',
+                    style: Style.inter_14_400Black,
+                  ))
+              : const SizedBox()
         ],
       ),
     );
