@@ -2,12 +2,14 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:megacom_second_stage/core/megalab_internship.dart';
 import 'package:megacom_second_stage/core/pictures.dart';
 import 'package:megacom_second_stage/core/string.dart';
 import 'package:megacom_second_stage/core/style.dart';
 import 'package:megacom_second_stage/features/our_news/presentation/bloc/our_news_cubit.dart';
 import 'package:megacom_second_stage/features/widgets/card/news_card.dart';
 import 'package:megacom_second_stage/features/widgets/shimmer/gate_shimmer_card.dart';
+import 'package:megacom_second_stage/navigation/route.dart';
 
 class LastNews extends StatelessWidget {
   const LastNews({Key? key, this.showButton = true}) : super(key: key);
@@ -89,7 +91,9 @@ class LastNews extends StatelessWidget {
                         side: const BorderSide(color: Colors.blue),
                         borderRadius: BorderRadius.circular(12)),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    context.router.push(const OurNewsScreenRoute());
+                  },
                   child: Text(
                     'все новости',
                     style: Style.inter_14_400Black,

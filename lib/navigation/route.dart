@@ -10,15 +10,23 @@ import 'package:auto_route/auto_route.dart';
 import '../features/our_service/data/model/our_service_model.dart';
 part 'route.gr.dart';
 
-@MaterialAutoRouter(
-  routes: <AutoRoute>[
-    AutoRoute(page:HomeScreen,initial:true),
-    AutoRoute(page:GateTypeScreen),
-    AutoRoute(page:OurNewsScreen),
-    AutoRoute(page:OurServiceScreen),
-    AutoRoute(page:OurWorkScreen),
-    AutoRoute(page:NewsDetailScreen),
-  ]
-)
-
-class AppRouter extends _$AppRouter{}
+@MaterialAutoRouter(routes: <AutoRoute>[
+  CustomRoute(
+      page: HomeScreen,
+      initial: true,
+      transitionsBuilder: TransitionsBuilders.slideBottom),
+  CustomRoute(
+      page: GateTypeScreen,
+      transitionsBuilder: TransitionsBuilders.slideBottom),
+  CustomRoute(
+      page: OurNewsScreen, transitionsBuilder: TransitionsBuilders.slideBottom),
+  CustomRoute(
+      page: OurServiceScreen,
+      transitionsBuilder: TransitionsBuilders.slideBottom),
+  CustomRoute(
+      page: OurWorkScreen, transitionsBuilder: TransitionsBuilders.slideBottom),
+  CustomRoute(
+      page: NewsDetailScreen,
+      transitionsBuilder: TransitionsBuilders.slideBottom),
+])
+class AppRouter extends _$AppRouter {}

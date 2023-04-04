@@ -126,68 +126,75 @@ class _FooterState extends State<Footer> {
                             SizedBox(
                               width: 10.w,
                             ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(right: 10, left: 20),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(12),
-                                child: SizedBox(
-                                  height: 140.w,
-                                  width: 140.w,
-                                  child: Stack(
-                                    children: [
-                                      GoogleMap(
-                                        mapType: MapType.normal,
-                                        scrollGesturesEnabled: true,
-                                        zoomControlsEnabled: false,
-                                        zoomGesturesEnabled: true,
-                                        tiltGesturesEnabled: true,
-                                        initialCameraPosition: _cameraPosition,
-                                        padding: const EdgeInsets.only(
-                                          bottom: 200,
-                                        ),
-                                        markers: {
-                                          const Marker(
-                                              markerId: MarkerId('Айни'),
-                                              position: LatLng(
-                                                  42.8482744, 74.5872578),
-                                              infoWindow: InfoWindow(
-                                                  title: 'Selim Trade')),
-                                        },
-                                        onMapCreated:
-                                            (GoogleMapController controller) {
-                                          _googleMapController
-                                              .complete(controller);
-                                        },
-                                      ),
-                                      Positioned(
-                                        bottom: 5,
-                                        left: 5,
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(12),
-                                            color: const Color.fromRGBO(
-                                                255, 255, 255, 0.4),
-                                          ),
-                                          width: 130,
-                                          height: 30,
-                                          child: Center(
-                                            child: Text(
-                                              'Адрес \nг.Бишкек, ул.Айни 22',
-                                              style: Style
-                                                  .montserrat_10_800White
-                                                  .copyWith(
-                                                      color: const Color(
-                                                          0xFF414141),
-                                                      fontSize: 9.sp,
-                                                      fontWeight:
-                                                          FontWeight.bold),
+                            GestureDetector(
+                              onTap: () {
+                                openMap(42.8482744, 74.5872578);
+                              },
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.only(right: 10, left: 20),
+                                child: AbsorbPointer(
+                                  absorbing: true,
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(12),
+                                    child: SizedBox(
+                                      height: 140.w,
+                                      width: 140.w,
+                                      child: Stack(
+                                        children: [
+                                          GoogleMap(
+                                            mapType: MapType.normal,
+                                            scrollGesturesEnabled: true,
+                                            zoomControlsEnabled: false,
+                                            zoomGesturesEnabled: true,
+                                            initialCameraPosition: _cameraPosition,
+                                            padding: const EdgeInsets.only(
+                                              bottom: 200,
                                             ),
+                                            markers: {
+                                              const Marker(
+                                                  markerId: MarkerId('Айни'),
+                                                  position: LatLng(
+                                                      42.8482744, 74.5872578),
+                                                  infoWindow: InfoWindow(
+                                                      title: 'Selim Trade')),
+                                            },
+                                            onMapCreated:
+                                                (GoogleMapController controller) {
+                                              _googleMapController
+                                                  .complete(controller);
+                                            },
                                           ),
-                                        ),
-                                      )
-                                    ],
+                                          Positioned(
+                                            bottom: 5,
+                                            left: 5,
+                                            child: Container(
+                                              decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(12),
+                                                color: const Color.fromRGBO(
+                                                    255, 255, 255, 0.4),
+                                              ),
+                                              width: 130,
+                                              height: 30,
+                                              child: Center(
+                                                child: Text(
+                                                  'Адрес \nг.Бишкек, ул.Айни 22',
+                                                  style: Style
+                                                      .montserrat_10_800White
+                                                      .copyWith(
+                                                          color: const Color(
+                                                              0xFF414141),
+                                                          fontSize: 9.sp,
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                ),
+                                              ),
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ),
