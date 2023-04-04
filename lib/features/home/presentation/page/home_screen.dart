@@ -95,6 +95,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       const Support(),
                       const CustomerFeedback(),
                       const SubmitApplication(),
+                      const SizedBox(height: 20,),
                       Footer(scrollController: _sliverScrollController),
                     ],
                   );

@@ -25,7 +25,8 @@ class NewsCard extends StatelessWidget {
             color: Colors.black12,
             image: DecorationImage(
               fit: BoxFit.cover,
-              image: CachedNetworkImageProvider('${ImageSettings.newsImage}${news.coverImage}'),
+              image: CachedNetworkImageProvider(
+                  '${ImageSettings.newsImage}${news.coverImage}'),
             ),
           ),
           child: Align(
