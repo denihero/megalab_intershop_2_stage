@@ -12,7 +12,7 @@ class OurNewsDetailModel extends OurNewsDetailsEntity
     String? title,
     String? coverImage,
     String? text,
-    @JsonKey(name: 'contentImag') String? contentImage
+    String? contentImage
   }) = _OurNewsDetailModel;
 
   factory OurNewsDetailModel.fromJson(Map<String, dynamic> json) =>

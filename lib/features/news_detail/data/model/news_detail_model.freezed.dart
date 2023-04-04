@@ -24,7 +24,6 @@ mixin _$OurNewsDetailModel {
   String? get title => throw _privateConstructorUsedError;
   String? get coverImage => throw _privateConstructorUsedError;
   String? get text => throw _privateConstructorUsedError;
-  @JsonKey(name: 'contentImag')
   String? get contentImage => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -44,7 +43,7 @@ abstract class $OurNewsDetailModelCopyWith<$Res> {
       String? title,
       String? coverImage,
       String? text,
-      @JsonKey(name: 'contentImag') String? contentImage});
+      String? contentImage});
 }
 
 /// @nodoc
@@ -104,7 +103,7 @@ abstract class _$$_OurNewsDetailModelCopyWith<$Res>
       String? title,
       String? coverImage,
       String? text,
-      @JsonKey(name: 'contentImag') String? contentImage});
+      String? contentImage});
 }
 
 /// @nodoc
@@ -153,11 +152,7 @@ class __$$_OurNewsDetailModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_OurNewsDetailModel implements _OurNewsDetailModel {
   const _$_OurNewsDetailModel(
-      {this.id,
-      this.title,
-      this.coverImage,
-      this.text,
-      @JsonKey(name: 'contentImag') this.contentImage});
+      {this.id, this.title, this.coverImage, this.text, this.contentImage});
 
   factory _$_OurNewsDetailModel.fromJson(Map<String, dynamic> json) =>
       _$$_OurNewsDetailModelFromJson(json);
@@ -171,7 +166,6 @@ class _$_OurNewsDetailModel implements _OurNewsDetailModel {
   @override
   final String? text;
   @override
-  @JsonKey(name: 'contentImag')
   final String? contentImage;
 
   @override
@@ -215,12 +209,11 @@ class _$_OurNewsDetailModel implements _OurNewsDetailModel {
 
 abstract class _OurNewsDetailModel implements OurNewsDetailModel {
   const factory _OurNewsDetailModel(
-          {final int? id,
-          final String? title,
-          final String? coverImage,
-          final String? text,
-          @JsonKey(name: 'contentImag') final String? contentImage}) =
-      _$_OurNewsDetailModel;
+      {final int? id,
+      final String? title,
+      final String? coverImage,
+      final String? text,
+      final String? contentImage}) = _$_OurNewsDetailModel;
 
   factory _OurNewsDetailModel.fromJson(Map<String, dynamic> json) =
       _$_OurNewsDetailModel.fromJson;
@@ -234,7 +227,6 @@ abstract class _OurNewsDetailModel implements OurNewsDetailModel {
   @override
   String? get text;
   @override
-  @JsonKey(name: 'contentImag')
   String? get contentImage;
   @override
   @JsonKey(ignore: true)

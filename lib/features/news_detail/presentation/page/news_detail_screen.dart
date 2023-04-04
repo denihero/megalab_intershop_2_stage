@@ -1,7 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:megacom_second_stage/core/network/image_settings.dart';
 import 'package:megacom_second_stage/features/news_detail/presentation/bloc/detail_news_cubit.dart';
+import 'package:megacom_second_stage/features/news_detail/presentation/widget/server_image.dart';
 import 'package:megacom_second_stage/features/widgets/custom_appbar.dart';
 import 'package:megacom_second_stage/core/megalab_internship.dart';
 import 'package:shimmer/shimmer.dart';
@@ -16,7 +18,6 @@ class NewsDetailScreen extends StatefulWidget {
 }
 
 class _NewsDetailScreenState extends State<NewsDetailScreen> {
-
   @override
   void initState() {
     super.initState();
@@ -56,66 +57,39 @@ class _NewsDetailScreenState extends State<NewsDetailScreen> {
                         textAlign: TextAlign.center,
                       ),
                     ),
-                    CachedNetworkImage(
-                        fit: BoxFit.cover,
-                        imageUrl: detailNews.contentImage ?? '',
-                        errorWidget: (context, error, _) => Container(
-                            width: 310.w,
-                            height: 230.h,
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: Colors.black,
-                              ),
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(20)),
-                            ),
-                            child: const Icon(Icons.error)),
-                        progressIndicatorBuilder: (context, _, __) =>
-                            Shimmer.fromColors(
-                              baseColor: Colors.grey[300]!,
-                              highlightColor: Colors.grey[200]!,
-                              child: Container(
-                                  width: 310.w,
-                                  height: 230.h,
-                                  decoration: const BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(20)),
-                                  ),
-                                  child: const Icon(Icons.error)),
-                            )),
+                    GestureDetector(
+                      onTap: () {
+                        showDialog(
+                          context: context,
+                          builder: (context) {
+                            return openImage(
+                              '${ImageSettings.newsImage}${detailNews.contentImage}',
+                            );
+                          },
+                        );
+                      },
+                      child: ServerImage(
+                        pictureUrl:
+                            '${ImageSettings.newsImage}${detailNews.contentImage}',
+                      ),
+                    ),
                     SizedBox(
-                      height: 10.h,
+                      height: 20.h,
                     ),
-                    CachedNetworkImage(
-                      fit: BoxFit.cover,
-                      imageUrl: detailNews.contentImage ?? '',
-                      errorWidget: (context, error, _) => Container(
-                          width: 310.w,
-                          height: 230.h,
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Colors.black,
-                            ),
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(20)),
-                          ),
-                          child: const Icon(Icons.error)),
-                        progressIndicatorBuilder: (context, _, __) =>
-                            Shimmer.fromColors(
-                              baseColor: Colors.grey[300]!,
-                              highlightColor: Colors.grey[200]!,
-                              child: Container(
-                                  width: 310.w,
-                                  height: 230.h,
-                                  decoration: const BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius:
-                                    BorderRadius.all(Radius.circular(20)),
-                                  ),
-                                  child: const Icon(Icons.error)),
-                            )
-                    ),
+                    GestureDetector(
+                        onTap: () {
+                          showDialog(
+                            context: context,
+                            builder: (context) {
+                              return openImage(
+                                '${ImageSettings.newsImage}${detailNews.coverImage}',
+                              );
+                            },
+                          );
+                        },
+                        child: ServerImage(
+                            pictureUrl:
+                                '${ImageSettings.newsImage}${detailNews.coverImage}')),
                     SizedBox(
                       height: 30.h,
                     ),
@@ -141,6 +115,23 @@ class _NewsDetailScreenState extends State<NewsDetailScreen> {
             },
           ),
         ),
+      ),
+    );
+  }
+
+  Widget openImage(String pictureUrl) {
+    return ConstrainedBox(
+      constraints: const BoxConstraints(maxWidth: 200, maxHeight: 200),
+      child: AlertDialog(
+        insetPadding: const EdgeInsets.symmetric(horizontal: 5),
+        shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(20))),
+        content: InteractiveViewer(
+          child: CachedNetworkImage(
+            imageUrl: pictureUrl,
+          ),
+        ),
+        contentPadding: EdgeInsets.zero,
       ),
     );
   }

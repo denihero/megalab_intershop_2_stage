@@ -13,7 +13,7 @@ _$_OurNewsDetailModel _$$_OurNewsDetailModelFromJson(
       title: json['title'] as String?,
       coverImage: json['coverImage'] as String?,
       text: json['text'] as String?,
-      contentImage: json['contentImag'] as String?,
+      contentImage: json['contentImage'] as String?,
     );
 
 Map<String, dynamic> _$$_OurNewsDetailModelToJson(
@@ -23,5 +23,5 @@ Map<String, dynamic> _$$_OurNewsDetailModelToJson(
       'title': instance.title,
       'coverImage': instance.coverImage,
       'text': instance.text,
-      'contentImag': instance.contentImage,
+      'contentImage': instance.contentImage,
     };

@@ -13,19 +13,19 @@ class OurWorksModel extends OurWorksEntity with _$OurWorksModel {
     int? size,
     int? number,
     int? numberOfElements,
-}) = _OurWorksModel;
+  }) = _OurWorksModel;
 
   factory OurWorksModel.fromJson(Map<String, dynamic> json) =>
       _$OurWorksModelFromJson(json);
 }
 
 @freezed
-class ContentModel extends ContentEntity with _$ContentModel{
+class ContentModel extends ContentEntity with _$ContentModel {
   const factory ContentModel({
     int? id,
-    String? image,
+    @JsonKey(name: 'coverImage') String? image,
     String? title,
-}) = _ContentModel;
+  }) = _ContentModel;
 
   factory ContentModel.fromJson(Map<String, dynamic> json) =>
       _$ContentModelFromJson(json);

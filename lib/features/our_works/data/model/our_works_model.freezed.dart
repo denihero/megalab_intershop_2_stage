@@ -280,6 +280,7 @@ ContentModel _$ContentModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ContentModel {
   int? get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'coverImage')
   String? get image => throw _privateConstructorUsedError;
   String? get title => throw _privateConstructorUsedError;
 
@@ -295,7 +296,8 @@ abstract class $ContentModelCopyWith<$Res> {
           ContentModel value, $Res Function(ContentModel) then) =
       _$ContentModelCopyWithImpl<$Res, ContentModel>;
   @useResult
-  $Res call({int? id, String? image, String? title});
+  $Res call(
+      {int? id, @JsonKey(name: 'coverImage') String? image, String? title});
 }
 
 /// @nodoc
@@ -340,7 +342,8 @@ abstract class _$$_ContentModelCopyWith<$Res>
       __$$_ContentModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int? id, String? image, String? title});
+  $Res call(
+      {int? id, @JsonKey(name: 'coverImage') String? image, String? title});
 }
 
 /// @nodoc
@@ -378,7 +381,8 @@ class __$$_ContentModelCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ContentModel implements _ContentModel {
-  const _$_ContentModel({this.id, this.image, this.title});
+  const _$_ContentModel(
+      {this.id, @JsonKey(name: 'coverImage') this.image, this.title});
 
   factory _$_ContentModel.fromJson(Map<String, dynamic> json) =>
       _$$_ContentModelFromJson(json);
@@ -386,6 +390,7 @@ class _$_ContentModel implements _ContentModel {
   @override
   final int? id;
   @override
+  @JsonKey(name: 'coverImage')
   final String? image;
   @override
   final String? title;
@@ -426,7 +431,7 @@ class _$_ContentModel implements _ContentModel {
 abstract class _ContentModel implements ContentModel {
   const factory _ContentModel(
       {final int? id,
-      final String? image,
+      @JsonKey(name: 'coverImage') final String? image,
       final String? title}) = _$_ContentModel;
 
   factory _ContentModel.fromJson(Map<String, dynamic> json) =
@@ -435,6 +440,7 @@ abstract class _ContentModel implements ContentModel {
   @override
   int? get id;
   @override
+  @JsonKey(name: 'coverImage')
   String? get image;
   @override
   String? get title;

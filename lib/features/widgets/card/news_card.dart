@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:megacom_second_stage/core/megalab_internship.dart';
+import 'package:megacom_second_stage/core/network/image_settings.dart';
 import 'package:megacom_second_stage/features/our_works/data/model/our_works_model.dart';
 import 'package:megacom_second_stage/navigation/route.dart';
 
@@ -24,7 +25,7 @@ class NewsCard extends StatelessWidget {
             color: Colors.black12,
             image: DecorationImage(
               fit: BoxFit.cover,
-              image: CachedNetworkImageProvider(news.image ?? ''),
+              image: CachedNetworkImageProvider('${ImageSettings.newsImage}${news.image}' ?? ''),
             ),
           ),
           child: Align(

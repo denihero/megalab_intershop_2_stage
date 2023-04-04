@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 
 class DioSetting {
+
   final dio = Dio(
     BaseOptions(
         baseUrl: 'http://161.35.29.179:8090',
