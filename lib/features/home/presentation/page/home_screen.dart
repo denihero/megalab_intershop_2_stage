@@ -3,7 +3,6 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:megacom_second_stage/core/megalab_internship.dart';
 
-
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -13,6 +12,9 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   late final ScrollController _sliverScrollController;
+  final aboutUs = GlobalKey();
+  final userFeedback = GlobalKey();
+  final submitApplication = GlobalKey();
 
   @override
   void initState() {
@@ -48,9 +50,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 flexibleSpace: FlexibleSpaceBar(
                   background: HeaderPart(
                     onPressed: () {
-                      _sliverScrollController.animateTo(2500,
-                          duration: const Duration(milliseconds: 300),
-                          curve: Curves.easeIn);
+                      Scrollable.ensureVisible(
+                        aboutUs.currentContext!,
+                        curve: Curves.easeIn,
+                        duration: const Duration(milliseconds: 300),
+                      );
                     },
                   ),
                 ),
@@ -99,8 +103,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       const OurWorks(),
                       const Support(),
                       const CustomerFeedback(),
-                      const SubmitApplication(),
-                      const SizedBox(height: 20,),
+                      SubmitApplication(
+                        key: submitApplication,
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
                       Footer(scrollController: _sliverScrollController),
                     ],
                   );
