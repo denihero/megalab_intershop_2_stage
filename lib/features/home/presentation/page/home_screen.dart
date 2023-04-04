@@ -73,12 +73,17 @@ class _HomeScreenState extends State<HomeScreen> {
                           color: scrolled ? Colors.black : Colors.white,
                         ),
                       ),
-                      CustomNavigatorMenu(
-                        iconColor: scrolled ? Colors.black : Colors.white,
-                      ),
                     ],
                   ),
                 ),
+                actions: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: CustomNavigatorMenu(
+                      iconColor: scrolled ? Colors.black : Colors.white,
+                    ),
+                  ),
+                ],
               );
             }),
             SliverList(

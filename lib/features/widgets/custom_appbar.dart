@@ -12,7 +12,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       elevation: 0,
       automaticallyImplyLeading: false,
       flexibleSpace: Padding(
-        padding: const EdgeInsets.only(left: 10),
+        padding: const EdgeInsets.only(left: 15,top: 5),
         child: Align(
           alignment: Alignment.centerLeft,
           child: GestureDetector(
@@ -22,7 +22,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             child: Image.asset(
               Pictures.logoPng,
               fit: BoxFit.contain,
-              width: 100,
+              width: 85,
+              height: 40,
               color: Colors.black,
             ),
           ),
@@ -30,7 +31,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       actions: const [
         Padding(
-          padding: EdgeInsets.all(10.0),
+          padding: EdgeInsets.all(8),
           child: CustomNavigatorMenu()
         ),
       ],
@@ -38,5 +39,5 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => const Size(0, 55);
+  Size get preferredSize => const Size(0, 60);
 }
