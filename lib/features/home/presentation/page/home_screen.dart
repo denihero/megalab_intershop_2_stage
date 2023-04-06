@@ -51,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   background: HeaderPart(
                     onPressed: () {
                       Scrollable.ensureVisible(
-                        aboutUs.currentContext!,
+                        submitApplication.currentContext!,
                         curve: Curves.easeIn,
                         duration: const Duration(milliseconds: 300),
                       );
@@ -109,7 +109,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       const SizedBox(
                         height: 20,
                       ),
-                      Footer(scrollController: _sliverScrollController),
+                      Footer(scrollController: _sliverScrollController,),
                     ],
                   );
                 },
