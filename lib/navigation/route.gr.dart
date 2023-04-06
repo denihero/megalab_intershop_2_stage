@@ -18,47 +18,65 @@ class _$AppRouter extends RootStackRouter {
   @override
   final Map<String, PageFactory> pagesMap = {
     HomeScreenRoute.name: (routeData) {
-      return MaterialPageX<dynamic>(
+      return CustomPage<dynamic>(
         routeData: routeData,
         child: const HomeScreen(),
+        transitionsBuilder: TransitionsBuilders.slideRight,
+        opaque: true,
+        barrierDismissible: false,
       );
     },
     GateTypeScreenRoute.name: (routeData) {
       final args = routeData.argsAs<GateTypeScreenRouteArgs>();
-      return MaterialPageX<dynamic>(
+      return CustomPage<dynamic>(
         routeData: routeData,
         child: GateTypeScreen(
           key: args.key,
           gateType: args.gateType,
         ),
+        transitionsBuilder: TransitionsBuilders.slideLeft,
+        opaque: true,
+        barrierDismissible: false,
       );
     },
     OurNewsScreenRoute.name: (routeData) {
-      return MaterialPageX<dynamic>(
+      return CustomPage<dynamic>(
         routeData: routeData,
         child: const OurNewsScreen(),
+        transitionsBuilder: TransitionsBuilders.slideLeft,
+        opaque: true,
+        barrierDismissible: false,
       );
     },
     OurServiceScreenRoute.name: (routeData) {
-      return MaterialPageX<dynamic>(
+      return CustomPage<dynamic>(
         routeData: routeData,
         child: const OurServiceScreen(),
+        transitionsBuilder: TransitionsBuilders.slideLeft,
+        opaque: true,
+        barrierDismissible: false,
       );
     },
     OurWorkScreenRoute.name: (routeData) {
-      return MaterialPageX<dynamic>(
+      return CustomPage<dynamic>(
         routeData: routeData,
         child: const OurWorkScreen(),
+        transitionsBuilder: TransitionsBuilders.slideLeft,
+        opaque: true,
+        barrierDismissible: false,
       );
     },
     NewsDetailScreenRoute.name: (routeData) {
       final args = routeData.argsAs<NewsDetailScreenRouteArgs>();
-      return MaterialPageX<dynamic>(
+      return CustomPage<dynamic>(
         routeData: routeData,
         child: NewsDetailScreen(
           key: args.key,
           id: args.id,
         ),
+        transitionsBuilder: TransitionsBuilders.slideLeft,
+        opaque: true,
+        barrierDismissible: false,
       );
     },
   };

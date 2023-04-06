@@ -14,19 +14,19 @@ part 'route.gr.dart';
   CustomRoute(
       page: HomeScreen,
       initial: true,
-      transitionsBuilder: TransitionsBuilders.slideBottom),
+      transitionsBuilder: TransitionsBuilders.slideRight),
   CustomRoute(
       page: GateTypeScreen,
-      transitionsBuilder: TransitionsBuilders.slideBottom),
+      transitionsBuilder: TransitionsBuilders.slideLeft),
   CustomRoute(
-      page: OurNewsScreen, transitionsBuilder: TransitionsBuilders.slideBottom),
+      page: OurNewsScreen, transitionsBuilder: TransitionsBuilders.slideLeft),
   CustomRoute(
       page: OurServiceScreen,
-      transitionsBuilder: TransitionsBuilders.slideBottom),
+      transitionsBuilder: TransitionsBuilders.slideLeft),
   CustomRoute(
-      page: OurWorkScreen, transitionsBuilder: TransitionsBuilders.slideBottom),
+      page: OurWorkScreen, transitionsBuilder: TransitionsBuilders.slideLeft),
   CustomRoute(
       page: NewsDetailScreen,
-      transitionsBuilder: TransitionsBuilders.slideBottom),
+      transitionsBuilder: TransitionsBuilders.slideLeft),
 ])
 class AppRouter extends _$AppRouter {}
