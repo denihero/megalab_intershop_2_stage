@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:megacom_second_stage/features/home/presentation/bloc/get_review/get_review_cubit.dart';
 import 'package:megacom_second_stage/features/news_detail/presentation/bloc/detail_news_cubit.dart';
@@ -20,6 +21,12 @@ class App extends StatefulWidget {
 
 class _AppState extends State<App> {
   final _appRouter = AppRouter();
+
+  @override
+  void initState() {
+    FlutterNativeSplash.remove();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

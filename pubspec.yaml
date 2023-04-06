@@ -49,8 +49,17 @@ dev_dependencies:
   flutter_lints: ^2.0.0
 
 flutter_native_splash:
+
+  android_12:
+    image: assets/icons/logo.png
+    color: "#ffffff"
+    image_dark: assets/icons/logo.png
+    icon_background_color_dark: "#ffffff"
+
+
+
   color: '#ffffff'
-  image: 'assets/icons/logo.png'
+  image: assets/icons/logo.png
 
 flutter:
 
