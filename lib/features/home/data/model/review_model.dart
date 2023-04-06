@@ -14,8 +14,20 @@ class ReviewModel extends ReviewEntity with _$ReviewModel {
     String? customerImage,
     String? reviewText,
     int? gateCategoryId,
+    GateCategoryModel? gateCategory,
   }) = _ReviewModel;
 
   factory ReviewModel.fromJson(Map<String, dynamic> json) =>
       _$ReviewModelFromJson(json);
+}
+
+@freezed
+class GateCategoryModel extends GateCategoryEntity with _$GateCategoryModel {
+  const factory GateCategoryModel({
+    int? id,
+    String? name,
+  }) = _GateCategoryModel;
+
+  factory GateCategoryModel.fromJson(Map<String, dynamic> json) =>
+      _$GateCategoryModelFromJson(json);
 }

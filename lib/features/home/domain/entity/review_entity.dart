@@ -5,8 +5,10 @@ class ReviewEntity {
   final String? customerImage;
   final String? reviewText;
   final int? gateCategoryId;
+  final GateCategoryEntity? gateCategory;
 
   ReviewEntity({
+    this.gateCategory,
     this.id,
     this.firstName,
     this.lastName,
@@ -14,4 +16,11 @@ class ReviewEntity {
     this.reviewText,
     this.gateCategoryId,
   });
+}
+
+class GateCategoryEntity {
+  final int? id;
+  final String? name;
+
+  GateCategoryEntity({this.id, this.name});
 }

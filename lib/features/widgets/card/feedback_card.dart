@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:megacom_second_stage/core/color.dart';
+import 'package:megacom_second_stage/core/network/image_settings.dart';
 import 'package:megacom_second_stage/core/style.dart';
 import 'package:megacom_second_stage/features/home/data/model/review_model.dart';
 
@@ -34,8 +35,8 @@ class FeedbackCard extends StatelessWidget {
                 offset: const Offset(0, -12),
                 child: CircleAvatar(
                   radius: 35,
-                  child: CachedNetworkImage(
-                      imageUrl: reviewModel.customerImage ?? ''),
+                  backgroundImage: CachedNetworkImageProvider(
+                      '${ImageSettings.imageApi}${reviewModel.customerImage}'),
                 ),
               ),
               title: Text(
@@ -44,7 +45,7 @@ class FeedbackCard extends StatelessWidget {
                 style:
                     Style.montserrat_14_600White.copyWith(color: Palette.black),
               ),
-              subtitle: Text('make some request',
+              subtitle: Text(reviewModel.gateCategory?.name ?? '',
                   style: Style.montserrat_11_300Black),
             ),
             Padding(
