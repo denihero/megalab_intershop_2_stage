@@ -62,7 +62,7 @@ class _NewsDetailScreenState extends State<NewsDetailScreen> {
                           context: context,
                           builder: (context) {
                             return openImage(
-                              '${ImageSettings.newsImage}${detailNews.contentImage}',
+                              '${ImageSettings.imageApi}${detailNews.contentImage}',
                             );
                           },
                         );
@@ -71,7 +71,7 @@ class _NewsDetailScreenState extends State<NewsDetailScreen> {
                         padding: const EdgeInsets.all(8.0),
                         child: ServerImage(
                           pictureUrl:
-                              '${ImageSettings.newsImage}${detailNews.contentImage}',
+                              '${ImageSettings.imageApi}${detailNews.contentImage}',
                         ),
                       ),
                     ),
@@ -84,7 +84,7 @@ class _NewsDetailScreenState extends State<NewsDetailScreen> {
                             context: context,
                             builder: (context) {
                               return openImage(
-                                '${ImageSettings.newsImage}${detailNews.coverImage}',
+                                '${ImageSettings.imageApi}${detailNews.coverImage}',
                               );
                             },
                           );
@@ -93,7 +93,7 @@ class _NewsDetailScreenState extends State<NewsDetailScreen> {
                           padding: const EdgeInsets.all(8.0),
                           child: ServerImage(
                               pictureUrl:
-                                  '${ImageSettings.newsImage}${detailNews.coverImage}'),
+                                  '${ImageSettings.imageApi}${detailNews.coverImage}'),
                         )),
                     SizedBox(
                       height: 30.h,
