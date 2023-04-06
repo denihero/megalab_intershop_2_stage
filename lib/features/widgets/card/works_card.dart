@@ -2,7 +2,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:megacom_second_stage/core/network/image_settings.dart';
-import 'package:megacom_second_stage/features/news_detail/presentation/widget/server_image.dart';
 import 'package:megacom_second_stage/features/our_works/data/model/our_works_model.dart';
 
 class WorksCard extends StatelessWidget {
