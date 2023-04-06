@@ -18,10 +18,26 @@ class WorksCard extends StatelessWidget {
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           border: Border.all(
-            color: Colors.blue,
-          ),
+              color: const Color(0xFF87ADFD), style: BorderStyle.solid),
+          boxShadow: const [
+            BoxShadow(
+              color: Color(0xFF87ADFD),
+              offset: Offset(
+                0.0,
+                0.0,
+              ),
+              blurRadius: 2.0,
+              spreadRadius: 1,
+            ), //BoxShadow
+            BoxShadow(
+              color: Colors.white,
+              offset: Offset(0.0, 0.0),
+              blurRadius: 0.0,
+              spreadRadius: 0.0,
+            ), //BoxShadow
+          ],
           image: DecorationImage(
-            fit: BoxFit.cover,
+              fit: BoxFit.cover,
               image: CachedNetworkImageProvider(
                   '${ImageSettings.imageApi}${ourWorks.image}'))),
     );
