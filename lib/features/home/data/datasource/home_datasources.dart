@@ -23,6 +23,7 @@ class HomeDataSourcesImpl extends HomeDataSources {
     if (response.statusCode! >= 200) {
       return true;
     } else {
+      print('error : ${response.data}');
       throw DioErrorType.badResponse;
     }
   }

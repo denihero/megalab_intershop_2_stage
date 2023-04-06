@@ -1,3 +1,4 @@
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
@@ -19,6 +20,7 @@ class _SubmitApplicationState extends State<SubmitApplication> {
   late final TextEditingController _phoneController;
   late final TextEditingController _messageController;
   late final MaskTextInputFormatter maskFormatter;
+  bool isShowed = false;
 
   @override
   void initState() {
@@ -45,18 +47,27 @@ class _SubmitApplicationState extends State<SubmitApplication> {
     return BlocConsumer<SendApplicationCubit, SendApplicationState>(
       listener: (context, state) {
         if (state is SendApplicationSuccess) {
-          showDialog(
-              context: context,
-              builder: (context) {
-                return const ApplicationDialog();
-              });
-
-          _messageController.clear();
-          _phoneController.clear();
-          _nameController.clear();
+          final status = state.status;
+          if (status == true) {
+            showDialog(
+                barrierDismissible: false,
+                context: context,
+                builder: (context) {
+                  return const ApplicationDialog();
+                });
+            _messageController.clear();
+            _phoneController.clear();
+            _nameController.clear();
+            SystemChannels.textInput.invokeMethod('TextInput.hide');
+          } else {
+            return;
+          }
         } else if (state is SendApplicationError) {
           ScaffoldMessenger.maybeOf(context)?.showSnackBar(
               const SnackBar(content: Text('Something get wrong')));
+        } else if (state is SendApplicationLoading) {
+          ScaffoldMessenger.maybeOf(context)
+              ?.showSnackBar(const SnackBar(content: Text('Подождите...')));
         }
       },
       builder: (context, state) {
@@ -87,9 +98,7 @@ class _SubmitApplicationState extends State<SubmitApplication> {
                   controller: _phoneController,
                   textInputType: TextInputType.phone,
                   textInputAction: TextInputAction.next,
-                  inputFormatter: [
-                    maskFormatter
-                  ],
+                  inputFormatter: [maskFormatter],
                 ),
                 SizedBox(
                   height: 15.h,
