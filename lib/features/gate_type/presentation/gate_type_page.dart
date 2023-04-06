@@ -17,49 +17,64 @@ class GateTypeScreen extends StatefulWidget {
 }
 
 class _GateTypeScreenState extends State<GateTypeScreen> {
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(170.h),
+          preferredSize: Size(double.infinity, 170.h),
           child: AppBar(
+            automaticallyImplyLeading: false,
             backgroundColor: Colors.transparent,
             elevation: 0,
-            leading: Image.asset(
-              Pictures.logoPng,
-              width: 200,
-              height: 200,
-              color: Colors.white,
-            ),
             actions: const [
               Padding(
                 padding: EdgeInsets.all(10.0),
-                child: CustomNavigatorMenu(),
+                child: CustomNavigatorMenu(
+                  iconColor: Colors.white,
+                ),
               ),
             ],
-            flexibleSpace: ClipRRect(
-              borderRadius:
-                  const BorderRadius.only(bottomRight: Radius.circular(60)),
-              child: Container(
-                height: 200.h,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: CachedNetworkImageProvider(
-                      '${ImageSettings.imageApi}${widget.gateType.image}',
-                      errorListener: () => const Icon(Icons.error),
+            flexibleSpace: Stack(
+              children: [
+                ClipRRect(
+                  borderRadius:
+                      const BorderRadius.only(bottomRight: Radius.circular(60)),
+                  child: Container(
+                    height: 200.h,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: CachedNetworkImageProvider(
+                          '${ImageSettings.imageApi}${widget.gateType.image}',
+                          errorListener: () => const Icon(Icons.error),
+                        ),
+                      ),
+                    ),
+                    child: Center(
+                        child: Text(
+                      widget.gateType.name ?? '',
+                      textAlign: TextAlign.center,
+                      style: Style.montserrat_16_800White,
+                    )),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 15,top: 10),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Image.asset(
+                      Pictures.logoPng,
+                      fit: BoxFit.contain,
+                      width: 85,
+                      height: 40,
+                      color: Colors.white,
                     ),
                   ),
                 ),
-                child: Center(
-                    child: Text(
-                  widget.gateType.name ?? '',
-                  textAlign: TextAlign.center,
-                  style: Style.montserrat_16_800White,
-                )),
-              ),
+              ],
             ),
           ),
         ),
@@ -96,8 +111,8 @@ class _GateTypeScreenState extends State<GateTypeScreen> {
                         physics: const NeverScrollableScrollPhysics(),
                         itemBuilder: (context, index) {
                           return Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 15, vertical: 15),
                             child: ShorGateCard(
                               gate: widget.gateType.gates?[index],
                             ),
@@ -115,7 +130,8 @@ class _GateTypeScreenState extends State<GateTypeScreen> {
                           height: 1300,
                           child: ListView.builder(
                               physics: const NeverScrollableScrollPhysics(),
-                              itemCount: widget.gateType.advantages?.length ?? 0,
+                              itemCount:
+                                  widget.gateType.advantages?.length ?? 0,
                               itemBuilder: (context, index) {
                                 final advantage = widget.gateType.advantages;
                                 return SpecialAdvantageCard(
