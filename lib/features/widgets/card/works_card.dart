@@ -26,7 +26,7 @@ class WorksCard extends StatelessWidget {
                 0.0,
                 0.0,
               ),
-              blurRadius: 2.0,
+              blurRadius: 0.5,
               spreadRadius: 1,
             ), //BoxShadow
             BoxShadow(
