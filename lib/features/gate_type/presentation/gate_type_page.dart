@@ -1,12 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:megacom_second_stage/core/color.dart';
-import 'package:megacom_second_stage/features/gate_type/data/model/out_advatages.dart';
+import 'package:megacom_second_stage/core/network/image_settings.dart';
+import 'package:megacom_second_stage/features/gate_type/presentation/widget/short_date_card.dart';
 import 'package:megacom_second_stage/features/gate_type/presentation/widget/special_advantage_card.dart';
 import 'package:megacom_second_stage/features/our_service/data/model/our_service_model.dart';
-import 'package:megacom_second_stage/features/widgets/card/gate_card.dart';
-import 'package:megacom_second_stage/features/widgets/custom_navigation_menu.dart';
 import 'package:megacom_second_stage/core/megalab_internship.dart';
 
 class GateTypeScreen extends StatefulWidget {
@@ -50,7 +48,7 @@ class _GateTypeScreenState extends State<GateTypeScreen> {
                   image: DecorationImage(
                     fit: BoxFit.cover,
                     image: CachedNetworkImageProvider(
-                      widget.gateType.image ?? '',
+                      '${ImageSettings.imageApi}${widget.gateType.image}',
                       errorListener: () => const Icon(Icons.error),
                     ),
                   ),
@@ -65,71 +63,76 @@ class _GateTypeScreenState extends State<GateTypeScreen> {
             ),
           ),
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(20),
-                child: Text(
-                  widget.gateType.description ?? '',
-                  style: Style.montserrat_14_300Black,
-                ),
-              ),
-              const SizedBox(
-                height: 40,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 20),
-                child: Align(
-                  alignment: Alignment.topLeft,
-                  child: Text(
-                    AppString.ourGateType,
-                    style: Style.montserrat_16_800White
-                        .copyWith(color: Palette.black),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 1000,
-                child: ListView.builder(
-                    itemCount: 4,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemBuilder: (context, index) {
-                      return const Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-                        child: GateCard(
-                          isBackgroundUse: false,
-                          gate: OurServiceModel(),
+        body: Column(
+          children: [
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(20),
+                      child: Text(
+                        widget.gateType.description ?? '',
+                        style: Style.montserrat_14_300Black,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 40,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: Align(
+                        alignment: Alignment.topLeft,
+                        child: Text(
+                          AppString.ourGateType,
+                          style: Style.montserrat_16_800White
+                              .copyWith(color: Palette.black),
                         ),
-                      );
-                    }),
-              ),
-              Center(
-                  child: Text(
-                AppString.specialAdvantagesTitle,
-                style: Style.montserrat_16_700Black,
-              )),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: SizedBox(
-                  height: 1300,
-                  child: ListView.builder(
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemCount: OurAdvantagesModel.advantageList.length,
-                      itemBuilder: (context, index) {
-                        final advantage = OurAdvantagesModel.advantageList;
-                        return SpecialAdvantageCard(
-                            orderId: index + 1,
-                            title: advantage[index].title,
-                            description: advantage[index].description);
-                      }),
+                      ),
+                    ),
+                    ListView.builder(
+                        itemCount: widget.gateType.gates?.length ?? 0,
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+                            child: ShorGateCard(
+                              gate: widget.gateType.gates?[index],
+                            ),
+                          );
+                        }),
+                    Center(
+                        child: Text(
+                      AppString.specialAdvantagesTitle,
+                      style: Style.montserrat_16_700Black,
+                    )),
+                    Center(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: SizedBox(
+                          height: 1300,
+                          child: ListView.builder(
+                              physics: const NeverScrollableScrollPhysics(),
+                              itemCount: widget.gateType.advantages?.length ?? 0,
+                              itemBuilder: (context, index) {
+                                final advantage = widget.gateType.advantages;
+                                return SpecialAdvantageCard(
+                                    orderId: index + 1,
+                                    title: advantage?[index].title ?? '',
+                                    description: advantage?[index].text ?? '');
+                              }),
+                        ),
+                      ),
+                    ),
+                    const SubmitApplication(),
+                    const Footer()
+                  ],
                 ),
               ),
-              const SubmitApplication(),
-              const Footer()
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

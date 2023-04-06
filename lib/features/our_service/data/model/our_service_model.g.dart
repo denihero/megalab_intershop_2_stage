@@ -15,6 +15,9 @@ _$_OurServiceModel _$$_OurServiceModelFromJson(Map<String, dynamic> json) =>
       advantages: (json['advantages'] as List<dynamic>?)
           ?.map((e) => AdvantageModel.fromJson(e as Map<String, dynamic>))
           .toList(),
+      gates: (json['gates'] as List<dynamic>?)
+          ?.map((e) => GatesModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$$_OurServiceModelToJson(_$_OurServiceModel instance) =>
@@ -24,6 +27,7 @@ Map<String, dynamic> _$$_OurServiceModelToJson(_$_OurServiceModel instance) =>
       'image': instance.image,
       'description': instance.description,
       'advantages': instance.advantages,
+      'gates': instance.gates,
     };
 
 _$_AdvantageModel _$$_AdvantageModelFromJson(Map<String, dynamic> json) =>
@@ -38,4 +42,18 @@ Map<String, dynamic> _$$_AdvantageModelToJson(_$_AdvantageModel instance) =>
       'id': instance.id,
       'title': instance.title,
       'text': instance.text,
+    };
+
+_$_GatesModel _$$_GatesModelFromJson(Map<String, dynamic> json) =>
+    _$_GatesModel(
+      id: json['id'] as int?,
+      name: json['name'] as String?,
+      image: json['image'] as String?,
+    );
+
+Map<String, dynamic> _$$_GatesModelToJson(_$_GatesModel instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'image': instance.image,
     };

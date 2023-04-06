@@ -16,3 +16,11 @@ class AdvantageEntity {
 
   AdvantageEntity({this.id, this.title, this.text});
 }
+class GatesEntity {
+  final int? id;
+  final String? name;
+  final String? image;
+
+  GatesEntity({this.id, this.name, this.image});
+
+}

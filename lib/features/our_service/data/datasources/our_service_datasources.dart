@@ -15,7 +15,7 @@ class OurServiceDataSourcesImpl extends OurServiceDataSources {
   Future<List<OurServiceModel>> getGateType() async {
 
     List<OurServiceModel> ourService = [];
-    final response = await client.getFixed('/api/v1/public/gate');
+    final response = await client.getFixed('/api/v1/public/gate_category');
     final data = response.data;
 
     if (response.statusCode! >= 200) {

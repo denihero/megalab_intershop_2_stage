@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:megacom_second_stage/core/network/image_settings.dart';
 import 'package:megacom_second_stage/core/style.dart';
 import 'package:megacom_second_stage/features/our_service/data/model/our_service_model.dart';
 import 'package:megacom_second_stage/navigation/route.dart';
@@ -28,7 +29,7 @@ class GateCard extends StatelessWidget {
               image: DecorationImage(
             fit: BoxFit.cover,
             image: CachedNetworkImageProvider(
-              gate.image ?? '',
+             '${ImageSettings.imageApi}${gate.image}',
               errorListener: () => const Icon(Icons.error),
             ),
           )),

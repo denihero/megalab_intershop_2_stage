@@ -25,6 +25,7 @@ mixin _$OurServiceModel {
   String? get image => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   List<AdvantageModel>? get advantages => throw _privateConstructorUsedError;
+  List<GatesModel>? get gates => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,7 +44,8 @@ abstract class $OurServiceModelCopyWith<$Res> {
       String? name,
       String? image,
       String? description,
-      List<AdvantageModel>? advantages});
+      List<AdvantageModel>? advantages,
+      List<GatesModel>? gates});
 }
 
 /// @nodoc
@@ -64,6 +66,7 @@ class _$OurServiceModelCopyWithImpl<$Res, $Val extends OurServiceModel>
     Object? image = freezed,
     Object? description = freezed,
     Object? advantages = freezed,
+    Object? gates = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -86,6 +89,10 @@ class _$OurServiceModelCopyWithImpl<$Res, $Val extends OurServiceModel>
           ? _value.advantages
           : advantages // ignore: cast_nullable_to_non_nullable
               as List<AdvantageModel>?,
+      gates: freezed == gates
+          ? _value.gates
+          : gates // ignore: cast_nullable_to_non_nullable
+              as List<GatesModel>?,
     ) as $Val);
   }
 }
@@ -103,7 +110,8 @@ abstract class _$$_OurServiceModelCopyWith<$Res>
       String? name,
       String? image,
       String? description,
-      List<AdvantageModel>? advantages});
+      List<AdvantageModel>? advantages,
+      List<GatesModel>? gates});
 }
 
 /// @nodoc
@@ -122,6 +130,7 @@ class __$$_OurServiceModelCopyWithImpl<$Res>
     Object? image = freezed,
     Object? description = freezed,
     Object? advantages = freezed,
+    Object? gates = freezed,
   }) {
     return _then(_$_OurServiceModel(
       id: freezed == id
@@ -144,6 +153,10 @@ class __$$_OurServiceModelCopyWithImpl<$Res>
           ? _value._advantages
           : advantages // ignore: cast_nullable_to_non_nullable
               as List<AdvantageModel>?,
+      gates: freezed == gates
+          ? _value._gates
+          : gates // ignore: cast_nullable_to_non_nullable
+              as List<GatesModel>?,
     ));
   }
 }
@@ -156,8 +169,10 @@ class _$_OurServiceModel implements _OurServiceModel {
       this.name,
       this.image,
       this.description,
-      final List<AdvantageModel>? advantages})
-      : _advantages = advantages;
+      final List<AdvantageModel>? advantages,
+      final List<GatesModel>? gates})
+      : _advantages = advantages,
+        _gates = gates;
 
   factory _$_OurServiceModel.fromJson(Map<String, dynamic> json) =>
       _$$_OurServiceModelFromJson(json);
@@ -180,9 +195,19 @@ class _$_OurServiceModel implements _OurServiceModel {
     return EqualUnmodifiableListView(value);
   }
 
+  final List<GatesModel>? _gates;
+  @override
+  List<GatesModel>? get gates {
+    final value = _gates;
+    if (value == null) return null;
+    if (_gates is EqualUnmodifiableListView) return _gates;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   String toString() {
-    return 'OurServiceModel(id: $id, name: $name, image: $image, description: $description, advantages: $advantages)';
+    return 'OurServiceModel(id: $id, name: $name, image: $image, description: $description, advantages: $advantages, gates: $gates)';
   }
 
   @override
@@ -196,13 +221,20 @@ class _$_OurServiceModel implements _OurServiceModel {
             (identical(other.description, description) ||
                 other.description == description) &&
             const DeepCollectionEquality()
-                .equals(other._advantages, _advantages));
+                .equals(other._advantages, _advantages) &&
+            const DeepCollectionEquality().equals(other._gates, _gates));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, image, description,
-      const DeepCollectionEquality().hash(_advantages));
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      name,
+      image,
+      description,
+      const DeepCollectionEquality().hash(_advantages),
+      const DeepCollectionEquality().hash(_gates));
 
   @JsonKey(ignore: true)
   @override
@@ -224,7 +256,8 @@ abstract class _OurServiceModel implements OurServiceModel {
       final String? name,
       final String? image,
       final String? description,
-      final List<AdvantageModel>? advantages}) = _$_OurServiceModel;
+      final List<AdvantageModel>? advantages,
+      final List<GatesModel>? gates}) = _$_OurServiceModel;
 
   factory _OurServiceModel.fromJson(Map<String, dynamic> json) =
       _$_OurServiceModel.fromJson;
@@ -239,6 +272,8 @@ abstract class _OurServiceModel implements OurServiceModel {
   String? get description;
   @override
   List<AdvantageModel>? get advantages;
+  @override
+  List<GatesModel>? get gates;
   @override
   @JsonKey(ignore: true)
   _$$_OurServiceModelCopyWith<_$_OurServiceModel> get copyWith =>
@@ -413,5 +448,174 @@ abstract class _AdvantageModel implements AdvantageModel {
   @override
   @JsonKey(ignore: true)
   _$$_AdvantageModelCopyWith<_$_AdvantageModel> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+GatesModel _$GatesModelFromJson(Map<String, dynamic> json) {
+  return _GatesModel.fromJson(json);
+}
+
+/// @nodoc
+mixin _$GatesModel {
+  int? get id => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
+  String? get image => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $GatesModelCopyWith<GatesModel> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $GatesModelCopyWith<$Res> {
+  factory $GatesModelCopyWith(
+          GatesModel value, $Res Function(GatesModel) then) =
+      _$GatesModelCopyWithImpl<$Res, GatesModel>;
+  @useResult
+  $Res call({int? id, String? name, String? image});
+}
+
+/// @nodoc
+class _$GatesModelCopyWithImpl<$Res, $Val extends GatesModel>
+    implements $GatesModelCopyWith<$Res> {
+  _$GatesModelCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? name = freezed,
+    Object? image = freezed,
+  }) {
+    return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      image: freezed == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_GatesModelCopyWith<$Res>
+    implements $GatesModelCopyWith<$Res> {
+  factory _$$_GatesModelCopyWith(
+          _$_GatesModel value, $Res Function(_$_GatesModel) then) =
+      __$$_GatesModelCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({int? id, String? name, String? image});
+}
+
+/// @nodoc
+class __$$_GatesModelCopyWithImpl<$Res>
+    extends _$GatesModelCopyWithImpl<$Res, _$_GatesModel>
+    implements _$$_GatesModelCopyWith<$Res> {
+  __$$_GatesModelCopyWithImpl(
+      _$_GatesModel _value, $Res Function(_$_GatesModel) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? name = freezed,
+    Object? image = freezed,
+  }) {
+    return _then(_$_GatesModel(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      image: freezed == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_GatesModel implements _GatesModel {
+  const _$_GatesModel({this.id, this.name, this.image});
+
+  factory _$_GatesModel.fromJson(Map<String, dynamic> json) =>
+      _$$_GatesModelFromJson(json);
+
+  @override
+  final int? id;
+  @override
+  final String? name;
+  @override
+  final String? image;
+
+  @override
+  String toString() {
+    return 'GatesModel(id: $id, name: $name, image: $image)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_GatesModel &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.image, image) || other.image == image));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, id, name, image);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GatesModelCopyWith<_$_GatesModel> get copyWith =>
+      __$$_GatesModelCopyWithImpl<_$_GatesModel>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_GatesModelToJson(
+      this,
+    );
+  }
+}
+
+abstract class _GatesModel implements GatesModel {
+  const factory _GatesModel(
+      {final int? id, final String? name, final String? image}) = _$_GatesModel;
+
+  factory _GatesModel.fromJson(Map<String, dynamic> json) =
+      _$_GatesModel.fromJson;
+
+  @override
+  int? get id;
+  @override
+  String? get name;
+  @override
+  String? get image;
+  @override
+  @JsonKey(ignore: true)
+  _$$_GatesModelCopyWith<_$_GatesModel> get copyWith =>
       throw _privateConstructorUsedError;
 }

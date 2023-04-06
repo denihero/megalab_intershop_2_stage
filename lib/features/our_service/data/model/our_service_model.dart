@@ -12,6 +12,7 @@ class OurServiceModel extends OurServiceEntity with _$OurServiceModel {
     String? image,
     String? description,
     List<AdvantageModel>? advantages,
+    List<GatesModel>? gates,
   }) = _OurServiceModel;
 
   factory OurServiceModel.fromJson(Map<String, dynamic> json) =>
@@ -28,4 +29,16 @@ class AdvantageModel extends AdvantageEntity with _$AdvantageModel {
 
   factory AdvantageModel.fromJson(Map<String, dynamic> json) =>
       _$AdvantageModelFromJson(json);
+}
+
+@freezed
+class GatesModel extends GatesEntity with _$GatesModel {
+  const factory GatesModel({
+    int? id,
+    String? name,
+    String? image,
+  }) = _GatesModel;
+
+  factory GatesModel.fromJson(Map<String, dynamic> json) =>
+      _$GatesModelFromJson(json);
 }

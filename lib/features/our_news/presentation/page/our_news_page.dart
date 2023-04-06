@@ -20,7 +20,7 @@ class _OurNewsScreenState extends State<OurNewsScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: CustomAppBar(),
+        appBar: const CustomAppBar(),
         body: Column(
           children: [
             Expanded(
