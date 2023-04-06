@@ -6,6 +6,7 @@ import 'package:megacom_second_stage/features/news_detail/presentation/bloc/deta
 import 'package:megacom_second_stage/features/news_detail/presentation/widget/server_image.dart';
 import 'package:megacom_second_stage/features/widgets/custom_appbar.dart';
 import 'package:megacom_second_stage/core/megalab_internship.dart';
+import 'package:photo_view/photo_view.dart';
 
 class NewsDetailScreen extends StatefulWidget {
   const NewsDetailScreen({Key? key, required this.id}) : super(key: key);
@@ -125,19 +126,20 @@ class _NewsDetailScreenState extends State<NewsDetailScreen> {
   }
 
   Widget openImage(String pictureUrl) {
-    return ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: 200, maxHeight: 200),
-      child: AlertDialog(
-        insetPadding: const EdgeInsets.symmetric(horizontal: 5),
-        shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(20))),
-        content: InteractiveViewer(
-          child: CachedNetworkImage(
-            imageUrl: pictureUrl,
+    return Stack(
+      children: [
+        PhotoView(
+          imageProvider: CachedNetworkImageProvider(pictureUrl),
+          errorBuilder: (context, error, stackTrace) {
+            return const Center(
+              child: Text("Ошибка загрузки"),
+            );
+          },
+          loadingBuilder: (context, event) => const Center(
+            child: CircularProgressIndicator(),
           ),
         ),
-        contentPadding: EdgeInsets.zero,
-      ),
+      ],
     );
   }
 }
