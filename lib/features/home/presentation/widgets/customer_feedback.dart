@@ -53,7 +53,7 @@ class _CustomerFeedbackState extends State<CustomerFeedback> {
                       enlargeCenterPage: false,
                       enableInfiniteScroll: false,
                       pauseAutoPlayOnManualNavigate: false,
-                      viewportFraction: 0.73,
+                      viewportFraction: 0.75,
                       aspectRatio: 2.1,
                       initialPage: 2,
                     ),

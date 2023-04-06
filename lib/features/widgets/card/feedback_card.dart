@@ -14,47 +14,59 @@ class FeedbackCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 130.h,
-      width: 255.w,
-      child: Container(
-        decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(12),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.withOpacity(0.15),
-                spreadRadius: 1,
-                blurRadius: 5,
-                offset: const Offset(4, 6), // changes position of shadow
-              ),
-            ]),
-        child: Column(
+      width: 300.w,
+      child: Card(
+        elevation: 4,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Stack(
           children: [
-            ListTile(
-              leading: Transform.translate(
-                offset: const Offset(0, -12),
-                child: CircleAvatar(
-                  radius: 35,
-                  backgroundImage: CachedNetworkImageProvider(
-                      '${ImageSettings.imageApi}${reviewModel.customerImage}'),
+            Positioned(
+              bottom: 0,
+              child: Padding(
+                padding: const EdgeInsets.all(10),
+                child: SizedBox(
+                  width: 270.w,
+                  height: 90.h,
+                  child: Text(
+                    reviewModel.reviewText ?? '',
+                    style: Style.montserrat_12_400Black,
+                  ),
                 ),
               ),
-              title: Text(
-                '${reviewModel.firstName} ${reviewModel.lastName}',
-                maxLines: 1,
-                style:
-                    Style.montserrat_14_600White.copyWith(color: Palette.black),
-              ),
-              subtitle: Text(reviewModel.gateCategory?.name ?? '',
-                  style: Style.montserrat_11_300Black),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                reviewModel.reviewText ?? '',
-                style: Style.montserrat_12_400Black,
+            Positioned(
+              left: 20,
+              top: 5,
+              child: CircleAvatar(
+                radius: 30,
+                backgroundImage: CachedNetworkImageProvider(
+                    '${ImageSettings.imageApi}${reviewModel.customerImage}'),
               ),
-            )
+            ),
+            Positioned(
+              right: 30,
+              top: 15,
+              child: SizedBox(
+                width: 150.w,
+                child: Text(
+                  '${reviewModel.firstName} ${reviewModel.lastName}',
+                  maxLines: 1,
+                  style: Style.montserrat_14_600White
+                      .copyWith(color: Palette.black, fontSize: 17),
+                ),
+              ),
+            ),
+            Positioned(
+              right: 30,
+              top: 50,
+              child: SizedBox(
+                width: 150.w,
+                child: Text(reviewModel.gateCategory?.name ?? '',
+                    style: Style.montserrat_11_300Black.copyWith(fontSize: 13)),
+              ),
+            ),
           ],
         ),
       ),
