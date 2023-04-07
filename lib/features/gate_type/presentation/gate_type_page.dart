@@ -43,6 +43,7 @@ class _GateTypeScreenState extends State<GateTypeScreen> {
                   child: Container(
                     height: 200.h,
                     decoration: BoxDecoration(
+                      color: Colors.transparent,
                       image: DecorationImage(
                         fit: BoxFit.cover,
                         image: CachedNetworkImageProvider(

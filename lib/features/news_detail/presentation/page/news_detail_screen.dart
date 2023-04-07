@@ -70,9 +70,12 @@ class _NewsDetailScreenState extends State<NewsDetailScreen> {
                       },
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: ServerImage(
-                          pictureUrl:
-                              '${ImageSettings.imageApi}${detailNews.contentImage}',
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(12),
+                          child: ServerImage(
+                            pictureUrl:
+                                '${ImageSettings.imageApi}${detailNews.contentImage}',
+                          ),
                         ),
                       ),
                     ),
@@ -92,9 +95,12 @@ class _NewsDetailScreenState extends State<NewsDetailScreen> {
                         },
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: ServerImage(
-                              pictureUrl:
-                                  '${ImageSettings.imageApi}${detailNews.coverImage}'),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(12),
+                            child: ServerImage(
+                                pictureUrl:
+                                    '${ImageSettings.imageApi}${detailNews.coverImage}'),
+                          ),
                         )),
                     SizedBox(
                       height: 30.h,
@@ -137,6 +143,18 @@ class _NewsDetailScreenState extends State<NewsDetailScreen> {
           },
           loadingBuilder: (context, event) => const Center(
             child: CircularProgressIndicator(),
+          ),
+        ),
+        Material(
+          color: Colors.transparent,
+          child: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(
+              Icons.arrow_back,
+              color: Colors.white,
+            ),
           ),
         ),
       ],
