@@ -37,14 +37,13 @@ class _CustomerFeedbackState extends State<CustomerFeedback> {
             style: Style.montserrat_16_700Black,
           ),
           const SizedBox(
-            height: 30,
+            height: 10,
           ),
           BlocBuilder<UserReviewCubit, GetReviewState>(
             builder: (context, state) {
               if (state is GetReviewSuccess) {
                 final userFeedback = state.userReviews;
                 return SizedBox(
-                  height: 200.h,
                   child: CarouselSlider.builder(
                     itemCount: userFeedback.length,
                     carouselController: _carouselController,
@@ -53,7 +52,7 @@ class _CustomerFeedbackState extends State<CustomerFeedback> {
                       enlargeCenterPage: false,
                       enableInfiniteScroll: false,
                       pauseAutoPlayOnManualNavigate: false,
-                      viewportFraction: 0.75,
+                      viewportFraction: 0.76,
                       aspectRatio: 2.1,
                       initialPage: 2,
                     ),
