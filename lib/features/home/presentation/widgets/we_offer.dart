@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:megacom_second_stage/core/color.dart';
+import 'package:megacom_second_stage/core/megalab_internship.dart';
 import 'package:megacom_second_stage/core/pictures.dart';
 import 'package:megacom_second_stage/core/string.dart';
 import 'package:megacom_second_stage/core/style.dart';
 import 'package:megacom_second_stage/features/our_service/presentation/bloc/our_service_cubit.dart';
 import 'package:megacom_second_stage/features/widgets/move_icon_button.dart';
 import 'package:megacom_second_stage/features/widgets/shimmer/gate_shimmer_card.dart';
+import 'package:megacom_second_stage/navigation/route.dart';
 
 import '../../../widgets/card/gate_card.dart';
 
@@ -120,7 +122,9 @@ class _WeOfferState extends State<WeOffer> {
                         borderRadius: BorderRadius.circular(12)),
                     side: const BorderSide(color: Colors.blue),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    context.router.push(const OurServiceScreenRoute());
+                  },
                   child: Text('cмотреть все', style: Style.inter_14_400Black)),
               MoveIconButton(
                 icon: Icon(Icons.arrow_forward_ios, color: Palette.blue),

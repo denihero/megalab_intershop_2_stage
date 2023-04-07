@@ -14,7 +14,7 @@ part 'route.gr.dart';
   CustomRoute(
       page: HomeScreen,
       initial: true,
-      transitionsBuilder: TransitionsBuilders.slideRight),
+      transitionsBuilder: TransitionsBuilders.slideRightWithFade),
   CustomRoute(
       page: GateTypeScreen,
       transitionsBuilder: TransitionsBuilders.slideLeft),
