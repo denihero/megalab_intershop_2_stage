@@ -1,7 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:megacom_second_stage/core/megalab_internship.dart';
 import 'package:megacom_second_stage/features/widgets/dialog/exit_dialog.dart';
@@ -112,27 +110,25 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 );
               }),
-              SliverToBoxAdapter(
-                child: Column(
-                  children: [
-                    const CompanyInfo(),
-                    const WeOffer(),
-                    const OurAdvantages(),
-                    const LastNews(),
-                    const OurWorks(),
-                    const Support(),
-                    const CustomerFeedback(),
-                    SubmitApplication(
-                      key: submitApplication,
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    Footer(
-                      scrollController: _sliverScrollController,
-                    ),
-                  ],
-                ),
+              SliverList(
+                delegate: SliverChildListDelegate([
+                  const CompanyInfo(),
+                  const WeOffer(),
+                  const OurAdvantages(),
+                  const LastNews(),
+                  const OurWorks(),
+                  const Support(),
+                  const CustomerFeedback(),
+                  SubmitApplication(
+                    key: submitApplication,
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Footer(
+                    scrollController: _sliverScrollController,
+                  ),
+                ]),
               ),
             ],
           ),

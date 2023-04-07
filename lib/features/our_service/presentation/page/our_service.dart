@@ -21,76 +21,78 @@ class _OurServiceScreenState extends State<OurServiceScreen> {
     return SafeArea(
       child: Scaffold(
         appBar: const CustomAppBar(),
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.only(top: 10),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  AppString.ourServiceTitle,
-                  style: Style.montserrat_16_700Black,
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    AppString.ourServiceDescription,
-                    style: Style.montserrat_14_300Black,
-                    textAlign: TextAlign.center,
+        body: CustomScrollView(
+          slivers: [
+            SliverList(
+              delegate: SliverChildListDelegate(
+                [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 20),
+                    child: Center(
+                      child: Text(
+                        AppString.ourServiceTitle,
+                        style: Style.montserrat_16_700Black,
+                      ),
+                    ),
                   ),
-                ),
-                SizedBox(
-                  height: 700,
-                  child: BlocBuilder<OurServiceCubit, OurServiceState>(
-                    builder: (context, state) {
-                      if (state is OurServiceSuccess) {
-                        final gate = state.ourService;
-                        return CustomScrollView(
-                          physics: const NeverScrollableScrollPhysics(),
-                          slivers: [
-                            SliverList(
-                              delegate: SliverChildBuilderDelegate(
-                                  childCount: gate.length,
-                                  (BuildContext context, int index) {
-                                return Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 15,
-                                    vertical: 15,
-                                  ),
-                                  child: GateCard(
-                                    gate: gate[index],
-                                  ),
-                                );
-                              }),
-                            ),
-                          ],
-                        );
-                      } else if (state is OurServiceInitial) {
-                        return const Text('Woooa');
-                      } else if (state is OurServiceLoading) {
-                        return ListView.builder(
-                            itemCount: 4,
-                            shrinkWrap: true,
-                            physics: const NeverScrollableScrollPhysics(),
-                            itemBuilder: (context, index) {
-                              return Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 15, vertical: 15),
-                                child: GeneralShimmerCard(
-                                    width: 300.w, height: 200.h),
-                              );
-                            });
-                      }
-                      return const SizedBox();
-                    },
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      AppString.ourServiceDescription,
+                      style: Style.montserrat_14_300Black,
+                      textAlign: TextAlign.center,
+                    ),
                   ),
-                ),
-                const SubmitApplication(),
-                const Footer()
-              ],
+                ],
+              ),
             ),
-          ),
+            BlocBuilder<OurServiceCubit, OurServiceState>(
+              builder: (context, state) {
+                if (state is OurServiceSuccess) {
+                  final gate = state.ourService;
+                  return SliverList(
+                      delegate:
+                          SliverChildBuilderDelegate(childCount: gate.length,
+                              (BuildContext context, int index) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 15,
+                        vertical: 15,
+                      ),
+                      child: GateCard(
+                        gate: gate[index],
+                      ),
+                    );
+                  }));
+                } else if (state is OurServiceInitial) {
+                  return const Text('Woooa');
+                } else if (state is OurServiceLoading) {
+                  return ListView.builder(
+                      itemCount: 4,
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 15, vertical: 15),
+                          child:
+                              GeneralShimmerCard(width: 300.w, height: 200.h),
+                        );
+                      });
+                }
+                return const SizedBox();
+              },
+            ),
+            SliverList(
+              delegate: SliverChildListDelegate(
+                [
+                  const SubmitApplication(),
+                  const Footer(),
+                ],
+              ),
+            ),
+
+          ],
         ),
       ),
     );

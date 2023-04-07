@@ -61,7 +61,7 @@ class _GateTypeScreenState extends State<GateTypeScreen> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 15,top: 10),
+                  padding: const EdgeInsets.only(left: 15, top: 10),
                   child: GestureDetector(
                     onTap: () {
                       Navigator.pop(context);
@@ -79,74 +79,72 @@ class _GateTypeScreenState extends State<GateTypeScreen> {
             ),
           ),
         ),
-        body: Column(
-          children: [
-            Expanded(
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(20),
-                      child: Text(
-                        widget.gateType.description ?? '',
-                        style: Style.montserrat_14_300Black,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 40,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 20),
-                      child: Align(
-                        alignment: Alignment.topLeft,
-                        child: Text(
-                          AppString.ourGateType,
-                          style: Style.montserrat_16_800White
-                              .copyWith(color: Palette.black),
-                        ),
-                      ),
-                    ),
-                    ListView.builder(
-                        itemCount: widget.gateType.gates?.length ?? 0,
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        itemBuilder: (context, index) {
-                          return Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 15, vertical: 15),
-                            child: ShorGateCard(
-                              gate: widget.gateType.gates?[index],
-                            ),
-                          );
-                        }),
-                    Center(
-                        child: Text(
-                      AppString.specialAdvantagesTitle,
-                      style: Style.montserrat_16_700Black,
-                    )),
-                    Center(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
-                        child: SizedBox(
-                          height: 1300,
-                          child: ListView.builder(
-                              physics: const NeverScrollableScrollPhysics(),
-                              itemCount:
-                                  widget.gateType.advantages?.length ?? 0,
-                              itemBuilder: (context, index) {
-                                final advantage = widget.gateType.advantages;
-                                return SpecialAdvantageCard(
-                                    orderId: index + 1,
-                                    title: advantage?[index].title ?? '',
-                                    description: advantage?[index].text ?? '');
-                              }),
-                        ),
-                      ),
-                    ),
-                    const SubmitApplication(),
-                    const Footer()
-                  ],
+        body: CustomScrollView(
+          slivers: [
+            SliverList(
+                delegate: SliverChildListDelegate([
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: Text(
+                  widget.gateType.description ?? '',
+                  style: Style.montserrat_14_300Black,
                 ),
+              ),
+              const SizedBox(
+                height: 40,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    AppString.ourGateType,
+                    style: Style.montserrat_16_800White
+                        .copyWith(color: Palette.black),
+                  ),
+                ),
+              ),
+            ])),
+            SliverList(
+                delegate: SliverChildBuilderDelegate(
+                    childCount: widget.gateType.gates?.length ?? 0,
+                    (context, index) {
+              return Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+                child: ShorGateCard(
+                  gate: widget.gateType.gates?[index],
+                ),
+              );
+            })),
+            SliverList(
+                delegate: SliverChildListDelegate([
+              const SizedBox(
+                height: 20,
+              ),
+              Center(
+                  child: Text(
+                AppString.specialAdvantagesTitle,
+                style: Style.montserrat_16_700Black,
+              )),
+            ])),
+            SliverList(
+              delegate: SliverChildBuilderDelegate(
+                  childCount: widget.gateType.advantages?.length ?? 0,
+                  (context, index) {
+                final advantage = widget.gateType.advantages;
+                return SpecialAdvantageCard(
+                    orderId: index + 1,
+                    title: advantage?[index].title ?? '',
+                    description: advantage?[index].text ?? '');
+              }),
+            ),
+            SliverList(
+              delegate: SliverChildListDelegate(
+                [
+                  const SubmitApplication(),
+                  const Footer(),
+                ],
               ),
             ),
           ],
