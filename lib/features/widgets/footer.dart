@@ -144,9 +144,12 @@ class _FooterState extends State<Footer> {
                                         children: [
                                           GoogleMap(
                                             mapType: MapType.normal,
-                                            scrollGesturesEnabled: true,
-                                            zoomControlsEnabled: false,
+                                            myLocationEnabled: false,
                                             zoomGesturesEnabled: true,
+                                            scrollGesturesEnabled: true,
+                                            tiltGesturesEnabled: false,
+                                            rotateGesturesEnabled: true,
+                                            zoomControlsEnabled: false,
                                             initialCameraPosition: _cameraPosition,
                                             padding: const EdgeInsets.only(
                                               bottom: 200,

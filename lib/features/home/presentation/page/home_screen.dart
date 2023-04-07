@@ -91,29 +91,26 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               );
             }),
-            SliverList(
-              delegate: SliverChildBuilderDelegate(
-                childCount: 1,
-                (_, int index) {
-                  return Column(
-                    children: [
-                      const CompanyInfo(),
-                      const WeOffer(),
-                      const OurAdvantages(),
-                      const LastNews(),
-                      const OurWorks(),
-                      const Support(),
-                      const CustomerFeedback(),
-                      SubmitApplication(
-                        key: submitApplication,
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Footer(scrollController: _sliverScrollController,),
-                    ],
-                  );
-                },
+            SliverToBoxAdapter(
+              child: Column(
+                children: [
+                  const CompanyInfo(),
+                  const WeOffer(),
+                  const OurAdvantages(),
+                  const LastNews(),
+                  const OurWorks(),
+                  const Support(),
+                  const CustomerFeedback(),
+                  SubmitApplication(
+                    key: submitApplication,
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Footer(
+                    scrollController: _sliverScrollController,
+                  ),
+                ],
               ),
             ),
           ],
