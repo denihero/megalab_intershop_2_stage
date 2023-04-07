@@ -6,7 +6,9 @@ import 'package:megacom_second_stage/features/news_detail/presentation/bloc/deta
 import 'package:megacom_second_stage/features/news_detail/presentation/widget/server_image.dart';
 import 'package:megacom_second_stage/features/widgets/custom_appbar.dart';
 import 'package:megacom_second_stage/core/megalab_internship.dart';
+import 'package:megacom_second_stage/features/widgets/shimmer/detail_news_shimmer_card.dart';
 import 'package:photo_view/photo_view.dart';
+import 'package:shimmer/shimmer.dart';
 
 class NewsDetailScreen extends StatefulWidget {
   const NewsDetailScreen({Key? key, required this.id}) : super(key: key);
@@ -117,9 +119,7 @@ class _NewsDetailScreenState extends State<NewsDetailScreen> {
                   ],
                 );
               } else if (state is DetailNewsLoading) {
-                return const Center(
-                  child: CircularProgressIndicator(),
-                );
+                return const DetailNewsShimmerCard();
               } else if (state is DetailNewsError) {
                 return const Text('Error');
               }

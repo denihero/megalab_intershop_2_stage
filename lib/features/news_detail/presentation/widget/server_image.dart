@@ -28,7 +28,7 @@ class ServerImage extends StatelessWidget {
               baseColor: Colors.grey[300]!,
               highlightColor: Colors.grey[200]!,
               child: Container(
-                  width: 310.w,
+                  width: double.infinity,
                   height: 230.h,
                   decoration: const BoxDecoration(
                     color: Colors.white,
