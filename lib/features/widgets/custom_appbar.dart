@@ -17,7 +17,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           alignment: Alignment.centerLeft,
           child: GestureDetector(
             onTap: () {
-              context.router.push(const HomeScreenRoute());
+              context.router.replace(const HomeScreenRoute());
             },
             child: Image.asset(
               Pictures.logoPng,

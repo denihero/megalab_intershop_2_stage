@@ -19,9 +19,7 @@ class _CustomNavigatorMenuState extends State<CustomNavigatorMenu> {
   @override
   Widget build(BuildContext context) {
     return PopupMenuButton(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8)
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       icon: SvgPicture.asset(
         Pictures.menu,
         width: 30,
