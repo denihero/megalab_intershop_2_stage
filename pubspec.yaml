@@ -41,6 +41,7 @@ dependencies:
   blurhash_dart: ^1.2.1
   flutter_blurhash: ^0.7.0
   flutter_native_splash: ^2.2.19
+  maps_launcher: ^2.2.0
 
 dev_dependencies:
   flutter_test:

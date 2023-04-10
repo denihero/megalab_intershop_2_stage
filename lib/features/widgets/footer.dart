@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:maps_launcher/maps_launcher.dart';
 import 'package:megacom_second_stage/core/color.dart';
 import 'package:megacom_second_stage/core/megalab_internship.dart';
 import 'package:megacom_second_stage/core/pictures.dart';
@@ -131,7 +132,7 @@ class _FooterState extends State<Footer> {
                             const ScheduleAndPhoneCompany(),
                             GestureDetector(
                               onTap: () {
-                                openMap(42.8482744, 74.5872578);
+                                MapsLauncher.launchCoordinates(42.8482744, 74.5872578);
                               },
                               child: Padding(
                                 padding:
