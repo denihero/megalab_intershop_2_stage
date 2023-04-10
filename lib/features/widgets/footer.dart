@@ -135,7 +135,7 @@ class _FooterState extends State<Footer> {
                               },
                               child: Padding(
                                 padding:
-                                    const EdgeInsets.only(right: 10, left: 20),
+                                    const EdgeInsets.only(right: 10,left: 10,top: 10).w,
                                 child: AbsorbPointer(
                                   absorbing: true,
                                   child: ClipRRect(

@@ -129,7 +129,6 @@ class _SubmitApplicationState extends State<SubmitApplication> {
                         if (_nameController.text.isNotEmpty &&
                             _phoneController.text.isNotEmpty &&
                             _messageController.text.isNotEmpty) {
-                          print(_phoneController.text);
                           context.read<SendApplicationCubit>().sendApplication(
                               _nameController.text,
                               _phoneController.text,
