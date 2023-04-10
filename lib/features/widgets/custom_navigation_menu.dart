@@ -45,8 +45,8 @@ class _CustomNavigatorMenuState extends State<CustomNavigatorMenu> {
                 Image.asset(
                   Pictures.logoPng,
                   color: Colors.black,
-                  width: 40,
-                  height: 30,
+                  width: 50,
+                  height: 40,
                 ),
               ],
             ),

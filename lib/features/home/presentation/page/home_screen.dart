@@ -88,9 +88,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           },
                           child: Image.asset(
                             Pictures.logoPng,
-                            width: 85,
-                            height: 40,
-                            color: scrolled ? Colors.black : Colors.white,
+                            fit: BoxFit.cover,
+                            width: 88,
+                            height: 50,
+                            color: scrolled ? Colors.black : const Color(0xFFECEEFF),
                           ),
                         ),
                       ],

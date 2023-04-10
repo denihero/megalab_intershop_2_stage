@@ -21,9 +21,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             },
             child: Image.asset(
               Pictures.logoPng,
-              fit: BoxFit.contain,
-              width: 85,
-              height: 40,
+              fit: BoxFit.cover,
+              width: 88,
+              height: 50,
               color: Colors.black,
             ),
           ),

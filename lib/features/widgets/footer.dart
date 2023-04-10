@@ -91,7 +91,7 @@ class _FooterState extends State<Footer> {
               color: Palette.grey,
             ),
             child: Padding(
-              padding: const EdgeInsets.only(left: 20, top: 10),
+              padding: const EdgeInsets.only(left: 15, top: 10),
               child: Stack(
                 children: [
                   Positioned(
@@ -122,9 +122,9 @@ class _FooterState extends State<Footer> {
                                 }
                               },
                               child: Image.asset(
-                                Pictures.logoBluePng,
-                                fit: BoxFit.contain,
-                                width: 50,
+                                Pictures.logoPng,
+                                fit: BoxFit.cover,
+                                width: 55,
                                 height: 30,
                               ),
                             ),
