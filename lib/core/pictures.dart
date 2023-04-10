@@ -3,7 +3,7 @@ class Pictures{
   static const garageIcon = 'assets/icons/home.svg';
   static const logoPng = 'assets/icons/logo.png.png';
   static const logoBluePng = 'assets/icons/logo_blue.png';
-  static const logoSvg = 'assets/icons/logo.svg';
+  static const logoSvg = 'assets/icons/logo_2v.svg';
   static const infoBack = 'assets/image/info_part.png';
   static const weOffer = 'assets/image/we_offer.png';
   static const ourAdvantages = 'assets/image/out_advan.png';

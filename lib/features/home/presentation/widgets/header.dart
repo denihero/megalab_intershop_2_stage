@@ -23,7 +23,6 @@ class _HeaderPartState extends State<HeaderPart> {
     return ClipPath(
       clipper: CustomShape(),
       child: Container(
-        height: 380.h,
         decoration: const BoxDecoration(
           image: DecorationImage(
             fit: BoxFit.cover,
@@ -37,12 +36,12 @@ class _HeaderPartState extends State<HeaderPart> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: 80.h,
+                height: 90.h,
               ),
               SizedBox(
-                width: 350.h,
+                width: 400.h,
                 child: Text(AppString.homeSafety,
-                    style: Style.montserrat_30_700White),
+                    style: Style.montserrat_30_700White.copyWith(fontSize: 28.sp)),
               ),
               SizedBox(
                 height: 10.h,

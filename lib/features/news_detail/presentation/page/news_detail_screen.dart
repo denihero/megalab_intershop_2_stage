@@ -56,7 +56,7 @@ class _NewsDetailScreenState extends State<NewsDetailScreen> {
                           child: Text(
                             detailNews.text ?? '',
                             style: Style.montserrat_14_300Black,
-                            textAlign: TextAlign.center,
+                            textAlign: TextAlign.justify,
                           ),
                         ),
                         GestureDetector(

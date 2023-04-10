@@ -19,7 +19,7 @@ class LastNews extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 300.h,
+      height: 350.h,
       decoration: const BoxDecoration(
           image: DecorationImage(
               fit: BoxFit.contain, image: AssetImage(Pictures.lastNews))),
@@ -98,7 +98,10 @@ class LastNews extends StatelessWidget {
                     'все новости',
                     style: Style.inter_14_400Black,
                   ))
-              : const SizedBox()
+              : const SizedBox(),
+          SizedBox(
+            height: 20.h,
+          ),
         ],
       ),
     );

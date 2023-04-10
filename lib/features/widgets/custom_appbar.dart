@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:megacom_second_stage/core/megalab_internship.dart';
+import 'package:megacom_second_stage/navigation/route.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({Key? key}) : super(key: key);
@@ -16,7 +17,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           alignment: Alignment.centerLeft,
           child: GestureDetector(
             onTap: () {
-              context.router.pop();
+              context.router.push(const HomeScreenRoute());
             },
             child: Image.asset(
               Pictures.logoPng,

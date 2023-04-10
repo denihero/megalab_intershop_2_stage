@@ -5,12 +5,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:megacom_second_stage/core/color.dart';
+import 'package:megacom_second_stage/core/megalab_internship.dart';
 import 'package:megacom_second_stage/core/pictures.dart';
 import 'package:megacom_second_stage/core/string.dart';
 import 'package:megacom_second_stage/core/style.dart';
 import 'package:megacom_second_stage/features/widgets/bottom_navigation.dart';
 import 'package:megacom_second_stage/features/widgets/schedule_and_phone_company.dart';
 import 'package:megacom_second_stage/features/widgets/social_media.dart';
+import 'package:megacom_second_stage/navigation/route.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Footer extends StatefulWidget {
@@ -111,21 +113,22 @@ class _FooterState extends State<Footer> {
                           children: [
                             GestureDetector(
                               onTap: () {
-                                widget.scrollController!.animateTo(0,
-                                    duration: const Duration(milliseconds: 300),
-                                    curve: Curves.easeIn);
+                                if(widget.scrollController != null) {
+                                  widget.scrollController!.animateTo(0,
+                                      duration: const Duration(milliseconds: 300),
+                                      curve: Curves.easeIn);
+                                }else{
+                                  context.router.push(const HomeScreenRoute());
+                                }
                               },
                               child: Image.asset(
                                 Pictures.logoBluePng,
                                 fit: BoxFit.contain,
-                                width: 45,
-                                height: 25,
+                                width: 50,
+                                height: 30,
                               ),
                             ),
                             const ScheduleAndPhoneCompany(),
-                            SizedBox(
-                              width: 10.w,
-                            ),
                             GestureDetector(
                               onTap: () {
                                 openMap(42.8482744, 74.5872578);

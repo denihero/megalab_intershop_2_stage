@@ -36,7 +36,7 @@ class _OurServiceScreenState extends State<OurServiceScreen> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(5.0),
                     child: Text(
                       AppString.ourServiceDescription,
                       style: Style.montserrat_14_300Black,
@@ -86,7 +86,13 @@ class _OurServiceScreenState extends State<OurServiceScreen> {
             SliverList(
               delegate: SliverChildListDelegate(
                 [
+                  SizedBox(
+                    height: 40.h,
+                  ),
                   const SubmitApplication(),
+                  SizedBox(
+                    height: 30.h,
+                  ),
                   const Footer(),
                 ],
               ),

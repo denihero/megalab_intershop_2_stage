@@ -21,78 +21,81 @@ class _OurWorkScreenState extends State<OurWorkScreen> {
     return SafeArea(
       child: Scaffold(
         appBar: const CustomAppBar(),
-        body: Column(
-          children: [
-            Expanded(
-              child: SingleChildScrollView(
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 10),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        AppString.ourWorksTitle,
-                        style: Style.montserrat_16_700Black,
+        body: CustomScrollView(
+          slivers: [
+            SliverList(
+              delegate: SliverChildListDelegate([
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      AppString.ourWorksTitle,
+                      style: Style.montserrat_16_700Black,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        AppString.ourWorksDescription,
+                        style: Style.montserrat_14_300Black,
+                        textAlign: TextAlign.justify,
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          AppString.ourWorksDescription,
-                          style: Style.montserrat_14_300Black,
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                      BlocBuilder<OurWorkCubit, OurWorkState>(
-                        builder: (context, state) {
-                          if (state is OurWorkSuccess) {
-                            final ourWorks = state.ourWorksModel;
-                            return ListView.builder(
-                              itemCount: ourWorks.content?.length ?? 0,
-                              shrinkWrap: true,
-                              physics: const NeverScrollableScrollPhysics(),
-                              itemBuilder: (context, index) {
-                                return Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 15, vertical: 15),
-                                  child: WorksCard(
-                                    ourWorks: ourWorks.content![index],
-                                  ),
-                                );
-                              },
-                            );
-                          } else if (state is OurWorkLoading) {
-                            return ListView.builder(
-                              itemCount: 4,
-                              shrinkWrap: true,
-                              physics: const NeverScrollableScrollPhysics(),
-                              itemBuilder: (context, index) {
-                                return Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 15, vertical: 15),
-                                  child: GeneralShimmerCard(
-                                    width: 310.w,
-                                    height: 230.h,
-                                  ),
-                                );
-                              },
-                            );
-                          } else if (state is OurWorkError) {
-                            return const Center(
-                              child: Text('Error'),
-                            );
-                          }
-
-                          return const SizedBox();
-                        },
-                      ),
-                      const SubmitApplication(),
-                      const Footer()
-                    ],
-                  ),
-                ),
-              ),
+                    ),
+                  ],
+                )
+              ]),
             ),
+            BlocBuilder<OurWorkCubit, OurWorkState>(
+              builder: (context, state) {
+                if (state is OurWorkSuccess) {
+                  final ourWorks = state.ourWorksModel;
+                  return SliverList(
+                    delegate: SliverChildBuilderDelegate(
+                      childCount: ourWorks.content?.length ?? 0,
+                      (context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 15, vertical: 15),
+                          child: WorksCard(
+                            ourWorks: ourWorks.content![index],
+                          ),
+                        );
+                      },
+                    ),
+                  );
+                } else if (state is OurWorkLoading) {
+                  return SliverList(
+                    delegate: SliverChildBuilderDelegate(
+                      childCount: 4,
+                      (context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 15, vertical: 15),
+                          child: GeneralShimmerCard(
+                            width: 310.w,
+                            height: 230.h,
+                          ),
+                        );
+                      },
+                    ),
+                  );
+                } else if (state is OurWorkError) {
+                  return const Center(
+                    child: Text('Error'),
+                  );
+                }
+
+                return const SizedBox();
+              },
+            ),
+            SliverList(
+              delegate: SliverChildListDelegate(
+                [
+                  const SubmitApplication(),
+                  const Footer(),
+                ],
+              ),
+            )
           ],
         ),
       ),

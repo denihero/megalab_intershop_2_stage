@@ -15,21 +15,17 @@ class OurNewsScreen extends StatefulWidget {
 }
 
 class _OurNewsScreenState extends State<OurNewsScreen> {
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         appBar: const CustomAppBar(),
-        body: Column(
-          children: [
-            Expanded(
-              child: SingleChildScrollView(
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 10),
-                  child: Column(
+        body: CustomScrollView(
+          slivers: [
+            SliverList(
+                delegate: SliverChildListDelegate([
+                  Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
                         AppString.ourCompanyNew,
@@ -40,59 +36,67 @@ class _OurNewsScreenState extends State<OurNewsScreen> {
                         child: Text(
                           AppString.ourCompanyDescription,
                           style: Style.montserrat_14_300Black,
-                          textAlign: TextAlign.center,
+                          textAlign: TextAlign.justify,
                         ),
                       ),
-                      BlocBuilder<OurNewsCubit, OurNewsState>(
-                        builder: (context, state) {
-                          if (state is OurNewsSuccess) {
-                            final news = state.ourNews;
-                            return ListView.builder(
-                              shrinkWrap: true,
-                              itemCount: news.content?.length ?? 0,
-                              physics: const NeverScrollableScrollPhysics(),
-                              itemBuilder: (context, index) {
-                                return Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 15,
-                                    vertical: 15,
-                                  ),
-                                  child: NewsCard(
-                                    news: news.content![index],
-                                  ),
-                                );
-                              },
-                            );
-                          } else if (state is OurNewsLoading) {
-                            return ListView.builder(
-                              shrinkWrap: true,
-                              itemCount: 4,
-                              physics: const NeverScrollableScrollPhysics(),
-                              itemBuilder: (context, index) {
-                                return Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 15,
-                                    vertical: 15,
-                                  ),
-                                  child: GeneralShimmerCard(
-                                    width: 280.w,
-                                    height: 200.h,
-                                  ),
-                                );
-                              },
-                            );
-                          }
-
-                          return const SizedBox();
-                        },
-                      ),
-                      const SubmitApplication(),
-                      const Footer()
                     ],
-                  ),
-                ),
-              ),
+                  )
+
+            ])),
+            BlocBuilder<OurNewsCubit, OurNewsState>(
+              builder: (context, state) {
+                if (state is OurNewsSuccess) {
+                  final news = state.ourNews;
+                  return SliverList(
+                    delegate: SliverChildBuilderDelegate(
+                        childCount: news.content?.length ?? 0,
+                        (context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 15,
+                          vertical: 15,
+                        ),
+                        child: NewsCard(
+                          news: news.content![index],
+                        ),
+                      );
+                    }),
+                  );
+                } else if (state is OurNewsLoading) {
+                  return SliverList(
+                    delegate: SliverChildBuilderDelegate(childCount: 4,
+                        (context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 15,
+                          vertical: 15,
+                        ),
+                        child: GeneralShimmerCard(
+                          width: 280.w,
+                          height: 200.h,
+                        ),
+                      );
+                    }),
+                  );
+                }
+
+                return const SizedBox();
+              },
             ),
+            SliverList(
+              delegate: SliverChildListDelegate(
+                [
+                  SizedBox(
+                    height: 30.h,
+                  ),
+                  const SubmitApplication(),
+                  SizedBox(
+                    height: 30.h,
+                  ),
+                  const Footer(),
+                ],
+              ),
+            )
           ],
         ),
       ),
