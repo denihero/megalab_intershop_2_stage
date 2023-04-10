@@ -40,8 +40,8 @@ class SupportCard extends StatelessWidget {
               height: 10,
             ),
             SizedBox(
-              height: 45.h,
-              width: 200.w,
+              width: 240.w,
+              height: 50.h,
               child: Text(
                 help.title,
                 style: Style.montserrat_14_600White.copyWith(color: Palette.black,fontSize: 18.sp),

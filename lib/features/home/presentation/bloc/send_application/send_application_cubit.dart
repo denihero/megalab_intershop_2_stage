@@ -13,7 +13,7 @@ class SendApplicationCubit extends Cubit<SendApplicationState> {
     emit(SendApplicationLoading());
     final response = await home.sendApplication(name, phoneNumber, message);
     response.fold(
-      (l) => emit(SendApplicationError(l.name)),
+      (l) => emit(SendApplicationError(l)),
       (r) => emit(SendApplicationSuccess(r)),
     );
   }

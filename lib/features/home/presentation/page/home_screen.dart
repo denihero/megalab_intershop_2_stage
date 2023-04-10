@@ -110,8 +110,7 @@ class _HomeScreenState extends State<HomeScreen> {
               SliverList(
                 delegate: SliverChildListDelegate([
                   const CompanyInfo(),
-                  const WeOffer(),
-                  const OurAdvantages(),
+                  const WeOfferAndOurAdvantages(),
                   const LastNews(),
                   const OurWorks(),
                   const Support(),

@@ -33,6 +33,7 @@ class OurWorks extends StatelessWidget {
                   enableInfiniteScroll: false,
                   pauseAutoPlayOnManualNavigate: false,
                   viewportFraction: 0.65,
+                  //aspectRatio: 1.8,
                   initialPage: 2,
                 ),
                 itemBuilder: (BuildContext context, int itemIndex, _) {

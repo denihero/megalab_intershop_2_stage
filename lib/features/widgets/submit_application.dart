@@ -20,6 +20,7 @@ class _SubmitApplicationState extends State<SubmitApplication> {
   late final TextEditingController _phoneController;
   late final TextEditingController _messageController;
   late final MaskTextInputFormatter maskFormatter;
+  late final FocusNode _messageFocus;
   bool isShowed = false;
 
   @override
@@ -27,6 +28,7 @@ class _SubmitApplicationState extends State<SubmitApplication> {
     _nameController = TextEditingController();
     _phoneController = TextEditingController();
     _messageController = TextEditingController();
+    _messageFocus = FocusNode();
     maskFormatter = MaskTextInputFormatter(
       mask: '+996 (###) ##-##-##',
       filter: {"#": RegExp(r'[0-9]')},
@@ -58,13 +60,14 @@ class _SubmitApplicationState extends State<SubmitApplication> {
             _messageController.clear();
             _phoneController.clear();
             _nameController.clear();
-            SystemChannels.textInput.invokeMethod('TextInput.hide');
+            _messageFocus.unfocus();
+
           } else {
             return;
           }
         } else if (state is SendApplicationError) {
           ScaffoldMessenger.maybeOf(context)?.showSnackBar(
-              const SnackBar(content: Text('Something get wrong')));
+               SnackBar(content: Text(state.message.toString())));
         } else if (state is SendApplicationLoading) {
           ScaffoldMessenger.maybeOf(context)
               ?.showSnackBar(const SnackBar(content: Text('Подождите...')));
@@ -110,6 +113,7 @@ class _SubmitApplicationState extends State<SubmitApplication> {
                       controller: _messageController,
                       textInputType: TextInputType.multiline,
                       textInputAction: TextInputAction.newline,
+                      focusNode: _messageFocus,
                       maxLines: 7,
                     )),
                 SizedBox(

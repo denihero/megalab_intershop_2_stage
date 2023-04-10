@@ -4,7 +4,7 @@ class ReviewBackgroundPaint extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     Path path_0 = Path();
-    path_0.moveTo(size.width * 0.2106340, size.height * 0.3627600);
+    path_0.moveTo(size.width * 0.106340, size.height * 0.3627600);
     path_0.cubicTo(
         size.width * 0.2725868,
         size.height * 0.3627600,
@@ -85,7 +85,8 @@ class ReviewBackgroundPaint extends CustomPainter {
     Paint paint0Fill = Paint()..style = PaintingStyle.fill;
     paint0Fill.color = const Color(0xFFFDFDFD);
     canvas.save();
-    canvas.drawShadow(path_0, Colors.black87, 4, true);
+    canvas.drawShadow(path_0, Colors.black87, 2, true);
+    canvas.drawShadow(path_0, Colors.black87, 1, false);
     canvas.restore();
     canvas.drawPath(path_0, paint0Fill);
   }

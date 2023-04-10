@@ -9,7 +9,7 @@ class HomeUseCases {
 
   final HomeRepositories homeRepositories;
 
-  Future<Either<DioErrorType, bool>> sendApplication(
+  Future<Either<String, bool>> sendApplication(
       String name, String phoneNumber, String message) async {
     return await homeRepositories.sendApplication(name, phoneNumber, message);
   }

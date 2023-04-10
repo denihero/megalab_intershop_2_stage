@@ -18,7 +18,7 @@ class AppString {
 
   /*  Наши преимущества */
   static const String ourAdvantages = 'Наши преимущества';
-  static const String freeDelivery = 'Бесплатный выезд специалиста для замеров';
+  static const String freeDelivery = 'Бесплатный выезд специалиста\nдля замеров';
   static const String manyYearExperience = 'Многолетний опыт работы';
   static const String minimumProduction = 'Минимальные сроки производства';
   static const String highQuality = 'Высокая квалификация сотрудиков';

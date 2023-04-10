@@ -6,6 +6,7 @@ import 'package:megacom_second_stage/core/network/image_settings.dart';
 import 'package:megacom_second_stage/core/style.dart';
 import 'package:megacom_second_stage/features/home/data/model/review_model.dart';
 import 'package:megacom_second_stage/features/widgets/review_background_paint.dart';
+import 'package:shimmer/shimmer.dart';
 
 class FeedbackCard extends StatelessWidget {
   const FeedbackCard({Key? key, required this.reviewModel}) : super(key: key);
@@ -21,10 +22,7 @@ class FeedbackCard extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(12),
             child: CustomPaint(
-              size: Size(
-                  400,
-                  (200)
-                      .toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+              size: Size(350, (200).toDouble()),
               painter: ReviewBackgroundPaint(),
             ),
           ),
@@ -34,8 +32,8 @@ class FeedbackCard extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(10),
               child: SizedBox(
-                width: 270.w,
-                height: 90.h,
+                width: 260.w,
+                height: 100.h,
                 child: Text(
                   reviewModel.reviewText ?? '',
                   style: Style.montserrat_12_400Black,
@@ -44,14 +42,55 @@ class FeedbackCard extends StatelessWidget {
             ),
           ),
           Positioned(
-            left: 32,
-            top: 3,
-            child: CircleAvatar(
-              radius: 34,
-              backgroundImage: CachedNetworkImageProvider(
-                  '${ImageSettings.imageApi}${reviewModel.customerImage}'),
-            ),
-          ),
+              left: 34,
+              top: 5,
+              child: Container(
+                width: 65,
+                height: 65,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50),
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(50),
+                  child: CachedNetworkImage(
+                    imageUrl:
+                        '${ImageSettings.imageApi}${reviewModel.customerImage}',
+                    fit: BoxFit.cover,
+                    width: 60,
+                    height: 60,
+                    progressIndicatorBuilder: (context,load,track) {
+                      return Shimmer.fromColors(
+                        baseColor: Colors.grey[200]!,
+                        highlightColor: Colors.grey[300]!,
+                        child: Container(
+                          width: 65,
+                          height: 65,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(50)
+                          ),
+                        ),
+                      );
+                    },
+                    errorWidget: (context,load,track){
+                      return Container(
+                        width: 60,
+                        height: 60,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            border: Border.all(
+                              color: Colors.black26
+                            ),
+                            borderRadius: BorderRadius.circular(50)
+                        ),
+                        child: const Center(
+                          child: Icon(Icons.error_outline),
+                        ),
+                      );
+                    }
+                  ),
+                ),
+              )),
           Positioned(
             right: 10,
             top: 25,
@@ -79,5 +118,3 @@ class FeedbackCard extends StatelessWidget {
     );
   }
 }
-
-

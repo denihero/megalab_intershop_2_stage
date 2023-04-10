@@ -13,22 +13,20 @@ class WorksCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 310.w,
-      height: 310.h,
+      height: 300.h,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
-          border: Border.all(
-              color: const Color(0xFF87ADFD), style: BorderStyle.solid),
-          boxShadow: const [
+          boxShadow: [
             BoxShadow(
-              color: Color(0xFF87ADFD),
-              offset: Offset(
+              color: const Color(0xFF105BFB).withOpacity(0.7),
+              offset: const Offset(
                 0.0,
                 0.0,
               ),
-              blurRadius: 0.5,
-              spreadRadius: 1,
+              blurRadius: 1,
+              spreadRadius: 1.5,
             ), //BoxShadow
-            BoxShadow(
+            const BoxShadow(
               color: Colors.white,
               offset: Offset(0.0, 0.0),
               blurRadius: 0.0,
