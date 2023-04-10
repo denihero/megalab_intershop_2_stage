@@ -13,8 +13,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   late final ScrollController _sliverScrollController;
-  final aboutUs = GlobalKey();
-  final userFeedback = GlobalKey();
   final submitApplication = GlobalKey();
   bool canPop = false;
 
@@ -70,11 +68,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   flexibleSpace: FlexibleSpaceBar(
                     background: HeaderPart(
                       onPressed: () {
-                        Scrollable.ensureVisible(
-                          submitApplication.currentContext!,
-                          curve: Curves.easeIn,
-                          duration: const Duration(milliseconds: 300),
-                        );
+                        _sliverScrollController.animateTo(2550,
+                            duration: const Duration(milliseconds: 300),
+                            curve: Curves.easeIn);
                       },
                     ),
                   ),
@@ -119,9 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   const OurWorks(),
                   const Support(),
                   const CustomerFeedback(),
-                  SubmitApplication(
-                    key: submitApplication,
-                  ),
+                  const SubmitApplication(),
                   const SizedBox(
                     height: 20,
                   ),
