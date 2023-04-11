@@ -87,7 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 curve: Curves.easeIn);
                           },
                           child: Image.asset(
-                            Pictures.logoPng,
+                            Pictures.logoWhitePng,
                             fit: BoxFit.cover,
                             width: 88,
                             height: 50,

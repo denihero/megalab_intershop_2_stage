@@ -2,6 +2,7 @@ class Pictures{
   static const gate = 'assets/image/main.png';
   static const garageIcon = 'assets/icons/home.svg';
   static const logoPng = 'assets/icons/logo_2v.png';
+  static const logoWhitePng = 'assets/icons/logo_white.png';
   static const logoBluePng = 'assets/icons/logo_blue.png';
   static const logoSvg = 'assets/icons/logo_2v.svg';
   static const infoBack = 'assets/image/info_part.png';

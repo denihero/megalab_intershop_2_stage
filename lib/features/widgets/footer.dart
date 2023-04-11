@@ -123,7 +123,7 @@ class _FooterState extends State<Footer> {
                                 }
                               },
                               child: Image.asset(
-                                Pictures.logoPng,
+                                Pictures.logoBluePng,
                                 fit: BoxFit.cover,
                                 width: 55,
                                 height: 30,

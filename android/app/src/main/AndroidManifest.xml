@@ -20,7 +20,7 @@
     </queries>
 
    <application
-        android:label="megacom_second_stage"
+        android:label="Selim Trade"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
        <meta-data android:name="com.google.android.geo.API_KEY"

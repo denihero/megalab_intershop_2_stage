@@ -43,7 +43,7 @@ class _CustomNavigatorMenuState extends State<CustomNavigatorMenu> {
               children: [
                 const Text("Главная"),
                 Image.asset(
-                  Pictures.logoPng,
+                  Pictures.logoWhitePng,
                   color: Colors.black,
                   width: 50,
                   height: 40,
