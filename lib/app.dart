@@ -10,6 +10,7 @@ import 'package:megacom_second_stage/features/our_works/presentation/bloc/our_wo
 
 import 'core/locator_service.dart';
 import 'features/home/presentation/bloc/send_application/send_application_cubit.dart';
+import 'features/widgets/screen_glow.dart';
 import 'navigation/route.dart';
 
 class App extends StatefulWidget {
@@ -57,6 +58,12 @@ class _AppState extends State<App> {
               ),
             ],
             child: MaterialApp.router(
+              builder: (context, child) {
+                return ScrollConfiguration(
+                  behavior: MyBehavior(),
+                  child: child!,
+                );
+              },
               debugShowCheckedModeBanner: false,
               routerDelegate: _appRouter.delegate(),
               routeInformationParser: _appRouter.defaultRouteParser(),
