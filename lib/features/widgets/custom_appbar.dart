@@ -12,12 +12,19 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       elevation: 0,
       automaticallyImplyLeading: false,
       flexibleSpace: Padding(
-        padding: const EdgeInsets.only(left: 15,top: 5),
+        padding: const EdgeInsets.only(left: 15, top: 5),
         child: Align(
           alignment: Alignment.centerLeft,
           child: GestureDetector(
             onTap: () {
-              context.router.push(const HomeScreenRoute());
+              if (context.router.stack.length > 2) {
+                context.router.pushAndPopUntil(const HomeScreenRoute(),
+                    predicate: (Route<dynamic> route) {
+                  return false;
+                });
+              } else {
+                context.router.pop();
+              }
             },
             child: Image.asset(
               Pictures.logoPng,
@@ -30,10 +37,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       actions: const [
-        Padding(
-          padding: EdgeInsets.all(8),
-          child: CustomNavigatorMenu()
-        ),
+        Padding(padding: EdgeInsets.all(8), child: CustomNavigatorMenu()),
       ],
     );
   }

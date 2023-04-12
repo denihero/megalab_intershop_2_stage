@@ -12,7 +12,7 @@ class OurNewsCubit extends Cubit<OurNewsState> {
   final OurNews ourNews;
 
   int page = 0;
-  int count = 1;
+  int count = 3;
   List<ContentModel> news = [];
 
   void getAllNews() async {
