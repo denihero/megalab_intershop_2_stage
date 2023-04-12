@@ -4,8 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:megacom_second_stage/core/network/image_settings.dart';
 import 'package:megacom_second_stage/features/our_works/data/model/our_works_model.dart';
 
-class WorksCard extends StatelessWidget {
-  const WorksCard({Key? key, required this.ourWorks}) : super(key: key);
+class WorksCarouselCard extends StatelessWidget {
+  const WorksCarouselCard({Key? key, required this.ourWorks}) : super(key: key);
 
   final ContentModel ourWorks;
 
@@ -20,7 +20,7 @@ class WorksCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(20),
             boxShadow: [
               BoxShadow(
-                color: const Color(0xFF105BFB).withOpacity(0.7),
+                color: const Color(0xFF105BFB).withOpacity(0.5),
                 offset: const Offset(
                   0.0,
                   0.0,

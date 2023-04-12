@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:megacom_second_stage/features/our_works/presentation/bloc/our_work_cubit.dart';
+import 'package:megacom_second_stage/features/our_works/presentation/widget/our_works_card.dart';
 import 'package:megacom_second_stage/features/widgets/custom_appbar.dart';
 import 'package:megacom_second_stage/core/megalab_internship.dart';
 import 'package:megacom_second_stage/features/widgets/shimmer/gate_shimmer_card.dart';
@@ -56,8 +57,8 @@ class _OurWorkScreenState extends State<OurWorkScreen> {
                         return Padding(
                           padding: const EdgeInsets.symmetric(
                               horizontal: 15, vertical: 15),
-                          child: WorksCard(
-                            ourWorks: ourWorks.content![index],
+                          child: OurWorksCard(
+                            works: ourWorks.content![index],
                           ),
                         );
                       },
@@ -91,7 +92,13 @@ class _OurWorkScreenState extends State<OurWorkScreen> {
             SliverList(
               delegate: SliverChildListDelegate(
                 [
+                  SizedBox(
+                    height: 40.h,
+                  ),
                   const SubmitApplication(),
+                  SizedBox(
+                    height: 30.h,
+                  ),
                   const Footer(),
                 ],
               ),

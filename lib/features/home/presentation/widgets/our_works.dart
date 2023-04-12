@@ -37,7 +37,7 @@ class OurWorks extends StatelessWidget {
                   initialPage: 2,
                 ),
                 itemBuilder: (BuildContext context, int itemIndex, _) {
-                  return WorksCard(ourWorks: ourWorks.content![itemIndex]);
+                  return WorksCarouselCard(ourWorks: ourWorks.content![itemIndex]);
                 },
               );
             } else if (state is OurWorkError) {
