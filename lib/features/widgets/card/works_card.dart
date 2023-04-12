@@ -11,32 +11,35 @@ class WorksCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 310.w,
-      height: 300.h,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-          boxShadow: [
-            BoxShadow(
-              color: const Color(0xFF105BFB).withOpacity(0.7),
-              offset: const Offset(
-                0.0,
-                0.0,
-              ),
-              blurRadius: 1,
-              spreadRadius: 1.5,
-            ), //BoxShadow
-            const BoxShadow(
-              color: Colors.white,
-              offset: Offset(0.0, 0.0),
-              blurRadius: 0.0,
-              spreadRadius: 0.0,
-            ), //BoxShadow
-          ],
-          image: DecorationImage(
-              fit: BoxFit.cover,
-              image: CachedNetworkImageProvider(
-                  '${ImageSettings.imageApi}${ourWorks.image}'))),
+    return Padding(
+      padding: const EdgeInsets.all(1.5),
+      child: Container(
+        width: 310.w,
+        height: 300.h,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            boxShadow: [
+              BoxShadow(
+                color: const Color(0xFF105BFB).withOpacity(0.7),
+                offset: const Offset(
+                  0.0,
+                  0.0,
+                ),
+                blurRadius: 1,
+                spreadRadius: 1.5,
+              ), //BoxShadow
+              const BoxShadow(
+                color: Colors.white,
+                offset: Offset(0.0, 0.0),
+                blurRadius: 0.0,
+                spreadRadius: 0.0,
+              ), //BoxShadow
+            ],
+            image: DecorationImage(
+                fit: BoxFit.cover,
+                image: CachedNetworkImageProvider(
+                    '${ImageSettings.imageApi}${ourWorks.image}'))),
+      ),
     );
   }
 }

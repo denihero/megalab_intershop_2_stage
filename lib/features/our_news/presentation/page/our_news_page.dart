@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:megacom_second_stage/core/color.dart';
 import 'package:megacom_second_stage/features/our_news/presentation/bloc/our_news_cubit.dart';
 import 'package:megacom_second_stage/features/widgets/custom_appbar.dart';
 import 'package:megacom_second_stage/features/widgets/card/news_card.dart';
@@ -86,6 +87,26 @@ class _OurNewsScreenState extends State<OurNewsScreen> {
             SliverList(
               delegate: SliverChildListDelegate(
                 [
+                  Container(
+                   padding: const EdgeInsets.symmetric(horizontal: 120,vertical: 25),
+                    height: 100,
+                    child: ElevatedButton(
+                        onPressed: () {
+
+                        },
+                        style: ButtonStyle(
+                          side: MaterialStateProperty.all(BorderSide(
+                            color: Palette.blue
+                          )),
+                          elevation: MaterialStateProperty.all(0),
+                          backgroundColor: MaterialStateColor.resolveWith((states) => Colors.white),
+                          shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ))
+                        ),
+                        child: Text('загрузить еще',style: Style.inter_14_400Black,)
+                    ),
+                  ),
                   SizedBox(
                     height: 30.h,
                   ),

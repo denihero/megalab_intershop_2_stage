@@ -23,6 +23,8 @@ class SpecialAdvantageCard extends StatelessWidget {
           ),
           Positioned(
             bottom: 30,
+            left: 0,
+            right: 0,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -40,6 +42,7 @@ class SpecialAdvantageCard extends StatelessWidget {
                     child: Text(
                       description,
                       style: Style.montserrat_14_300Black,
+                      textAlign: TextAlign.center,
                     )),
               ],
             ),
