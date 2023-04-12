@@ -51,7 +51,7 @@ class FeedbackCard extends StatelessWidget {
               width: 270,
               height: 110,
               child: Text(
-                'Ворота стоят уже более двух лет. За это время с ними не было никаких проблем. Спасибо, Selim Trade!' ?? '',
+                reviewModel.reviewText ?? '',
                 style: Style.montserrat_12_400Black.copyWith(fontSize: 15.sp),
               ),
             ),
