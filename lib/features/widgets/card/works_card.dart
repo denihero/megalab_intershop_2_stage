@@ -20,20 +20,14 @@ class WorksCarouselCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(20),
             boxShadow: [
               BoxShadow(
-                color: const Color(0xFF105BFB).withOpacity(0.5),
+                color: const Color(0xFF105BFB).withOpacity(0.3),
                 offset: const Offset(
-                  0.0,
+                  0,
                   0.0,
                 ),
-                blurRadius: 1,
-                spreadRadius: 1.5,
-              ), //BoxShadow
-              const BoxShadow(
-                color: Colors.white,
-                offset: Offset(0.0, 0.0),
-                blurRadius: 0.0,
-                spreadRadius: 0.0,
-              ), //BoxShadow
+                blurRadius: 1.4,
+                spreadRadius: 1.9,
+              ),
             ],
             image: DecorationImage(
                 fit: BoxFit.cover,
