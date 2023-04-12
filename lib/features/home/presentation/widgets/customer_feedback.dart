@@ -53,7 +53,7 @@ class _CustomerFeedbackState extends State<CustomerFeedback> {
                       enableInfiniteScroll: false,
                       pauseAutoPlayOnManualNavigate: false,
                       viewportFraction: 0.76,
-                      aspectRatio: 2.1,
+                      aspectRatio: 2.0,
                       initialPage: 2,
                     ),
                     itemBuilder: (BuildContext context, int itemIndex, index) {
