@@ -34,6 +34,7 @@ _$_ContentModel _$$_ContentModelFromJson(Map<String, dynamic> json) =>
       coverImage: json['coverImage'] as String?,
       image: json['image'] as String?,
       title: json['title'] as String?,
+      text: json['text'] as String?,
     );
 
 Map<String, dynamic> _$$_ContentModelToJson(_$_ContentModel instance) =>
@@ -42,4 +43,5 @@ Map<String, dynamic> _$$_ContentModelToJson(_$_ContentModel instance) =>
       'coverImage': instance.coverImage,
       'image': instance.image,
       'title': instance.title,
+      'text': instance.text,
     };

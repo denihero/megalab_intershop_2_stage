@@ -11,9 +11,9 @@ class OurNewsRepositoriesImpl extends OurNewsRepositories {
   final OurNewsDataSources ourNewsDataSources;
 
   @override
-  Future<Either<DioErrorType, OurNewsModel>> getAllNews() async {
+  Future<Either<DioErrorType, OurNewsModel>> getAllNews(int page,int count) async {
     try {
-      final ourGateType = await ourNewsDataSources.getAllNews();
+      final ourGateType = await ourNewsDataSources.getAllNews(page,count);
       return Right(ourGateType);
     } on DioErrorType {
       return const Left(DioErrorType.badResponse);

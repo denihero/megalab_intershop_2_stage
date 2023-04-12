@@ -3,5 +3,5 @@ import 'package:dio/dio.dart';
 import 'package:megacom_second_stage/features/our_news/data/model/our_news_model.dart';
 
 abstract class OurNewsRepositories{
-  Future<Either<DioErrorType, OurNewsModel>> getAllNews();
+  Future<Either<DioErrorType, OurNewsModel>> getAllNews(int page,int count);
 }

@@ -50,7 +50,7 @@ class _OurNewsScreenState extends State<OurNewsScreen> {
                   final news = state.ourNews;
                   return SliverList(
                     delegate: SliverChildBuilderDelegate(
-                        childCount: news.content?.length ?? 0,
+                        childCount: news.length,
                         (context, index) {
                       return Padding(
                         padding: const EdgeInsets.symmetric(
@@ -58,7 +58,7 @@ class _OurNewsScreenState extends State<OurNewsScreen> {
                           vertical: 15,
                         ),
                         child: NewsCard(
-                          news: news.content![index],
+                          news: news[index],
                         ),
                       );
                     }),
@@ -92,7 +92,8 @@ class _OurNewsScreenState extends State<OurNewsScreen> {
                     height: 100,
                     child: ElevatedButton(
                         onPressed: () {
-
+                          context.read<OurNewsCubit>().page++;
+                          context.read<OurNewsCubit>().getAllNews();
                         },
                         style: ButtonStyle(
                           side: MaterialStateProperty.all(BorderSide(

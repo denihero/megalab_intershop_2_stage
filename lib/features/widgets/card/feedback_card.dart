@@ -5,7 +5,6 @@ import 'package:megacom_second_stage/core/color.dart';
 import 'package:megacom_second_stage/core/network/image_settings.dart';
 import 'package:megacom_second_stage/core/style.dart';
 import 'package:megacom_second_stage/features/home/data/model/review_model.dart';
-import 'package:megacom_second_stage/features/widgets/review_background_paint.dart';
 import 'package:shimmer/shimmer.dart';
 
 class FeedbackCard extends StatelessWidget {
@@ -34,7 +33,6 @@ class FeedbackCard extends StatelessWidget {
                   blurRadius: 7,
                   offset: const Offset(5, 10), // changes position of shadow
                 ),
-
               ],
               image: const DecorationImage(
               fit: BoxFit.fitHeight,

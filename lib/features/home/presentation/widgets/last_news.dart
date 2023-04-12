@@ -37,7 +37,7 @@ class LastNews extends StatelessWidget {
               if (state is OurNewsSuccess) {
                 final news = state.ourNews;
                 return CarouselSlider.builder(
-                  itemCount: news.content?.length ?? 0,
+                  itemCount: news.length,
                   options: CarouselOptions(
                     autoPlay: false,
                     enableInfiniteScroll: false,
@@ -49,7 +49,7 @@ class LastNews extends StatelessWidget {
                   itemBuilder:
                       (BuildContext context, int itemIndex, int pageViewIndex) {
                     return NewsCard(
-                      news: news.content![itemIndex],
+                      news: news[itemIndex],
                     );
                   },
                 );

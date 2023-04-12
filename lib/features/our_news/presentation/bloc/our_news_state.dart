@@ -12,7 +12,7 @@ class OurNewsLoading extends OurNewsState {}
 class OurNewsSuccess extends OurNewsState {
   OurNewsSuccess(this.ourNews);
 
-  final OurNewsModel ourNews;
+  final List<ContentModel> ourNews;
 
   @override
   List<Object> get props => [ourNews];

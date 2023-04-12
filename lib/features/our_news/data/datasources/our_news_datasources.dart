@@ -4,7 +4,7 @@ import 'package:megacom_second_stage/core/network/dio_settings.dart';
 import '../model/our_news_model.dart';
 
 abstract class OurNewsDataSources {
-  Future<OurNewsModel> getAllNews();
+  Future<OurNewsModel> getAllNews(int page,int count);
 }
 
 class OurNewsDataSourceImpl extends OurNewsDataSources {
@@ -13,8 +13,8 @@ class OurNewsDataSourceImpl extends OurNewsDataSources {
   final DioSetting client;
 
   @override
-  Future<OurNewsModel> getAllNews() async {
-    final response = await client.getFixed('/api/v1/public/news');
+  Future<OurNewsModel> getAllNews(int page,int count) async {
+    final response = await client.getFixed('/api/v1/public/news?page=$page&size=$count');
     if (response.statusCode! >= 200) {
       return OurNewsModel.fromJson(response.data);
     } else if (response.statusCode! >= 400) {

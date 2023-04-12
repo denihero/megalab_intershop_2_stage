@@ -1,6 +1,6 @@
-import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:megacom_second_stage/features/our_news/data/model/our_news_model.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:megacom_second_stage/features/our_works/data/model/our_works_model.dart';
 
 import '../../domain/usecases/our_news_usecases.dart';
 
@@ -11,12 +11,20 @@ class OurNewsCubit extends Cubit<OurNewsState> {
 
   final OurNews ourNews;
 
+  int page = 0;
+  int count = 1;
+  List<ContentModel> news = [];
+
   void getAllNews() async {
     emit(OurNewsLoading());
-    final ourNewResponse = await ourNews.getAllNews();
+    final ourNewResponse = await ourNews.getAllNews(page,count);
     ourNewResponse.fold(
       (l) => emit(OurNewsError()),
-      (ourNews) => emit(OurNewsSuccess(ourNews)),
+      (ourNews) {
+        news.addAll(ourNews.content!);
+
+        emit(OurNewsSuccess(news));
+      },
     );
   }
 }

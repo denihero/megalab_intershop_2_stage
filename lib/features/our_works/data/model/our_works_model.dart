@@ -26,6 +26,7 @@ class ContentModel extends ContentEntity with _$ContentModel {
     @JsonKey(name: 'coverImage') String? coverImage,
     @JsonKey(name: 'image') String? image,
     String? title,
+    String? text,
   }) = _ContentModel;
 
   factory ContentModel.fromJson(Map<String, dynamic> json) =>

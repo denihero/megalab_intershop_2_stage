@@ -8,7 +8,7 @@ class OurNews {
 
   final OurNewsRepositories ourNewsRepositories;
 
-  Future<Either<DioErrorType, OurNewsModel>> getAllNews() async {
-    return await ourNewsRepositories.getAllNews();
+  Future<Either<DioErrorType, OurNewsModel>> getAllNews(int page,int count) async {
+    return await ourNewsRepositories.getAllNews(page,count);
   }
 }
