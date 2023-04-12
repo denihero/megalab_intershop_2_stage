@@ -36,9 +36,9 @@ class FeedbackCard extends StatelessWidget {
                 padding: const EdgeInsets.all(10),
                 child: SizedBox(
                   width: 250,
-                  height: 105,
+                  height: 110,
                   child: Text(
-                    'Меня  заинтересовала вакансия на позицию Junior Backend разработчика.  Я не плохо знаю Php и знаком с фреймворком Symfony но, с Laravel еще не работал.  Думаю, что это не будет большой проблемой так, как быстро обучаюсь и знаком c паттерном MVC.   ' ?? '',
+                    reviewModel.reviewText ?? '',
                     style: Style.montserrat_12_400Black,
                   ),
                 ),
