@@ -97,8 +97,6 @@ class _SubmitApplicationState extends State<SubmitApplication> {
                     textInputType: TextInputType.name,
                     textInputAction: TextInputAction.next,
                     isName: true,
-                    isText: true,
-                    maxLength: 10,
                   ),
                   SizedBox(
                     height: 15.h,

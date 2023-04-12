@@ -112,9 +112,6 @@ class _OurNewsScreenState extends State<OurNewsScreen> {
                     height: 30.h,
                   ),
                   const SubmitApplication(),
-                  SizedBox(
-                    height: 30.h,
-                  ),
                   const Footer(),
                 ],
               ),

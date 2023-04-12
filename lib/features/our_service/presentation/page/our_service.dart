@@ -90,9 +90,6 @@ class _OurServiceScreenState extends State<OurServiceScreen> {
                     height: 40.h,
                   ),
                   const SubmitApplication(),
-                  SizedBox(
-                    height: 30.h,
-                  ),
                   const Footer(),
                 ],
               ),
