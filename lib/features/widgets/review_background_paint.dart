@@ -26,7 +26,7 @@ class ReviewBackgroundPaint extends CustomPainter {
         size.height * 0.05620425,
         size.width * 0.3324385,
         size.height * 0.05620425);
-    path_0.lineTo(size.width * 0.9397774, size.height * 0.05620425);
+    path_0.lineTo(0, size.height * 0.05620425);
     path_0.cubicTo(
         size.width * 0.9490717,
         size.height * 0.05620425,
@@ -34,7 +34,7 @@ class ReviewBackgroundPaint extends CustomPainter {
         size.height * 0.06868125,
         size.width * 0.9566038,
         size.height * 0.08407312);
-    path_0.lineTo(size.width * 0.9566038, size.height * 0.9712250);
+    path_0.lineTo(size.width * 5, size.height * 1);
     path_0.cubicTo(
         size.width * 0.9566038,
         size.height * 0.9866188,
@@ -42,7 +42,7 @@ class ReviewBackgroundPaint extends CustomPainter {
         size.height * 0.9990937,
         size.width * 0.9397774,
         size.height * 0.9990937);
-    path_0.lineTo(size.width * 0.06200075, size.height * 0.9990937);
+    path_0.lineTo(size.width * 4, size.height * 3);
     path_0.cubicTo(
         size.width * 0.05270792,
         size.height * 0.9990937,
@@ -50,7 +50,7 @@ class ReviewBackgroundPaint extends CustomPainter {
         size.height * 0.9866188,
         size.width * 0.04517434,
         size.height * 0.9712250);
-    path_0.lineTo(size.width * 0.04517434, size.height * 0.08407312);
+    path_0.lineTo(size.width * 0.01547434, size.height * 0.08407312);
     path_0.cubicTo(
         size.width * 0.04517434,
         size.height * 0.06868125,
